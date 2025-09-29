@@ -20,3 +20,5 @@ pivot_offset = Vector2(50, 20)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="timerrrrr" type="Timer" parent="."]
