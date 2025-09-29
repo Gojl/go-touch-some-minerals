@@ -1,10 +1,12 @@
 [gd_scene load_steps=5 format=4 uid="uid://dqtiadjopasix"]
 
-[ext_resource type="Texture2D" uid="uid://4xn5ijg5rlr1" path="res://scenes/Zrzut ekranu 2025-01-18 195143.png" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://dgamsydns7kby" path="res://scenes/character.tscn" id="1_o5qli"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_o5qli"]
+load_path = "res://.godot/imported/Zrzut ekranu 2025-01-18 195143.png-bba07e3afbb06a386169ab839818c3f7.ctex"
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sugp2"]
-texture = ExtResource("1_0wfyh")
+texture = SubResource("CompressedTexture2D_o5qli")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -149,8 +151,10 @@ tile_map_data = PackedByteArray("AADy//7/AAAEAAoAAAD1////AAAHAAsAAAD0/wEAAAAGAAc
 tile_set = SubResource("TileSet_jyhfs")
 
 [node name="AgatMine" type="Node2D" parent="."]
+scale = Vector2(2.2, 3.64)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_o5qli")]
-position = Vector2(1, 2)
+position = Vector2(-49, 391)
+scale = Vector2(4.36, 4.36)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]

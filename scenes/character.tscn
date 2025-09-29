@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://dgamsydns7kby"]
 
 [ext_resource type="Script" uid="uid://bqi1nritohgb4" path="res://scenes/character.gd" id="1_rkhd4"]
-[ext_resource type="Texture2D" uid="uid://4xn5ijg5rlr1" path="res://scenes/Zrzut ekranu 2025-01-18 195143.png" id="2_lrhn5"]
+[ext_resource type="Texture2D" uid="uid://brmj0wktqbvjd" path="res://scenes/base sprite.png" id="2_rkhd4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_my7n2"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_lrhn5")
+"texture": ExtResource("2_rkhd4")
 }],
 "loop": true,
 "name": &"default",
@@ -15,7 +15,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkhd4"]
-size = Vector2(190, 204)
+size = Vector2(27, 39)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_rkhd4")
@@ -24,5 +24,5 @@ script = ExtResource("1_rkhd4")
 sprite_frames = SubResource("SpriteFrames_my7n2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 0)
+position = Vector2(-0.5, -3.5)
 shape = SubResource("RectangleShape2D_rkhd4")
