@@ -1,24 +1,9 @@
-[gd_scene format=3 uid="uid://dqtiadjopasix"]
+[gd_scene load_steps=2 format=3 uid="uid://dqtiadjopasix"]
+
+[ext_resource type="PackedScene" uid="uid://dgamsydns7kby" path="res://scenes/character.tscn" id="1_o5qli"]
 
 [node name="Main" type="Node2D"]
 
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-scale = Vector2(17.3783, 17.9796)
-text = "godot"
+[node name="AgatMine" type="Node2D" parent="."]
 
-[node name="luj" type="Label" parent="Label"]
-layout_mode = 0
-offset_left = 264.0
-offset_top = 89.0
-offset_right = 318.0
-offset_bottom = 112.0
-pivot_offset = Vector2(50, 20)
-
-[node name="Label" type="Label" parent="Label"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="timerrrrr" type="Timer" parent="."]
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_o5qli")]
