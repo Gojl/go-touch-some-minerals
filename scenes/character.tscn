@@ -58,8 +58,6 @@ script = ExtResource("1_rkhd4")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_my7n2")
-animation = &"new_animation"
-frame_progress = 0.672618
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, 0.5)
