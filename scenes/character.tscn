@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dgamsydns7kby"]
 
-[ext_resource type="Script" uid="uid://bqi1nritohgb4" path="res://scenes/character.gd" id="1_rkhd4"]
+[ext_resource type="Script" uid="uid://bqi1nritohgb4" path="res://scripts/character.gd" id="1_rkhd4"]
 [ext_resource type="Texture2D" uid="uid://brmj0wktqbvjd" path="res://scenes/base sprite.png" id="2_rkhd4"]
 [ext_resource type="Texture2D" uid="uid://b5wq0nqij7kyy" path="res://assets/Cute_Fantasy_Free/Animals/Chicken/Chicken.png" id="3_lrhn5"]
 
@@ -60,5 +60,5 @@ position = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_my7n2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, 0.5)
+position = Vector2(-2, 1)
 shape = SubResource("RectangleShape2D_rkhd4")

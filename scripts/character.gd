@@ -25,7 +25,7 @@
 	#move_and_slide()
 extends CharacterBody2D
 
-var movement_speed : float = 8000.0
+@export var movement_speed : float = 8000.0
 var charachter_direction : Vector2
 
 enum States { IDLE, WALK, ATTACK, SLAM, DEAD, HIT }
