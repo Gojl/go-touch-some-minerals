@@ -25,7 +25,7 @@
 	#move_and_slide()
 extends CharacterBody2D
 
-var movement_speed : float = 20000.0
+var movement_speed : float = 8000.0
 var charachter_direction : Vector2
 
 enum States { IDLE, WALK, ATTACK, SLAM, DEAD, HIT }
@@ -49,7 +49,9 @@ func perform_state_actions(delta):
 			charachter_direction.y = Input.get_axis("up","down")
 			charachter_direction = charachter_direction.normalized()
 			
+			$AnimatedSprite2D.play("new_animation")
 			velocity = charachter_direction * movement_speed * delta
 		
 		States.IDLE:
+			$AnimatedSprite2D.play("default")
 			velocity = velocity.move_toward(Vector2.ZERO, movement_speed * delta)

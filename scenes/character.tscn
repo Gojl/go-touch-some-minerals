@@ -1,7 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgamsydns7kby"]
+[gd_scene load_steps=10 format=3 uid="uid://dgamsydns7kby"]
 
 [ext_resource type="Script" uid="uid://bqi1nritohgb4" path="res://scenes/character.gd" id="1_rkhd4"]
 [ext_resource type="Texture2D" uid="uid://brmj0wktqbvjd" path="res://scenes/base sprite.png" id="2_rkhd4"]
+[ext_resource type="Texture2D" uid="uid://b5wq0nqij7kyy" path="res://assets/Cute_Fantasy_Free/Animals/Chicken/Chicken.png" id="3_lrhn5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_my7n2"]
+atlas = ExtResource("3_lrhn5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dp8ca"]
+atlas = ExtResource("3_lrhn5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lw5n"]
+atlas = ExtResource("3_lrhn5")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cgup"]
+atlas = ExtResource("3_lrhn5")
+region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_my7n2"]
 animations = [{
@@ -12,17 +29,38 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_my7n2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dp8ca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lw5n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cgup")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkhd4"]
-size = Vector2(27, 39)
+size = Vector2(20, 31)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(2, -2)
 script = ExtResource("1_rkhd4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_my7n2")
+animation = &"new_animation"
+frame_progress = 0.672618
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -3.5)
+position = Vector2(-3, 0.5)
 shape = SubResource("RectangleShape2D_rkhd4")
