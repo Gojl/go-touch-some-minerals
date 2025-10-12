@@ -1,33 +1,33 @@
 extends Node2D
 
-@onready var tile_layer = $TileMapLayer
-@onready var player = $CharacterBody2D
-@export var size = 32
+@onready var tile_layer: TileMapLayer = $TileMapLayer
+@onready var player: CharacterBody2D = $CharacterBody2D
+@export var chunk_size: int = 4
+var current_chunk: Vector2i = Vector2i.ZERO
 
-func _ready():
-	generate_map()
-#
-#func _process(delta: float) -> void:
-	#var position = world_to_tile(player.global_position)
-	##print(position)
 
-func world_to_tile(pos:Vector2)->Vector2i:
-	return Vector2i(floor(pos.x/16), floor(pos.y/16))
-	
-func generate_map():
-	var chunk = Vector2i(0, 0)
-	var source_id = 2
-	var atlas_coords = Vector2i(0, 0)
-	while true:
-		chunk = get_chunk(chunk)
-		var pozycja = world_to_tile(-1*(player.global_position))
-		for x in range(pozycja.x-size/2, pozycja.x+size/2):
-			for y in range(pozycja.y-size/2, pozycja.y+size/2):
-				tile_layer.set_cell(Vector2i(x,y), source_id, atlas_coords)
-		await get_tree().create_timer(0.1).timeout		
-		
-func get_chunk(chunk: Vector2i)->Vector2i:
-	chunk = world_to_tile(-1*(player.global_position))/size
-	print(world_to_tile(player.global_position))
-	print(chunk.x,chunk.y)
-	return chunk
+func _ready() -> void:
+	player.chunk_changed.connect(_on_chunk_changed)
+
+func _on_chunk_changed(chunk: Vector2i) -> void:
+	print("Current player chunk:", chunk)
+	for ch in get_neighbors(chunk):
+		draw_chunk(ch)
+
+func draw_chunk(chunk: Vector2i) -> void:
+	var world_pos = chunk * chunk_size
+	if tile_layer.get_cell_source_id(world_pos) != -1:
+		return
+
+	for x in range(world_pos.x - chunk_size / 2, world_pos.x + chunk_size / 2):
+		for y in range(world_pos.y - chunk_size / 2, world_pos.y + chunk_size / 2):
+			var tile = Vector2i(randi() % 3, randi() % 6)
+			tile_layer.set_cell(Vector2i(x, y), 0, tile)
+
+
+func get_neighbors(center: Vector2i) -> Array[Vector2i]:
+	var result: Array[Vector2i] = []
+	for x in range(-1, 2):
+		for y in range(-1, 2):
+			result.append(center + Vector2i(x, y))
+	return result
