@@ -1,4 +1,4 @@
-﻿# go-touch-some-minerals
+# go-touch-some-minerals
 
 ## powierzchowny opis gry:
 1. main menu (opcje, saves)
@@ -45,5 +45,3 @@
 najpierw mapa, scena do chodzenia, (environment), fizyka chodzenia
 później akcja kopania, wstępne animacje
 losowe pojawianie się agatów na początku gry
-
-

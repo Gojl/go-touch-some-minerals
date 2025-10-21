@@ -1,0 +1,336 @@
+# go-touch-some-minerals
+
+## powierzchowny opis gry:
+
+Cel gry
+
+Główny:
+Wypełnienie atlasu minerałów okazami najwyższej klasy (rzadkość + wielkość) i zebranie 100% mapy Polski.
+
+Poboczne:
+
+Zdobycie pieniędzy na narzędzia, ulepszenia i plecaki.
+
+Osiągnięcie statusu mistrza górnictwa.
+
+
+
+
+---
+
+Grafika i mapa
+
+Styl: pixel-art 32x32.
+
+Generowanie mapy:
+
+Proceduralne przy każdej nowej grze.
+
+Mapa podzielona na chunki 64x64.
+
+Chunk generuje się, gdy gracz znajdzie się 10 kratek od jego granicy.
+
+
+Świat:
+
+Polska z biomami (np. góry, Mazury, lasy, niziny).
+
+Minerały przypisane do lokalizacji (np. bursztyn nad morzem, kwarc w górach).
+
+Naturalne struktury: rzeki, wąwozy, zwalone drzewa, kamienie w rzekach.
+
+
+
+
+---
+
+Eksploracja i inspekcja
+
+Gracz może „zbadać” obiekt (drzewo, skałę, kamień w rzece).
+
+Po inspekcji można zdecydować o wydobyciu.
+
+Wydobycie niszczy strukturę (kamień pęka, drzewo zostaje puste).
+
+
+
+---
+
+Mechanika kopania
+
+Dwa typy kopania:
+
+1. Powierzchniowe – lekkie, szybkie, łatwo dostępne minerały.
+
+
+2. Podziemne – wolne, wymagające cierpliwości, ale odprężające i dające rzadkie minerały.
+
+
+
+Ostrożność:
+
+Zbyt agresywne kopanie → minerał się kruszy i traci wartość kolekcjonerską.
+
+Pozostaje jedynie do sprzedaży „hurtowej” (niskiej jakości).
+
+
+
+
+---
+
+Minerały
+
+Kategorie:
+
+Pospolite – łatwe do zdobycia, np. zwykły kwarc.
+
+Rzadkie – np. duży kwarc dymny.
+
+Unikalne – pojedyncze, bardzo cenne okazy.
+
+
+Cechy minerałów:
+
+Rzadkość.
+
+Wielkość.
+
+Jakość (czy został uszkodzony).
+
+
+
+
+---
+
+Plecak i ekwipunek
+
+Początek: plecak 2 kg.
+
+Z czasem: większe plecaki (np. 5 kg → 10 kg → 20 kg).
+
+Limit masy wymusza decyzje (czy zabrać okaz rzadki, ale ciężki?).
+
+
+
+---
+
+Narzędzia
+
+Start: gołe ręce (bardzo wolne i mało skuteczne).
+
+Kolejne etapy:
+
+Mała łopata (powierzchowne minerały).
+
+Kilof (skały i trudne minerały).
+
+Normalna łopata (kopanie podziemne).
+
+
+System zużycia:
+
+Narzędzie ma procentową szansę na zniszczenie się w zależności od agresywności używania go.
+
+Styl kopania (agresywny / ostrożny) szybciej lub wolniej zużywa narzędzie.
+
+
+
+
+---
+
+Mechanika siły i progresji
+
+Gracz z czasem:
+
+Kopie szybciej.
+
+Może uderzać mocniej bez ryzyka uszkodzenia minerału.
+
+Noszenie cięższego plecaka mniej męczy.
+
+
+
+
+---
+
+Sprzedaż minerałów
+
+Opcja 1: sprzedaż hurtowa – na wagę (niska cena, szybki zarobek).
+
+Opcja 2: sprzedaż kolekcjonerska:
+
+Można zrobić z minerałów biżuterię i sprzedać na giełdzie.
+
+Cena ustalana przez gracza.
+
+Im wyższa cena → tym mniejsza szansa na kupca.
+
+
+
+
+---
+
+Ekonomia i opłaty
+
+Na start brak podatków.
+
+Z czasem:
+
+Procentowy podatek od zarobków.
+
+Codzienne utrzymanie: 50 zł/dzień (jedzenie, transport, sprzęt).
+
+
+Motywuje gracza do aktywności.
+
+
+
+---
+
+Dodatki / rozwinięcia
+
+Atlas minerałów – encyklopedia, którą gracz uzupełnia znalezionymi okazami.
+
+Tryb chillout – wolniejsze kopanie, bez ryzyka strat, dla graczy chcących się odstresować.
+
+System losowych wydarzeń: np. osuwisko w kopalni, ulewa utrudniająca eksplorację.
+
+
+Mechanika kopania: 
+I. 🔍 INSPEKCJA OBIEKTU (Wejście do trybu „zoom”)
+🔸 Założenie:
+
+Gracz nie może kopać w ciemno.
+Najpierw musi zbadać obiekt, by „zajrzeć w jego wnętrze” — to jest moment wejścia do trybu inspekcji / zoomu.
+
+🔸 Etapy:
+
+Kliknięcie na obiekt (np. kamień, ziemię, rzekę)
+
+Otwiera się panel:
+
+„Widzisz kamień z dziwnymi przebłyskami. Zbadać?”
+[Tak] [Nie]
+
+Po kliknięciu „Zbadaj”
+
+Kamera robi zoom na obiekt (np. 2x lub 3x przybliżenie).
+
+Interfejs zmienia się na tryb inspekcji:
+
+znika HUD z mapą,
+
+pojawia się tylko obiekt i narzędzie gracza (np. łopata, kilof),
+
+kursor myszy = punkt uderzenia.
+
+Wnętrze obiektu
+
+Kamień lub fragment ziemi ma w środku minerał (częściowo widoczny — np. fragment wystaje, albo przebłysk).
+
+Tekstura kamienia składa się z kilku warstw materiału (np. powierzchnia → szczelina → minerał).
+
+✅ Po tym etapie gracz jest w trybie „mikro-inspekcji”, gotowy do kopania manualnego.
+
+II. ⛏️ TRYB KOPANIA MANUALNEGO (Sterowany myszką)
+🔸 Główna idea:
+
+Gracz sam decyduje o sile uderzenia – im dłużej trzyma przycisk myszy, tym mocniej uderzy.
+
+🔸 Etapy:
+
+Przytrzymanie LPM = ładowanie siły uderzenia
+
+Pasek siły rośnie od 0% do 100%.
+
+Po puszczeniu przycisku → animacja uderzenia narzędzia w miejsce kursora.
+
+Precyzyjne trafienie
+
+Pozycja myszy = punkt uderzenia.
+
+Kamień ma np. 8–12 „hitboxów” (mikroobszarów).
+
+Każdy ma określoną twardość / odporność.
+
+W niektórych miejscach pod powierzchnią ukryty minerał (np. w losowej komórce siatki).
+
+Efekt uderzenia
+
+Jeśli siła jest odpowiednia dla danego materiału → kamień pęka.
+
+Zbyt mocno → minerał zostaje uszkodzony.
+
+Zbyt lekko → nic się nie dzieje.
+
+Przykład:
+
+Siła uderzenia	Efekt
+0–25%	za słabo, brak efektu
+25–70%	optymalne, odsłania minerał
+70–100%	ryzyko pęknięcia minerału
+Odkrycie minerału
+
+Gdy gracz odsłoni wystarczająco dużo powierzchni, pojawia się animacja:
+„Znaleziono kwarc!”
+
+Minerał zostaje podświetlony i można go kliknąć, by zebrać.
+
+III. 💎 ZBIERANIE I JAKOŚĆ MINERAŁU
+
+Kliknięcie na odkryty minerał
+
+Pojawia się okno z jego parametrami:
+
+Nazwa (np. „Kwarc dymny”)
+
+Masa (np. 0.7 kg)
+
+Stan: nienaruszony / pęknięty / zniszczony
+
+Jakość minerału (automatyczna ocena)
+
+Wpływa na wartość sprzedaży i wpis w atlasie.
+
+Formuła przykładowa:
+jakość = 100 - (nadmiar siły uderzeń * 10) - (liczba niecelnych uderzeń * 5)
+
+Jakość < 60 = „pęknięty”
+
+Jakość < 30 = „zniszczony” (tylko do sprzedaży hurtowej)
+
+Zbieranie do plecaka
+
+Po zaakceptowaniu minerał trafia do ekwipunku (jeśli jest miejsce).
+
+Jeśli brak miejsca → popup:
+
+„Twój plecak jest pełny. Zostawić minerał?”
+
+✅ Teraz gracz ma faktyczną kontrolę nad tym, jak bardzo „ostrożnie” pracuje – i to jest gameplay, nie pasek!
+
+IV. ⚒️ SYSTEM ODWZOROWANIA NARZĘDZIA
+
+Każdy typ narzędzia ma inny „łuk uderzenia” i prędkość animacji
+
+Ręce: mały zasięg, bardzo wolne.
+
+Łopata: większy obszar, średnia siła.
+
+Kilof: precyzyjny, duża siła, większe ryzyko uszkodzenia.
+
+Zużycie zależne od mocy uderzeń
+
+Każde uderzenie odejmuje trwałość w zależności od siły.
+
+Mocne uderzenia szybciej niszczą narzędzie.
+
+V. 🔄 WYJŚCIE Z TRYBU INSPEKCJI
+
+Po odkryciu minerału lub rezygnacji z kopania:
+
+Kamera oddala się z powrotem do normalnego widoku mapy.
+
+HUD wraca.
+
+Obiekt zostaje oznaczony jako „wykopany” (np. pęknięty kamień lub pusta dziura).

@@ -1,0 +1,10 @@
+szablon:
+[Nazwa]: Kwarc dymny  
+[Rzadkość]: Rzadki (level: 2)
+[Biom]: Góry
+[Występowanie]: w skale, w i na ziemi
+[Wartość hurtowa za kg]: 200 zł  
+[Wygląd]: Przezroczysty, lekko brunatny  
+[Kopanie]: najlepiej ostrożne, średnia siła (30–70%)  
+[Cechy]: Delikatny, błyszczący, często pęka przy silnym uderzeniu  
+[Zastosowanie]: Biżuteria, wpis do atlasu „Skały krystaliczne”
