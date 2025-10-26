@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dgamsydns7kby"]
+[gd_scene load_steps=10 format=3 uid="uid://dgamsydns7kby"]
 
 [ext_resource type="Texture2D" uid="uid://brmj0wktqbvjd" path="res://scenes/base sprite.png" id="2_rkhd4"]
 [ext_resource type="Texture2D" uid="uid://b5wq0nqij7kyy" path="res://assets/Cute_Fantasy_Free/Animals/Chicken/Chicken.png" id="3_lrhn5"]
+[ext_resource type="PackedScene" uid="uid://dxnsci25h0tj1" path="res://interaction_components/interacting_component.tscn" id="3_my7n2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_my7n2"]
 atlas = ExtResource("3_lrhn5")
@@ -59,3 +60,5 @@ sprite_frames = SubResource("SpriteFrames_my7n2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 1)
 shape = SubResource("RectangleShape2D_rkhd4")
+
+[node name="InteractingComponent" parent="." instance=ExtResource("3_my7n2")]

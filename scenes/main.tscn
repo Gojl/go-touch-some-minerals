@@ -1370,11 +1370,11 @@ texture = ExtResource("2_tbgi4")
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Grass"
-terrain_set_0/terrain_0/color = Color(0.3902323, 0.7004171, 1.92523e-07, 1)
+terrain_set_0/terrain_0/color = Color(0.390232, 0.700417, 1.92523e-07, 1)
 terrain_set_0/terrain_1/name = "Water"
 terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 terrain_set_0/terrain_2/name = "Path"
-terrain_set_0/terrain_2/color = Color(0.7927662, 0.00023131639, 0.7210359, 1)
+terrain_set_0/terrain_2/color = Color(0.792766, 0.000231316, 0.721036, 1)
 sources/1 = SubResource("TileSetAtlasSource_tefeu")
 sources/0 = SubResource("TileSetAtlasSource_o6xl0")
 
@@ -1394,8 +1394,8 @@ zoom = Vector2(4, 4)
 
 [node name="drzewo" parent="." instance=ExtResource("3_sugp2")]
 position = Vector2(-72, 17)
-scale = Vector2(1.5, 1.4999999)
+scale = Vector2(1.5, 1.5)
 
 [node name="drzewo2" parent="." instance=ExtResource("3_sugp2")]
 position = Vector2(105, -80)
-scale = Vector2(1.5, 1.4999999)
+scale = Vector2(1.5, 1.5)

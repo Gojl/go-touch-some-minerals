@@ -1,16 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4b6h52q6utk6"]
+[gd_scene load_steps=7 format=3 uid="uid://b4b6h52q6utk6"]
 
+[ext_resource type="Script" uid="uid://0d0nm8uc685j" path="res://scenes/drzewo.gd" id="1_lmpyg"]
 [ext_resource type="Texture2D" uid="uid://cssoprm7hnmbo" path="res://assets/Cute_Fantasy_Free/Outdoor decoration/Oak_Tree.png" id="1_vuf4f"]
+[ext_resource type="PackedScene" uid="uid://bx4hd55xrx10" path="res://interaction_components/interactable.tscn" id="2_1dkmp"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1dkmp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lmpyg"]
 size = Vector2(11.25, 12.25)
 
-[node name="StaticBody2D" type="StaticBody2D"]
-position = Vector2(-323, 470)
+[sub_resource type="CircleShape2D" id="CircleShape2D_lmpyg"]
+radius = 27.624453
+
+[node name="drzewo" type="StaticBody2D"]
+position = Vector2(-5, -4)
 scale = Vector2(1.5, 1.5)
 physics_material_override = SubResource("PhysicsMaterial_1dkmp")
+script = ExtResource("1_lmpyg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2, 5)
@@ -19,3 +25,10 @@ texture = ExtResource("1_vuf4f")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 21)
 shape = SubResource("RectangleShape2D_lmpyg")
+
+[node name="interactable" parent="." instance=ExtResource("2_1dkmp")]
+interact_name = "Cut the tree down!"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable"]
+position = Vector2(0.6666666, 6.666666)
+shape = SubResource("CircleShape2D_lmpyg")
