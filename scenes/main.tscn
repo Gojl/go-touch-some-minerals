@@ -1,10 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dqtiadjopasix"]
+[gd_scene load_steps=8 format=3 uid="uid://dqtiadjopasix"]
 
 [ext_resource type="PackedScene" uid="uid://dgamsydns7kby" path="res://scenes/character.tscn" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://2cr77bs4qo5q" path="res://assets/snow-expansion.png" id="2_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://b11d5xm7dngkg" path="res://assets/Cute_Fantasy_Free/Tiles/Cliff_Tile.png" id="2_tefeu"]
-[ext_resource type="Script" uid="uid://csfbhfhegxq0x" path="res://scripts/map.gd" id="3_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://b4b6h52q6utk6" path="res://scenes/drzewo.tscn" id="3_sugp2"]
 [ext_resource type="Script" uid="uid://bqi1nritohgb4" path="res://scripts/character.gd" id="5_tefeu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o6xl0"]
@@ -1379,23 +1377,14 @@ sources/1 = SubResource("TileSetAtlasSource_tefeu")
 sources/0 = SubResource("TileSetAtlasSource_o6xl0")
 
 [node name="Main" type="Node2D"]
-script = ExtResource("3_jyhfs")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 rotation = -3.14159
 tile_set = SubResource("TileSet_tefeu")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_o5qli")]
+[node name="Player" parent="." instance=ExtResource("1_o5qli")]
 scale = Vector2(0.957, 1)
 script = ExtResource("5_tefeu")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
-
-[node name="drzewo" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(-72, 17)
-scale = Vector2(1.5, 1.5)
-
-[node name="drzewo2" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(105, -80)
-scale = Vector2(1.5, 1.5)

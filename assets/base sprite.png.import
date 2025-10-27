@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1135psy26ics"
-path="res://.godot/imported/dzewo.webp-b9d3fa06906cc16153aed763567eb7d1.ctex"
+uid="uid://brmj0wktqbvjd"
+path="res://.godot/imported/base sprite.png-f2a8bf8d3c3cd2310b07958dc1a34632.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/dzewo.webp"
-dest_files=["res://.godot/imported/dzewo.webp-b9d3fa06906cc16153aed763567eb7d1.ctex"]
+source_file="res://assets/base sprite.png"
+dest_files=["res://.godot/imported/base sprite.png-f2a8bf8d3c3cd2310b07958dc1a34632.ctex"]
 
 [params]
 

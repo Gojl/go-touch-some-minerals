@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk3v52ijygb0k"]
+
+[ext_resource type="PackedScene" uid="uid://cpmy28d78jxck" path="res://scenes/rocks/rock.tscn" id="1_3tw32"]
+[ext_resource type="Texture2D" uid="uid://cg2f2phuertlt" path="res://assets/temp/ruda_złota.png" id="2_gjoxw"]
+
+[node name="Rock" instance=ExtResource("1_3tw32")]
+rock_name = "Gold"
+health = 20
+sprite_texture = ExtResource("2_gjoxw")

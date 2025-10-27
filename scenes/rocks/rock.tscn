@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpmy28d78jxck"]
+
+[ext_resource type="Script" uid="uid://bsfpqbbkhhkrt" path="res://scripts/rock.gd" id="1_mek2u"]
+[ext_resource type="Texture2D" uid="uid://cuptfaj5q1if3" path="res://assets/temp/kamień.png" id="2_ik6fu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tipki"]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_85g3d"]
+radius = 41.109608
+
+[node name="Gold" type="Node2D"]
+script = ExtResource("1_mek2u")
+rock_name = "Rock"
+health = 10
+sprite_texture = ExtResource("2_ik6fu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(0.59659386, 0.59659386)
+texture = ExtResource("2_ik6fu")
+
+[node name="Label" type="Label" parent="StaticBody2D"]
+visible = false
+offset_left = -9.0
+offset_top = -12.0
+offset_right = 10.0
+offset_bottom = 11.0
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Body" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_tipki")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Interaction" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_85g3d")
+debug_color = Color(0, 0.48235294, 0.5686275, 0)

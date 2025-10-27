@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var movement_speed : float = 8000.0
 var charachter_direction : Vector2
-@onready var chunk_size = get_parent().chunk_size
+@onready var chunk_size = Globals.chunk_size
 var global_chunk: Vector2i = Vector2i.ZERO
 
 signal chunk_changed(new_chunk: Vector2i)
@@ -10,7 +10,10 @@ signal chunk_changed(new_chunk: Vector2i)
 enum States { IDLE, WALK, ATTACK, SLAM, DEAD, HIT }
 var currentState = States.IDLE
 
-func _physics_process(delta):
+func _ready() -> void:
+	Globals.player = self
+
+func _physics_process(delta) -> void:
 	handle_state_transitions()
 	perform_state_actions(delta)
 	move_and_slide()
