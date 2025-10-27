@@ -2,10 +2,10 @@ extends CharacterBody2D
 
 @export var movement_speed : float = 8000.0
 var charachter_direction : Vector2
-@onready var chunk_size = get_parent().chunk_size
+#@onready var chunk_size = get_parent().chunk_size
 var global_chunk: Vector2i = Vector2i.ZERO
 
-signal chunk_changed(new_chunk: Vector2i)
+#signal chunk_changed(new_chunk: Vector2i)
 
 enum States { IDLE, WALK, ATTACK, SLAM, DEAD, HIT }
 var currentState = States.IDLE
@@ -15,14 +15,14 @@ func _physics_process(delta):
 	perform_state_actions(delta)
 	move_and_slide()
 
-func _process(_delta: float) -> void:
-	var new_chunk = Vector2i(
-		floor(global_position.x / (16 * chunk_size)),
-		floor(global_position.y / (16 * chunk_size))
-	) * -1
-	if new_chunk != global_chunk:
-		global_chunk = new_chunk
-		emit_signal("chunk_changed", new_chunk)
+#func _process(_delta: float) -> void:
+	#var new_chunk = Vector2i(
+		#floor(global_position.x / (16 * chunk_size)),
+		#floor(global_position.y / (16 * chunk_size))
+	#) * -1
+	#if new_chunk != global_chunk:
+		#global_chunk = new_chunk
+		#emit_signal("chunk_changed", new_chunk)
 
 func handle_state_transitions():
 	if Input.is_action_pressed("left") or Input.is_action_pressed("right") or Input.is_action_pressed("up") or Input.is_action_pressed("down"):
