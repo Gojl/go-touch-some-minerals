@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k880wohx08ro"
-path="res://.godot/imported/Outdoor_Decor_Free.png-f3ab9729d95e20896beb9c59727d4327.ctex"
+uid="uid://cuptfaj5q1if3"
+path="res://.godot/imported/kamień.png-fbe198583a5cfcffbc1bcb775242f40a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Cute_Fantasy_Free/Outdoor decoration/Outdoor_Decor_Free.png"
-dest_files=["res://.godot/imported/Outdoor_Decor_Free.png-f3ab9729d95e20896beb9c59727d4327.ctex"]
+source_file="res://assets/temp/kamień.png"
+dest_files=["res://.godot/imported/kamień.png-fbe198583a5cfcffbc1bcb775242f40a.ctex"]
 
 [params]
 
