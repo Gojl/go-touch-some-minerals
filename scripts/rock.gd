@@ -56,6 +56,7 @@ func _input(event):
 				nearest_dist = dist
 		if nearest == self:
 			# interakcja tylko jeśli to najbliższy
+			$StaticBody2D/Label.visible = true
 			health -= 1
 			if health <= 0:
 				queue_free()
@@ -66,6 +67,8 @@ func _on_body_entered(body):
 	if body.name == "Player":
 		player = body
 		$StaticBody2D/Label.visible = true
+		$StaticBody2D/Label.text = "E to mine"
+
 
 func _on_body_exited(body):
 	if body.name == "Player":
