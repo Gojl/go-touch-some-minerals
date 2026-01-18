@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpmy28d78jxck"]
+
+[ext_resource type="Script" uid="uid://cbyq2ruarefj" path="res://scripts/area_2d.gd" id="1_mek2u"]
+[ext_resource type="Texture2D" uid="uid://cuptfaj5q1if3" path="res://assets/temp/kamień.png" id="2_ik6fu"]
+
+[sub_resource type="GDScript" id="GDScript_mek2u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ik6fu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mek2u"]
+
+[node name="Rock" type="Node2D"]
+script = SubResource("GDScript_mek2u")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_mek2u")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+scale = Vector2(0.59659386, 0.59659386)
+texture = ExtResource("2_ik6fu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ik6fu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_mek2u")

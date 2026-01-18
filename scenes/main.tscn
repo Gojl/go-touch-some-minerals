@@ -1,11 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://dqtiadjopasix"]
+[gd_scene load_steps=12 format=3 uid="uid://dqtiadjopasix"]
 
 [ext_resource type="PackedScene" uid="uid://dgamsydns7kby" path="res://scenes/character.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://cbwutyt1btvmk" path="res://scripts/main(generowanie).gd" id="1_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://2cr77bs4qo5q" path="res://assets/snow-expansion.png" id="2_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://b11d5xm7dngkg" path="res://assets/Cute_Fantasy_Free/Tiles/Cliff_Tile.png" id="2_tefeu"]
-[ext_resource type="PackedScene" uid="uid://cpmy28d78jxck" path="res://scenes/rocks/rock.tscn" id="5_tbgi4"]
+[ext_resource type="Script" uid="uid://hm3qgt3wwkbk" path="res://tile_map_layer.gd" id="4_tipki"]
+[ext_resource type="PackedScene" uid="uid://cpmy28d78jxck" path="res://scenes/rock.tscn" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://bqi1nritohgb4" path="res://scripts/character.gd" id="5_tefeu"]
-[ext_resource type="PackedScene" uid="uid://bk3v52ijygb0k" path="res://scenes/rocks/gold.tscn" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://b64qlv47hfqy4" path="res://scripts/camera_2d.gd" id="8_tipki"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o6xl0"]
 resource_name = "OldTiles"
@@ -1378,11 +1380,19 @@ terrain_set_0/terrain_2/color = Color(0.792766, 0.000231316, 0.721036, 1)
 sources/1 = SubResource("TileSetAtlasSource_tefeu")
 sources/0 = SubResource("TileSetAtlasSource_o6xl0")
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("tilemap")]
+script = ExtResource("1_o6xl0")
+rock_scene = ExtResource("5_tbgi4")
+tilemap = NodePath("TileMapLayer")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 rotation = -3.14159
 tile_set = SubResource("TileSet_tefeu")
+script = ExtResource("4_tipki")
+
+[node name="Rock" parent="." instance=ExtResource("5_tbgi4")]
+position = Vector2(68, 9.999998)
+scale = Vector2(0.957, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_o5qli")]
 position = Vector2(0.9999981, 1.9999995)
@@ -1392,10 +1402,4 @@ script = ExtResource("5_tefeu")
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(1.9930496e-06, 1.0000004)
 zoom = Vector2(4, 4)
-
-[node name="Rock" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(68, 9.999998)
-scale = Vector2(0.957, 1)
-
-[node name="Gold" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(48, -8)
+script = ExtResource("8_tipki")
