@@ -27,7 +27,6 @@ func spawn_rocks() -> void:
 		var tile_x := randi_range(-map_radius, map_radius)
 		var tile_y := randi_range(-map_radius, map_radius)
 
-		# NIE spawnuj na (0,0) – spawn gracza
 		if tile_x == 0 and tile_y == 0:
 			continue
 
@@ -35,8 +34,3 @@ func spawn_rocks() -> void:
 		rock.global_position = world_pos
 
 		add_child(rock)
-
-func _on_rock_clicked(rock):
-	# Przykład: wchodzimy w tryb inspekcji
-	print("Kliknięto kamień:", rock)
-	#show_inspection_view(rock)

@@ -11,12 +11,11 @@ func _ready() -> void:
 	Globals.player = self
 
 func _physics_process(delta: float) -> void:
-	if Globals.mode == Globals.Mode.INSPECT:
+	if Globals.mode != Globals.Mode.EXPLORE:
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
 
-	# 🎮 INPUT
 	var direction := Vector2(
 		Input.get_axis("left", "right"),
 		Input.get_axis("up", "down")

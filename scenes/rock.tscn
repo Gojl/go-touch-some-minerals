@@ -1,28 +1,52 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpmy28d78jxck"]
+[gd_scene load_steps=8 format=3 uid="uid://cpmy28d78jxck"]
 
-[ext_resource type="Script" uid="uid://cbyq2ruarefj" path="res://scripts/area_2d.gd" id="1_mek2u"]
+[ext_resource type="Script" uid="uid://cbyq2ruarefj" path="res://scripts/kamien_klik.gd" id="1_mek2u"]
 [ext_resource type="Texture2D" uid="uid://cuptfaj5q1if3" path="res://assets/temp/kamień.png" id="2_ik6fu"]
+[ext_resource type="Texture2D" uid="uid://bghs1xnhka4mc" path="res://assets/temp/złoto czyste.png" id="3_ik6fu"]
 
 [sub_resource type="GDScript" id="GDScript_mek2u"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ik6fu"]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_mek2u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_872ht"]
+radius = 3.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ik6fu"]
 
 [node name="Rock" type="Node2D"]
 script = SubResource("GDScript_mek2u")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="inspect" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="inspect"]
+shape = SubResource("CircleShape2D_mek2u")
+
+[node name="MineArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MineArea"]
+position = Vector2(-7, -5)
+shape = SubResource("CircleShape2D_872ht")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="MineArea"]
+position = Vector2(2, 6)
+shape = SubResource("CircleShape2D_872ht")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="MineArea"]
+position = Vector2(-6, 2)
+shape = SubResource("CircleShape2D_872ht")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="MineArea"]
+position = Vector2(1, -2)
+shape = SubResource("CircleShape2D_872ht")
+
+[node name="collider" type="Area2D" parent="."]
 script = ExtResource("1_mek2u")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-scale = Vector2(0.59659386, 0.59659386)
+[node name="Sprite2D" type="Sprite2D" parent="collider"]
 texture = ExtResource("2_ik6fu")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="Sprite2D2" type="Sprite2D" parent="collider"]
+texture = ExtResource("3_ik6fu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collider"]
 shape = SubResource("CircleShape2D_ik6fu")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("CircleShape2D_mek2u")

@@ -5,7 +5,8 @@ var chunk_size: int = 16
 
 enum Mode {
 	EXPLORE,
-	INSPECT
+	INSPECT,
+	MINE
 }
 
 var mode := Mode.EXPLORE

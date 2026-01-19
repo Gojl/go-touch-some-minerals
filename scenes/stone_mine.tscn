@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bk4x44t5lsgcf"]
+
+[ext_resource type="Script" uid="uid://cg8juq4wxd1p2" path="res://scripts/stone_mine.gd" id="1_ma20j"]
+[ext_resource type="Texture2D" uid="uid://cuptfaj5q1if3" path="res://assets/temp/kamień.png" id="2_msq76"]
+[ext_resource type="Texture2D" uid="uid://bghs1xnhka4mc" path="res://assets/temp/złoto czyste.png" id="3_qnknw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rqtcr"]
+radius = 3.0
+
+[node name="stoneMine" type="Node2D"]
+script = ExtResource("1_ma20j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_msq76")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = ExtResource("3_qnknw")
+
+[node name="MineralSprite" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MineralSprite"]
+position = Vector2(-7, -5)
+shape = SubResource("CircleShape2D_rqtcr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="MineralSprite"]
+position = Vector2(2, 6)
+shape = SubResource("CircleShape2D_rqtcr")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="MineralSprite"]
+position = Vector2(-6, 2)
+shape = SubResource("CircleShape2D_rqtcr")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="MineralSprite"]
+position = Vector2(1, -2)
+shape = SubResource("CircleShape2D_rqtcr")

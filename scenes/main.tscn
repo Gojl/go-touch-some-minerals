@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://hm3qgt3wwkbk" path="res://tile_map_layer.gd" id="4_tipki"]
 [ext_resource type="PackedScene" uid="uid://cpmy28d78jxck" path="res://scenes/rock.tscn" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://bqi1nritohgb4" path="res://scripts/character.gd" id="5_tefeu"]
-[ext_resource type="Script" uid="uid://b64qlv47hfqy4" path="res://scripts/camera_2d.gd" id="8_tipki"]
+[ext_resource type="Script" uid="uid://b64qlv47hfqy4" path="res://scripts/zoom.gd" id="8_tipki"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o6xl0"]
 resource_name = "OldTiles"
@@ -1392,7 +1392,6 @@ script = ExtResource("4_tipki")
 
 [node name="Rock" parent="." instance=ExtResource("5_tbgi4")]
 position = Vector2(68, 9.999998)
-scale = Vector2(0.957, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_o5qli")]
 position = Vector2(0.9999981, 1.9999995)
