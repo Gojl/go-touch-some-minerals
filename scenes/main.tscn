@@ -1390,9 +1390,6 @@ rotation = -3.14159
 tile_set = SubResource("TileSet_tefeu")
 script = ExtResource("4_tipki")
 
-[node name="Rock" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(68, 9.999998)
-
 [node name="Player" parent="." instance=ExtResource("1_o5qli")]
 position = Vector2(0.9999981, 1.9999995)
 scale = Vector2(0.957, 1)

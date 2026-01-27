@@ -10,7 +10,6 @@ var charging := false
 var charge_time := 0.0
 var mineral_health := 100.0
 var mineral_quality := 1.0  # 1.0 = idealna
-var damage_radius := 24.0
 
 func _ready() -> void:
 	$MineArea.connect("input_event", Callable(self, "_on_mine_input"))
@@ -57,7 +56,7 @@ func apply_hit(force: float, hit_pos: Vector2):
 	var dist := hit_pos.distance_to(core_pos)
 
 	var core_radius := 2.0        # ZA BLISKO – psujesz
-	var ideal_radius := 5.0      # IDEALNE KOPANIE
+	var ideal_radius := 3.0      # IDEALNE KOPANIE
 
 	if dist <= core_radius:
 		print("RDZEŃ – PSUJESZ")
@@ -65,8 +64,12 @@ func apply_hit(force: float, hit_pos: Vector2):
 
 	elif dist <= ideal_radius:
 		print("IDEALNE UDERZENIE – KOPIESZ")
-		mineral_health -= force
-
+		if force > mineral_health:
+			mineral_quality -= (force-mineral_health)*0.005
+			mineral_health=0 
+		else: 
+			mineral_health -= force
+			mineral_quality -= 0.1/force
 	else:
 		print("ZA DALEKO – NIC SIĘ NIE DZIEJE")
 
@@ -76,9 +79,18 @@ func apply_hit(force: float, hit_pos: Vector2):
 
 func check_result():
 	if mineral_health <= 0:
-		finish_mining()
+		finish_mining(true)
+	if mineral_quality == 0.0:
+		finish_mining(false)
+		
 
-func finish_mining():
-	print("MINERAŁ WYDOBYTY, jakość:", mineral_quality)
-	Globals.exit_inspect()
-	queue_free()  # usuń node kopania
+func finish_mining(success: bool):
+	if success:
+		print("MINERAŁ WYDOBYTY, jakość:", mineral_quality)
+		Globals.exit_inspect()
+		queue_free()
+	else:
+		print("MINERAŁ ZNISZCZONY, jakość:", mineral_quality)
+		Globals.exit_inspect()
+		queue_free()
+	

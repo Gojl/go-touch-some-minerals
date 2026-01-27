@@ -10,7 +10,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ik6fu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_872ht"]
-radius = 4.1581497
+radius = 2.0
 
 [node name="Rock" type="Node2D"]
 script = ExtResource("4_872ht")
@@ -37,7 +37,5 @@ shape = SubResource("CircleShape2D_ik6fu")
 [node name="MineArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MineArea"]
-position = Vector2(1.0000001, -0.9999999)
-rotation = 0.76635325
-scale = Vector2(1.0202881, 1.1199992)
+position = Vector2(1, -1)
 shape = SubResource("CircleShape2D_872ht")
