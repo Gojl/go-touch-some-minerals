@@ -4,16 +4,17 @@ var max_charge_time := 1.5
 var max_force := 100.0
 @export var base_mineral_quality := 0.9 # change with regional mineral types
 @export var mineral_quality_randomness := 0.1
+@export var base_mineral_health := 50
 @export var mineral_type := "Gold"
 @export var mineral_fragility := 0.1 # base quality loss
+@export var mineral_tier := 1 
 
 @onready var mine_area: Area2D = $MineArea
 @onready var mine_shape: CollisionShape2D = $MineArea/CollisionShape2D
 
 var charging := false
 var charge_time := 0.0
-var mineral_health := 50.0
-var base_mineral_health := 50.0
+var mineral_health := base_mineral_health
 var mineral_quality := randf_range(-mineral_quality_randomness,mineral_quality_randomness) + base_mineral_quality # 1.0 = idealna
 
 func _ready() -> void:
