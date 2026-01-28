@@ -1,28 +1,59 @@
 extends Camera2D
 
+
 @export var inspect_zoom := Vector2(35, 35)
 @export var zoom_speed := 4.0
+
 var default_zoom: Vector2
+var player: CharacterBody2D = null
+var is_inspecting: bool = false
+var target_rock: Node2D = null
 
 func _ready():
 	default_zoom = zoom
 	
+
+	player = get_parent() as CharacterBody2D
+	if not player:
+		push_error("Camera must be a child of the player CharacterBody2D")
+		return
+	
+	# Connect to player's mode_changed signal
+	player.mode_changed.connect(_on_player_mode_changed)
+	print("Camera connected to player signals")
+
+func _on_player_mode_changed(new_mode, rock: Node2D) -> void:
+	if new_mode == player.Mode.EXPLORE:
+		is_inspecting = false
+		target_rock = null
+	else: 
+		is_inspecting = true
+		target_rock = rock
+
 func _process(delta):
-	if Globals.mode != Globals.Mode.EXPLORE and Globals.inspected_rock:
+	if not player:
+		return
+	
+	if is_inspecting and target_rock:
+		# Zoom to inspected rock
 		global_position = global_position.lerp(
-			Globals.inspected_rock.global_position,
+			target_rock.global_position,
 			delta * zoom_speed
 		)
 		zoom = zoom.lerp(inspect_zoom, delta * zoom_speed)
 	else:
+		# Follow player
 		global_position = global_position.lerp(
-			Globals.player.global_position,
+			player.global_position,
 			delta * zoom_speed
 		)
 		zoom = zoom.lerp(default_zoom, delta * zoom_speed)
 
-
 func _input(event):
-	if Globals.mode != Globals.Mode.EXPLORE:
+	if not player:
+		return
+	
+
+	if is_inspecting:
 		if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
-			Globals.exit_inspect()
+			player.exit_inspect()

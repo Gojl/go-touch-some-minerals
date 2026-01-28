@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://dndlqa4jemn6q"]
+
+[ext_resource type="Script" uid="uid://bvxpeft5gpkf" path="res://scripts/inventory/inventory.gd" id="1_ty45s"]
+[ext_resource type="Texture2D" uid="uid://dum1idv4gpplv" path="res://assets/inventory.png" id="2_53g1v"]
+[ext_resource type="Script" uid="uid://c4joyaot3jg0l" path="res://scripts/inventory/texttest.gd" id="3_ty45s"]
+
+[node name="Inventory" type="Node2D" unique_id=1092047354]
+script = ExtResource("1_ty45s")
+
+[node name="body" type="TextureRect" parent="." unique_id=1319685519]
+offset_left = -50.0
+offset_top = -28.0
+offset_right = 50.0
+offset_bottom = 28.0
+texture = ExtResource("2_53g1v")
+
+[node name="InventorySlot" type="TextureButton" parent="body" unique_id=61847682]
+visible = false
+layout_mode = 0
+offset_right = 14.0
+offset_bottom = 22.0
+texture_normal = ExtResource("2_53g1v")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="body/InventorySlot" unique_id=1442455094]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 12.0
+offset_right = 13.0
+offset_bottom = 14.7
+theme_override_font_sizes/normal_font_size = 1
+text = "a"
+scroll_active = false
+autowrap_mode = 0
+autowrap_trim_flags = 0
+horizontal_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="body/InventorySlot" unique_id=1099176661]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 14.7
+offset_right = 13.0
+offset_bottom = 17.400002
+theme_override_font_sizes/normal_font_size = 1
+text = "b"
+scroll_active = false
+autowrap_mode = 0
+autowrap_trim_flags = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_ty45s")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="body/InventorySlot" unique_id=155506455]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 17.4
+offset_right = 13.0
+offset_bottom = 20.1
+theme_override_font_sizes/normal_font_size = 1
+text = "c"
+scroll_active = false
+autowrap_mode = 0
+autowrap_trim_flags = 0
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="BackpackGrid" type="GridContainer" parent="." unique_id=1926443412]
+offset_left = -45.0
+offset_top = -23.0
+offset_right = 45.0
+offset_bottom = 23.0
+
+[node name="EquipmentPanel" type="VBoxContainer" parent="BackpackGrid" unique_id=1697394110]
+layout_mode = 2
+
+[node name="quartz" type="TextureButton" parent="BackpackGrid/EquipmentPanel" unique_id=1598904375]
+layout_mode = 2
+metadata/_custom_type_script = "uid://cfhw1pbwbnw4f"
