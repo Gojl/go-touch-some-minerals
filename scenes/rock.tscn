@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cpmy28d78jxck"]
+[gd_scene format=3 uid="uid://cpmy28d78jxck"]
 
 [ext_resource type="Script" uid="uid://cbyq2ruarefj" path="res://scripts/kamien_klik.gd" id="1_mek2u"]
 [ext_resource type="Texture2D" uid="uid://cuptfaj5q1if3" path="res://assets/temp/kamień.png" id="2_ik6fu"]
@@ -12,31 +12,31 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_872ht"]
 radius = 4.1581497
 
-[node name="Rock" type="Node2D"]
+[node name="Rock" type="Node2D" unique_id=385211476]
 script = ExtResource("4_872ht")
 
-[node name="inspect" type="StaticBody2D" parent="."]
+[node name="inspect" type="StaticBody2D" parent="." unique_id=248087518]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="inspect"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="inspect" unique_id=1763214406]
 visible = false
 shape = SubResource("CircleShape2D_mek2u")
 
-[node name="collider" type="Area2D" parent="."]
+[node name="collider" type="Area2D" parent="." unique_id=1231499926]
 script = ExtResource("1_mek2u")
 
-[node name="Sprite2D" type="Sprite2D" parent="collider"]
+[node name="Sprite2D" type="Sprite2D" parent="collider" unique_id=402501468]
 texture = ExtResource("2_ik6fu")
 
-[node name="Sprite2D2" type="Sprite2D" parent="collider"]
+[node name="Sprite2D2" type="Sprite2D" parent="collider" unique_id=1495694699]
 texture = ExtResource("3_ik6fu")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="collider"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collider" unique_id=1381146703]
 visible = false
 shape = SubResource("CircleShape2D_ik6fu")
 
-[node name="MineArea" type="Area2D" parent="."]
+[node name="MineArea" type="Area2D" parent="." unique_id=147393657]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MineArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MineArea" unique_id=913851991]
 position = Vector2(1.0000001, -0.9999999)
 rotation = 0.76635325
 scale = Vector2(1.0202881, 1.1199992)

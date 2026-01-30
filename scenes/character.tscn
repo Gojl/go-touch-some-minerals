@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dgamsydns7kby"]
+[gd_scene format=3 uid="uid://dgamsydns7kby"]
 
 [ext_resource type="Texture2D" uid="uid://brmj0wktqbvjd" path="res://assets/base sprite.png" id="2_rkhd4"]
 [ext_resource type="Texture2D" uid="uid://b5wq0nqij7kyy" path="res://assets/Cute_Fantasy_Free/Animals/Chicken/Chicken.png" id="3_lrhn5"]
-[ext_resource type="PackedScene" uid="uid://dndlqa4jemn6q" path="res://inventory.tscn" id="3_my7n2"]
+[ext_resource type="PackedScene" uid="uid://dndlqa4jemn6q" path="res://scenes/inventory.tscn" id="3_my7n2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_my7n2"]
 atlas = ExtResource("3_lrhn5")
