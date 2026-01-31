@@ -50,10 +50,10 @@ func show_page(page: int) -> void:
 	var end = start + items_per_page
 	
 	for child in grid.get_children():
-		grid.remove_child(child)
+		grid.remove_child(child) 
 		
 	for i in range(start, min(end, all_slots.size() - start)):
-		grid.add_child(all_slots[i])
+		grid.add_child(all_slots[i]) 
 	
 func update_display() -> void:	
 	show_page(0)
