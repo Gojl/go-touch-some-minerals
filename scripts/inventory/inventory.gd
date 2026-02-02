@@ -20,6 +20,13 @@ func _ready() -> void:
 	await get_tree().process_frame  
 	player = get_tree().get_first_node_in_group("player")
 	
+	for i in range(items_per_page):
+		var slot = invSlot.instantiate()
+		grid.add_child(slot)
+		all_slots.append(slot)
+		slot.hide()
+		
+	
 	if player:
 		player.mineral_collected.connect(_on_mineral_collected)
 		print("Inventory connected to player")
@@ -45,7 +52,7 @@ func _process(delta):
 func _on_toggle_inventory(newMode, bpNode: Node2D) -> void:	
 	if newMode == player.Mode.INV:
 		position = bpNode.position
-		update_display()
+		show_page(current_page)
 		show_inventory()
 	else:
 		hide_inventory()
@@ -54,48 +61,56 @@ func show_inventory() -> void:
 	open = true
 
 func hide_inventory() -> void:
+	for i in range(inventory_data.size()):
+		var slot_to_show = all_slots[i % 10]
+		slot_to_show.hide()
 	open = false
 
 func show_page(page: int) -> void:
 	var start := page*items_per_page
 	
-	for child in grid.get_children():
-		grid.remove_child(child) 
-	
-	if all_slots.size() > 0:
+	if inventory_data.size() > 0:
 		empty_label.visible = false
+		for slot_index in range(items_per_page):
+			var data_index := start + slot_index
+			var slot := all_slots[slot_index]
+			
+			if data_index < inventory_data.size():
+				var item = inventory_data[data_index]
+				slot.show()
+				slot.set_slot_data(item.type, item.quality, item.weight, item.mweight, data_index)
+			else:
+				slot.hide()
+				slot.clear()
 	else:
+		for i in range(all_slots.size()):
+			all_slots[i].hide()
 		empty_label.visible = true
-		
-	for i in range(start, all_slots.size()):
-		var slot_to_show = all_slots[i]
-		grid.add_child(slot_to_show)
-		slot_to_show.set_slot_data(inventory_data[i].type, inventory_data[i].quality, inventory_data[i].weight, inventory_data[i].m_weight)
-	
-func update_display() -> void:	
-	show_page(0)
-	print("Current inventory:", inventory_data)
 
-var totalWeight: float = 0
+func next_page():
+	if (current_page + 1) * items_per_page < inventory_data.size():
+		current_page += 1
+		show_page(current_page)
+func prev_page():
+	if current_page > 0:
+		current_page -= 1
+		show_page(current_page)
 
-func dropMineral(type: String, quality: float, weight: float,mweight: float, position: Vector2):
+func drop_mineral(id: int):
 	print("Dropping mineral")
 	var map = player.get_parent()
 	var new_dropped_mineral = droppedMineral.instantiate()
-	new_dropped_mineral.global_position = position
-	new_dropped_mineral.type = type
-	new_dropped_mineral.quality = quality
-	new_dropped_mineral.weight = weight
-	new_dropped_mineral.mweight = mweight
+	new_dropped_mineral.global_position = player.global_position + Vector2(15, 0)
+	new_dropped_mineral.type = inventory_data[id].type
+	new_dropped_mineral.quality = inventory_data[id].quality
+	new_dropped_mineral.weight = inventory_data[id].weight
+	new_dropped_mineral.mweight = inventory_data[id].mweight
+	inventory_data.remove_at(id)
 	map.add_child(new_dropped_mineral)
+	player.inv_updated(inventory_data)
+	show_page(current_page)
 
-func _on_mineral_collected(mineral_type: String, quality: float, weight: float, mweight: float, position: Vector2) -> void:
-	totalWeight += weight
-	
-	if totalWeight <= player.backpack_size:
-		inventory_data.append({"type": mineral_type, "quality": quality, "weight": weight, "m_weight": mweight})
-		all_slots.append(invSlot.instantiate())
-		print("Inventory updated: ", mineral_type, " quality: ", quality)
-	else:
-		totalWeight -= weight
-		dropMineral(mineral_type, quality, weight,mweight, position)
+func _on_mineral_collected(mineral_type: String, quality: float, weight: float, mweight: float) -> void:
+	inventory_data.append({"type": mineral_type, "quality": quality, "weight": weight, "mweight": mweight})
+	player.inv_updated(inventory_data)
+	print("Inventory updated: ", mineral_type, " quality: ", quality)

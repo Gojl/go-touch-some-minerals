@@ -57,33 +57,33 @@ func spawn_rocks() -> void:
 		if rarity >= 0.99:
 			match rock.mineral_type:
 				"Diamond":
-					rock.weight = snapped(randf_range(20,200),0.2)
+					rock.weight = randf_range(20,200)
 				"Gold":
-					rock.weight = snapped(randf_range(500,5000),10)
+					rock.weight = randf_range(500,5000)
 				"Coal":
-					rock.weight = snapped(randf_range(10,50),0.1)
+					rock.weight = randf_range(10,50)
 		elif rarity >= 0.95:
 			match rock.mineral_type:
 				"Diamond":
-					rock.weight = snapped(randf_range(2,20),0.01)
+					rock.weight = randf_range(2,20)
 				"Gold":
-					rock.weight = snapped(randf_range(100,500),1)
+					rock.weight = randf_range(100,500)
 				"Coal":
-					rock.weight = snapped(randf_range(50,200),0.5)
+					rock.weight = randf_range(50,200)
 		elif rarity >= 0.9 :
 			match rock.mineral_type:
 				"Diamond":
-					rock.weight = snapped(randf_range(0.2, 1),0.001)
+					rock.weight = randf_range(0.2, 1)
 				"Gold":
-					rock.weight = snappedf(randf_range(20,100),1)
+					rock.weight = randf_range(20,100)
 				"Coal":
-					rock.weight = snapped(randf_range(200,1000),1)
+					rock.weight = randf_range(200,1000)
 		else:
 			match rock.mineral_type:
 				"Diamond":
-					rock.weight = snapped(randf_range(0.02, 0.1),0.0001)
+					rock.weight = randf_range(0.02, 0.1)
 				"Gold":
-					rock.weight = snapped(randf_range(0.5, 2),0.01)
+					rock.weight = randf_range(0.5, 2)
 				"Coal":
-					rock.weight = snapped(randf_range(1000,5000),10)
+					rock.weight = randf_range(1000,5000)
 		add_child(rock)

@@ -1,8 +1,11 @@
 extends CharacterBody2D
 
-@export var movement_speed: float = 160.0
+@export var base_movement_speed: float = 160.0
 @export var backpack_size: float = 10000
-@export var inspect_range: float = 108
+@export var inspect_range: float = 81
+
+var current_movespeed = base_movement_speed
+var total_weight = 0.0
 
 enum Mode {
 	EXPLORE,
@@ -32,6 +35,27 @@ func _input(event: InputEvent) -> void:
 		elif current_mode == Mode.EXPLORE:
 			enter_inventory(bp_node)
 
+func move_multi() -> float:
+	var load_ratio = total_weight / backpack_size
+	if load_ratio <= 0.8:
+		return 1.0
+	elif load_ratio >= 1.2:
+		return 0.0
+	
+	var t = clamp((load_ratio - 0.8) / 0.4, 0.0, 1.0)
+	var e := 2
+	var c := pow(t,e)
+	
+	var speed_at_full := 0.5
+	
+	return lerp(1.0, speed_at_full, c)
+
+func inv_updated(inventory: Array) -> void:
+	total_weight = 0
+	for item in inventory:
+		total_weight += item.weight
+	current_movespeed = base_movement_speed * move_multi()
+
 func _physics_process(delta: float) -> void:
 	if current_mode != Mode.EXPLORE:
 		velocity = Vector2.ZERO
@@ -43,13 +67,13 @@ func _physics_process(delta: float) -> void:
 		Input.get_axis("up", "down")
 	).normalized()
 	
-	velocity = direction * movement_speed
+	velocity = direction * current_movespeed
 	var collision = move_and_collide(velocity * delta)
 	if collision:
 		var collider = collision.get_collider()
 		if collider is RigidBody2D:
 			var push_direction = (collider.global_position-global_position).normalized()
-			collider.apply_force(push_direction * movement_speed / 2.5 / collider.mass)
+			collider.apply_force(push_direction * current_movespeed / 2.5 / collider.mass)
 	
 	
 	
@@ -83,8 +107,8 @@ func exit_inspect() -> void:
 	mode_changed.emit(current_mode, null)
 	print("Exited to EXPLORE mode")
 
-func collect_mineral(mineral_type: String, quality: float, weight: float, mineral_weight: float, rock_position: Vector2) -> void:
-	mineral_collected.emit(mineral_type, quality, weight,mineral_weight, rock_position)
+func collect_mineral(mineral_type: String, quality: float, weight: float, mineral_weight: float) -> void:
+	mineral_collected.emit(mineral_type, quality, weight,mineral_weight)
 	print("Collected: ", mineral_type, " quality: ", quality, " weight: ", weight)
 
 func get_current_mode() -> Mode:

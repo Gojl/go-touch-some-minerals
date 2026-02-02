@@ -161,7 +161,7 @@ func finish_mining():
 	weight = calc_mined_chunk_host_rock(mineral_weight)
 	weight = snapped(weight + mineral_weight,0.01)
 	if mineral_quality > 0:
-		player.collect_mineral(mineral_type, mineral_quality, weight, mineral_weight, get_core_global_position())
+		player.collect_mineral(mineral_type, mineral_quality, weight, mineral_weight)
 		player.exit_inspect()
 		queue_free()
 	else:
