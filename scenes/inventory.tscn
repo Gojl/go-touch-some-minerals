@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://bvxpeft5gpkf" path="res://scripts/inventory/inventory.gd" id="1_ty45s"]
 [ext_resource type="Texture2D" uid="uid://dum1idv4gpplv" path="res://assets/inventory.png" id="2_53g1v"]
+[ext_resource type="FontFile" uid="uid://cjdgd0fam5324" path="res://assets/fonts/PressStart2P-Regular.ttf" id="3_ty45s"]
 
 [node name="inventory" type="Control" unique_id=2059234828]
 z_index = 1
 layout_mode = 3
 anchors_preset = 0
-scale = Vector2(0.2, 0.2)
 script = ExtResource("1_ty45s")
 
 [node name="body" type="TextureRect" parent="." unique_id=1319685519]
@@ -27,3 +27,18 @@ offset_bottom = 962.0
 theme_override_constants/h_separation = 35
 theme_override_constants/v_separation = 44
 columns = 5
+
+[node name="empty_label" type="RichTextLabel" parent="body" unique_id=1414026134]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 118.0
+offset_right = 3490.0
+offset_bottom = 1806.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/normal_font = ExtResource("3_ty45s")
+theme_override_font_sizes/normal_font_size = 146
+text = "Inventory empty
+Go touch some minerals!"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1

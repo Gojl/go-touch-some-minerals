@@ -1,0 +1,3 @@
+partial mineral remake
+	- rarity logic
+	- type logic

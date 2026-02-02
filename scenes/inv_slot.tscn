@@ -1,48 +1,56 @@
 [gd_scene format=3 uid="uid://ce23c8ib88axv"]
 
 [ext_resource type="Texture2D" uid="uid://dum1idv4gpplv" path="res://assets/inventory.png" id="1_von2w"]
+[ext_resource type="Script" uid="uid://dfna7q0pr82en" path="res://scripts/inventory/setdata.gd" id="2_q7fkr"]
+[ext_resource type="FontFile" uid="uid://cjdgd0fam5324" path="res://assets/fonts/PressStart2P-Regular.ttf" id="3_oyh1m"]
 
 [node name="InventorySlot" type="TextureButton" unique_id=309260569]
 custom_minimum_size = Vector2(302, 400)
+offset_right = 302.0
+offset_bottom = 400.0
 texture_normal = ExtResource("1_von2w")
 ignore_texture_size = true
 stretch_mode = 0
+script = ExtResource("2_q7fkr")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1498151999]
+[node name="text_grid" type="GridContainer" parent="." unique_id=1881318367]
 layout_mode = 0
 offset_left = 30.0
-offset_top = 306.0
-offset_right = 270.0
-offset_bottom = 360.0
-theme_override_font_sizes/normal_font_size = 32
-text = "c"
-scroll_active = false
-autowrap_mode = 0
-autowrap_trim_flags = 0
-horizontal_alignment = 1
+offset_top = 198.0
+offset_right = 990.0
+offset_bottom = 846.0
+scale = Vector2(0.25, 0.25)
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=1771214993]
-layout_mode = 0
-offset_left = 30.0
-offset_top = 252.0
-offset_right = 270.0
-offset_bottom = 306.0
-theme_override_font_sizes/normal_font_size = 32
-text = "b"
+[node name="mineral_label" type="RichTextLabel" parent="text_grid" unique_id=1498151999]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_oyh1m")
+theme_override_font_sizes/normal_font_size = 68
 scroll_active = false
-autowrap_mode = 0
-autowrap_trim_flags = 0
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="." unique_id=1558267807]
-layout_mode = 0
-offset_left = 30.0
-offset_top = 196.0
-offset_right = 270.0
-offset_bottom = 250.0
-theme_override_font_sizes/normal_font_size = 32
-text = "a"
+[node name="quality_label" type="RichTextLabel" parent="text_grid" unique_id=1771214993]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_oyh1m")
+theme_override_font_sizes/normal_font_size = 68
 scroll_active = false
-autowrap_mode = 0
-autowrap_trim_flags = 0
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="weight_label" type="RichTextLabel" parent="text_grid" unique_id=1377222140]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_oyh1m")
+theme_override_font_sizes/normal_font_size = 68
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="mweight_label" type="RichTextLabel" parent="text_grid" unique_id=1098505180]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_oyh1m")
+theme_override_font_sizes/normal_font_size = 48
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,15 +1,15 @@
 extends Node2D
-
-# This script should be attached to the root node of your rock scene
-
 var max_charge_time := 1.5
 var max_force := 100.0
-@export var base_mineral_quality := 0.9
-@export var mineral_quality_randomness := 0.1
-@export var base_mineral_health := 50
-@export var mineral_type := "Gold"
-@export var mineral_fragility := 0.1
-@export var mineral_tier := 1 
+var base_mineral_quality: float = 0.65
+var mineral_quality_randomness_up: float = 0.35
+var mineral_quality_randomness_down: float = 0.1
+var base_mineral_health: float = 50
+var mineral_type: String = "Gold"
+var mineral_fragility: float = 0.1
+var mineral_tier: int = 1 
+var weight: float = 1
+var mineral_percentage = 1
 
 @onready var mine_area: Area2D = $MineArea
 @onready var mine_shape: CollisionShape2D = $MineArea/CollisionShape2D
@@ -18,12 +18,13 @@ var charging := false
 var charge_time := 0.0
 var mineral_health := base_mineral_health
 var mineral_quality := 0.0
+var start_min_qual := 0.0
 var player: Node = null
 
 func _ready() -> void:
-	mineral_quality = randf_range(-mineral_quality_randomness, mineral_quality_randomness) + base_mineral_quality
+	mineral_quality = randf_range(-mineral_quality_randomness_down, mineral_quality_randomness_up) + base_mineral_quality
 	$MineArea.connect("input_event", Callable(self, "_on_mine_input"))
-	
+	start_min_qual = mineral_quality
 	# Wait for scene to be ready, then find player
 	await get_tree().process_frame
 	player = get_tree().get_first_node_in_group("player")
@@ -118,7 +119,9 @@ func apply_hit(force: float, hit_pos: Vector2):
 
 			var absorbed_force = min(force, mineral_health)
 			var excess_force = max(force - mineral_health, 0.0)
-
+			
+			loss_factor *= start_min_qual**2
+			
 			mineral_health -= absorbed_force
 		
 			if excess_force > 0:
@@ -140,14 +143,25 @@ func check_result():
 	if mineral_health <= 0 or mineral_quality <= 0:
 		finish_mining()
 
+func calc_mined_chunk_host_rock(mineral_weight: float) -> float:
+	var rock_scale := 3.0
+	var exponent := 1.1
+	var min_host := 50.0
+	
+	var host_rock := rock_scale * pow(mineral_weight, exponent)
+	host_rock = max(host_rock,min_host)
+	
+	return host_rock
+	
 func finish_mining():
 	if not player:
 		queue_free()
-		return
-		
+		return	
+	var mineral_weight = weight
+	weight = calc_mined_chunk_host_rock(mineral_weight)
+	weight = snapped(weight + mineral_weight,0.01)
 	if mineral_quality > 0:
-		print("MINERAL EXTRACTED, quality:", mineral_quality)
-		player.collect_mineral(mineral_type, mineral_quality)
+		player.collect_mineral(mineral_type, mineral_quality, weight, mineral_weight, get_core_global_position())
 		player.exit_inspect()
 		queue_free()
 	else:

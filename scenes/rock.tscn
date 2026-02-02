@@ -10,7 +10,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ik6fu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_872ht"]
-radius = 4.1581497
+radius = 4.16
 
 [node name="Rock" type="Node2D" unique_id=385211476]
 script = ExtResource("4_872ht")

@@ -35,17 +35,55 @@ func spawn_rocks() -> void:
 		
 		var mineral_rarity = randi_range(0,100)
 		
+		
+		
 		if mineral_rarity > 99:
 			rock.mineral_type = "Diamond"
 			rock.mineral_tier = 3
-			# bla bla bla
+			rock.base_mineral_quality = 0.95
+			rock.mineral_quality_randomness_up = 0.05
+			rock.mineral_quality_randomness_down = 0
 		elif mineral_rarity > 10:
 			rock.mineral_type = "Gold"
 			rock.mineral_tier = 2
-			# bla bla bla
 		else:
 			rock.mineral_type = "Coal"
 			rock.mineral_tier = 1
-			# bla bla bla
-
+			rock.base_mineral_quality = 0.35
+			rock.mineral_quality_randomness_up = 0.35
+			rock.mineral_quality_randomness_down = 0.15
+		
+		var rarity = randf()
+		if rarity >= 0.99:
+			match rock.mineral_type:
+				"Diamond":
+					rock.weight = snapped(randf_range(20,200),0.2)
+				"Gold":
+					rock.weight = snapped(randf_range(500,5000),10)
+				"Coal":
+					rock.weight = snapped(randf_range(10,50),0.1)
+		elif rarity >= 0.95:
+			match rock.mineral_type:
+				"Diamond":
+					rock.weight = snapped(randf_range(2,20),0.01)
+				"Gold":
+					rock.weight = snapped(randf_range(100,500),1)
+				"Coal":
+					rock.weight = snapped(randf_range(50,200),0.5)
+		elif rarity >= 0.9 :
+			match rock.mineral_type:
+				"Diamond":
+					rock.weight = snapped(randf_range(0.2, 1),0.001)
+				"Gold":
+					rock.weight = snappedf(randf_range(20,100),1)
+				"Coal":
+					rock.weight = snapped(randf_range(200,1000),1)
+		else:
+			match rock.mineral_type:
+				"Diamond":
+					rock.weight = snapped(randf_range(0.02, 0.1),0.0001)
+				"Gold":
+					rock.weight = snapped(randf_range(0.5, 2),0.01)
+				"Coal":
+					rock.weight = snapped(randf_range(1000,5000),10)
 		add_child(rock)

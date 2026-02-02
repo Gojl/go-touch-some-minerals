@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://uogk7a7t4a7"]
+
+[ext_resource type="Script" uid="uid://d0v582dgjxmcw" path="res://scripts/dropped_mineral.gd" id="1_8po0d"]
+[ext_resource type="Texture2D" uid="uid://bghs1xnhka4mc" path="res://assets/temp/złoto czyste.png" id="1_dt7do"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dt7do"]
+radius = 16.5
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=404374660]
+gravity_scale = 0.0
+linear_damp = 5.0
+angular_damp = 5.0
+script = ExtResource("1_8po0d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=520842016]
+position = Vector2(-1.91, 0.93)
+rotation = 0.9948377
+scale = Vector2(0.88, 0.65)
+shape = SubResource("CircleShape2D_dt7do")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1217115952]
+texture = ExtResource("1_dt7do")

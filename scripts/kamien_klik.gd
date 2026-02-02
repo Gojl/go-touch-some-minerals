@@ -20,12 +20,10 @@ func _on_input_event(viewport, event, shape_idx) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		var current_mode = player.get_current_mode()
 		var rock_node = get_parent() 
-		
-		if event.button_index == MOUSE_BUTTON_LEFT and current_mode == player.Mode.EXPLORE:
-			player.enter_inspect_mode(rock_node)
-			emit_signal("clicked", rock_node)
-			print("Rock clicked: entering INSPECT mode")
-		
-		elif event.button_index == MOUSE_BUTTON_RIGHT and current_mode == player.Mode.INSPECT:
-			player.enter_mine_mode(rock_node)
-			print("Rock right-clicked: entering MINE mode")
+		if player.global_position.distance_to(rock_node.global_position) < player.inspect_range:
+			if event.button_index == MOUSE_BUTTON_LEFT and current_mode == player.Mode.EXPLORE:
+				player.enter_inspect_mode(rock_node)
+				emit_signal("clicked", rock_node)
+			
+			elif event.button_index == MOUSE_BUTTON_RIGHT and current_mode == player.Mode.INSPECT:
+				player.enter_mine_mode(rock_node)
