@@ -10,7 +10,8 @@ func _mouse_exited() -> void:
 func _ready() -> void:
 	mouse_entered.connect(_mouse_entered)
 	mouse_exited.connect(_mouse_exited)
+
 func _pressed() -> void:
 	var inv = get_tree().get_first_node_in_group("inventory")
 	if inv:
-		inv.drop_mineral(slot.id)
+		inv.crack_mineral(slot.id)

@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://dndlqa4jemn6q"]
+
+[ext_resource type="Script" uid="uid://bvxpeft5gpkf" path="res://scripts/inventory/inventory.gd" id="1_ty45s"]
+[ext_resource type="Texture2D" uid="uid://dum1idv4gpplv" path="res://assets/inventory.png" id="2_53g1v"]
+[ext_resource type="FontFile" uid="uid://cjdgd0fam5324" path="res://assets/fonts/PressStart2P-Regular.ttf" id="3_ty45s"]
+[ext_resource type="Texture2D" uid="uid://kdb4tgfy363d" path="res://assets/page-switch.png" id="4_53g1v"]
+[ext_resource type="Script" uid="uid://dfna7q0pr82en" path="res://scripts/inventory/slot.gd" id="5_s887n"]
+[ext_resource type="Texture2D" uid="uid://bed2n58t7jwmy" path="res://assets/temp/drop.png" id="6_g71ie"]
+[ext_resource type="Script" uid="uid://28t8yhce313w" path="res://scripts/inventory/drop.gd" id="7_sr8g6"]
+
+[node name="inventory" type="Control" unique_id=2059234828]
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ty45s")
+
+[node name="body" type="TextureRect" parent="." unique_id=1319685519]
+layout_mode = 0
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+texture = ExtResource("2_53g1v")
+
+[node name="backpack_grid" type="GridContainer" parent="body" unique_id=1926443412]
+layout_mode = 0
+offset_left = 119.99994
+offset_top = 117.99997
+offset_right = 1805.0
+offset_bottom = 962.0
+theme_override_constants/h_separation = 35
+theme_override_constants/v_separation = 44
+columns = 5
+
+[node name="empty_label" type="RichTextLabel" parent="body" unique_id=1414026134]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 118.0
+offset_right = 3490.0
+offset_bottom = 1806.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/normal_font = ExtResource("3_ty45s")
+theme_override_font_sizes/normal_font_size = 146
+text = "Inventory empty
+Go touch some minerals!"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="page_buttons" type="GridContainer" parent="body" unique_id=1063816596]
+layout_mode = 0
+offset_left = 880.0
+offset_top = 962.0
+offset_right = 1040.0
+offset_bottom = 1022.0
+theme_override_constants/h_separation = 40
+columns = 2
+
+[node name="button_prev" type="TextureButton" parent="body/page_buttons" unique_id=423821595]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture_normal = ExtResource("4_53g1v")
+ignore_texture_size = true
+stretch_mode = 0
+flip_h = true
+
+[node name="button_next" type="TextureButton" parent="body/page_buttons" unique_id=1899529856]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture_normal = ExtResource("4_53g1v")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="placeholder_slot" type="TextureButton" parent="body" unique_id=1239004964]
+visible = false
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 400.0
+texture_normal = ExtResource("2_53g1v")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_s887n")
+
+[node name="text_grid" type="GridContainer" parent="body/placeholder_slot" unique_id=232866923]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 200.0
+offset_right = 990.0
+offset_bottom = 848.0
+scale = Vector2(0.25, 0.25)
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+
+[node name="mineral_label" type="RichTextLabel" parent="body/placeholder_slot/text_grid" unique_id=1464028486]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_ty45s")
+theme_override_font_sizes/normal_font_size = 68
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="quality_label" type="RichTextLabel" parent="body/placeholder_slot/text_grid" unique_id=781680098]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_ty45s")
+theme_override_font_sizes/normal_font_size = 68
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="weight_label" type="RichTextLabel" parent="body/placeholder_slot/text_grid" unique_id=1097726772]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_ty45s")
+theme_override_font_sizes/normal_font_size = 68
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="mweight_label" type="RichTextLabel" parent="body/placeholder_slot/text_grid" unique_id=148197972]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_ty45s")
+theme_override_font_sizes/normal_font_size = 48
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="drop_button" type="TextureButton" parent="body/placeholder_slot" unique_id=1606584775]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 30.0
+offset_right = 310.0
+offset_bottom = 110.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("6_g71ie")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("7_sr8g6")

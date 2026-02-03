@@ -13,6 +13,23 @@ func _ready() -> void:
 	if not player:
 		push_error("Rock collider: Could not find player!")
 
+func _mouse_enter() -> void:
+	if not player:
+		return
+	var current_mode = player.get_current_mode()
+	var rock_node = get_parent()
+	if player.global_position.distance_to(rock_node.global_position) <= player.inspect_range:
+		if current_mode == player.Mode.EXPLORE:
+			CursorManager.set_cursor("inspect")
+		elif  current_mode == player.Mode.INSPECT:
+			CursorManager.set_cursor("mine")
+
+func _mouse_exit() -> void:
+	CursorManager.reset_cursor()
+
+func _exit_tree() -> void:
+	_mouse_exit()
+
 func _on_input_event(viewport, event, shape_idx) -> void:
 	if not player:
 		return

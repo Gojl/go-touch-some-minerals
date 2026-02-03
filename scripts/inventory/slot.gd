@@ -11,7 +11,7 @@ var id: int
 func clear() -> void:
 	for child in text_grid.get_children():
 		child.text = ""
-	id = 0
+	id = -1
 
 func set_slot_data(type: String, quality: float, weight: float, mweight: float, id: int) -> void:
 	mineral_label.text = "Type: " + type

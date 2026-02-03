@@ -21,7 +21,11 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Globals="*res://scripts/globals.gd"
+CursorManager="*uid://bsy4w3gib6sej"
+
+[display]
+
+mouse_cursor/custom_image="uid://eoum26qr063n"
 
 [input]
 

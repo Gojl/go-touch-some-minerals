@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://uogk7a7t4a7"]
 
-[ext_resource type="Script" uid="uid://d0v582dgjxmcw" path="res://scripts/dropped_mineral.gd" id="1_8po0d"]
+[ext_resource type="Script" uid="uid://d0v582dgjxmcw" path="res://scripts/objects/dropped_rock/dropped_mineral.gd" id="1_8po0d"]
 [ext_resource type="Texture2D" uid="uid://bghs1xnhka4mc" path="res://assets/temp/złoto czyste.png" id="1_dt7do"]
-[ext_resource type="Script" uid="uid://cijmlg0yyyk2b" path="res://scripts/dropped_mineral_pickup.gd" id="3_p6qfp"]
+[ext_resource type="Script" uid="uid://cijmlg0yyyk2b" path="res://scripts/objects/dropped_rock/dropped_mineral_pickup.gd" id="3_p6qfp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dt7do"]
 radius = 14.0

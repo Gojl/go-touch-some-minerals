@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bk4x44t5lsgcf"]
+[gd_scene format=3 uid="uid://bk4x44t5lsgcf"]
 
-[ext_resource type="Script" uid="uid://cg8juq4wxd1p2" path="res://scripts/stone_mine.gd" id="1_ma20j"]
+[ext_resource type="Script" uid="uid://cg8juq4wxd1p2" path="res://scripts/objects/rock/stone_mine.gd" id="1_ma20j"]
 [ext_resource type="Texture2D" uid="uid://cuptfaj5q1if3" path="res://assets/temp/kamień.png" id="2_msq76"]
 [ext_resource type="Texture2D" uid="uid://bghs1xnhka4mc" path="res://assets/temp/złoto czyste.png" id="3_qnknw"]
 

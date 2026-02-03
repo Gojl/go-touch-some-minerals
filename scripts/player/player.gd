@@ -3,7 +3,6 @@ extends CharacterBody2D
 @export var base_movement_speed: float = 160.0
 @export var backpack_size: float = 10000
 @export var inspect_range: float = 81
-
 var current_movespeed = base_movement_speed
 var total_weight = 0.0
 
@@ -75,7 +74,8 @@ func _physics_process(delta: float) -> void:
 			var push_direction = (collider.global_position-global_position).normalized()
 			collider.apply_force(push_direction * current_movespeed / 2.5 / collider.mass)
 	
-	
+	if global_position.distance_to(get_global_mouse_position()) > inspect_range:
+		CursorManager.reset_cursor()
 	
 	var sprite = get_node_or_null("AnimatedSprite2D")
 	if sprite:
@@ -87,6 +87,7 @@ func _physics_process(delta: float) -> void:
 func enter_inspect_mode(rock: Node2D) -> void:
 	current_mode = Mode.INSPECT
 	inspected_rock = rock
+	CursorManager.set_cursor("mine")
 	mode_changed.emit(current_mode, rock)
 	print("Entered INSPECT mode")
 
@@ -102,6 +103,8 @@ func enter_mine_mode(rock: Node2D) -> void:
 	print("Entered MINE mode")
 
 func exit_inspect() -> void:
+	if CursorManager.current_cursor != "idle":
+		CursorManager.set_cursor("inspect")
 	current_mode = Mode.EXPLORE
 	inspected_rock = null
 	mode_changed.emit(current_mode, null)
