@@ -17,4 +17,4 @@ func _on_input_event(viewport, event, shape_idx) -> void:
 		if player.global_position.distance_to(mineral.global_position) <= player.inspect_range:
 			if event.button_index == MOUSE_BUTTON_LEFT and player.get_current_mode() == player.Mode.EXPLORE:
 				mineral.queue_free()
-				player.collect_mineral(mineral.type, mineral.quality, mineral.weight, mineral.mweight)
+				player.collect_mineral(mineral.type, mineral.quality, mineral.weight, mineral.mweight, mineral.fragility)

@@ -88,6 +88,7 @@ func enter_inspect_mode(rock: Node2D) -> void:
 	current_mode = Mode.INSPECT
 	inspected_rock = rock
 	CursorManager.set_cursor("mine")
+	_set_other_rocks_visible(rock, false)
 	mode_changed.emit(current_mode, rock)
 	print("Entered INSPECT mode")
 
@@ -107,11 +108,12 @@ func exit_inspect() -> void:
 		CursorManager.set_cursor("inspect")
 	current_mode = Mode.EXPLORE
 	inspected_rock = null
+	_set_other_rocks_visible(null, true)
 	mode_changed.emit(current_mode, null)
 	print("Exited to EXPLORE mode")
 
-func collect_mineral(mineral_type: String, quality: float, weight: float, mineral_weight: float) -> void:
-	mineral_collected.emit(mineral_type, quality, weight,mineral_weight)
+func collect_mineral(mineral_type: String, quality: float, weight: float, mineral_weight: float, fragility: float) -> void:
+	mineral_collected.emit(mineral_type, quality, weight,mineral_weight, fragility)
 	print("Collected: ", mineral_type, " quality: ", quality, " weight: ", weight)
 
 func get_current_mode() -> Mode:
@@ -119,3 +121,12 @@ func get_current_mode() -> Mode:
 
 func get_inspected_rock() -> Node2D:
 	return inspected_rock
+
+func _set_other_rocks_visible(excluded: Node2D, visible: bool) -> void:
+	for rock in get_tree().get_nodes_in_group("rocks"):
+		if rock == excluded:
+			continue
+		rock.visible = visible
+		var klik = rock.get_node_or_null("kamien_klik")
+		if klik:
+			klik.input_pickable = visible

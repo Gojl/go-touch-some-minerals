@@ -1,0 +1,109 @@
+{
+  "regions": [
+	{
+	  "name": "lower_silesia",
+	  "display_name": "Dolny Śląsk (Sudety)",
+	  "minerals": {
+		"gold":      3,
+		"iron":      8,
+		"galena":    6,
+		"silver":    4,
+		"copper":    7,
+		"pyrite":   12,
+		"fluorite":  6,
+		"calcite":  10,
+		"malachite": 5,
+		"topaz":     2,
+		"amethyst": 10,
+		"quartz":   20,
+		"opal":      1,
+		"amber":     0,
+		"agate":     6
+	  }
+	},
+	{
+	  "name": "upper_silesia",
+	  "display_name": "Górny Śląsk",
+	  "minerals": {
+		"gold":      0,
+		"iron":     20,
+		"galena":   25,
+		"silver":    8,
+		"copper":   10,
+		"pyrite":   12,
+		"fluorite":  3,
+		"calcite":   8,
+		"malachite": 2,
+		"topaz":     0,
+		"amethyst":  1,
+		"quartz":    5,
+		"opal":      0,
+		"amber":     0,
+		"agate":     1
+	  }
+	},
+	{
+	  "name": "swietokrzyskie_mountains",
+	  "display_name": "Góry Świętokrzyskie",
+	  "minerals": {
+		"gold":      0,
+		"iron":     10,
+		"galena":   12,
+		"silver":    2,
+		"copper":    5,
+		"pyrite":   20,
+		"fluorite":  5,
+		"calcite":  18,
+		"malachite": 3,
+		"topaz":     0,
+		"amethyst":  2,
+		"quartz":   15,
+		"opal":      0,
+		"amber":     0,
+		"agate":     3
+	  }
+	},
+	{
+	  "name": "klodzko_valley",
+	  "display_name": "Kotlina Kłodzka",
+	  "minerals": {
+		"gold":      1,
+		"iron":      6,
+		"galena":    5,
+		"silver":    2,
+		"copper":    6,
+		"pyrite":   10,
+		"fluorite": 18,
+		"calcite":  10,
+		"malachite": 4,
+		"topaz":     1,
+		"amethyst":  5,
+		"quartz":   20,
+		"opal":      1,
+		"amber":     0,
+		"agate":     8
+	  }
+	},
+	{
+	  "name": "pomerania",
+	  "display_name": "Pomorze",
+	  "minerals": {
+		"gold":      0,
+		"iron":      3,
+		"galena":    0,
+		"silver":    0,
+		"copper":    2,
+		"pyrite":    4,
+		"fluorite":  0,
+		"calcite":   8,
+		"malachite": 0,
+		"topaz":     0,
+		"amethyst":  0,
+		"quartz":   10,
+		"opal":      0,
+		"amber":    30,
+		"agate":     5
+	  }
+	}
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "gold":      250,
+  "iron":      0.01,
+  "galena":    0.02,
+  "silver":    3,
+  "copper":    0.04,
+  "pyrite":    0.02,
+  "fluorite":  0.05,
+  "calcite":   0.01,
+  "malachite": 1,
+  "topaz":     5,
+  "amethyst":  0.5,
+  "quartz":    0.05,
+  "opal":      10,
+  "amber":     2,
+  "agate":     0.3
+}

@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://28t8yhce313w" path="res://scripts/inventory/drop.gd" id="5_2hek4"]
 [ext_resource type="Texture2D" uid="uid://b12hribyb6uuk" path="res://assets/temp/crack.png" id="6_221mj"]
 [ext_resource type="Script" uid="uid://b5u64lknge2m2" path="res://scripts/inventory/crack.gd" id="7_32ko4"]
+[ext_resource type="Script" uid="uid://cv8pf5rdqeai3" path="res://scripts/inventory/sell.gd" id="8_j1on0"]
 
 [node name="slot" type="TextureRect" unique_id=76794542]
 custom_minimum_size = Vector2(300, 400)
@@ -89,3 +90,16 @@ texture_normal = ExtResource("6_221mj")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("7_32ko4")
+
+[node name="sell_button" type="TextureButton" parent="." unique_id=1733650323]
+z_index = 100
+layout_mode = 0
+offset_left = 110.0
+offset_top = 30.0
+offset_right = 190.0
+offset_bottom = 110.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("6_221mj")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("8_j1on0")

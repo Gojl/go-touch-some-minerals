@@ -4,6 +4,7 @@ extends RigidBody2D
 @export var quality: float
 @export var weight: float
 @export var mweight: float
+@export var fragility: float
 var min_weight := 50.0
 var max_weight := 55000.0
 var min_mass = 0.05

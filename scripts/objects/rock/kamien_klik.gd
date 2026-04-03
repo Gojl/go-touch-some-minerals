@@ -14,7 +14,7 @@ func _ready() -> void:
 		push_error("Rock collider: Could not find player!")
 
 func _mouse_enter() -> void:
-	if not player:
+	if not player or not visible:
 		return
 	var current_mode = player.get_current_mode()
 	var rock_node = get_parent()
@@ -31,7 +31,7 @@ func _exit_tree() -> void:
 	_mouse_exit()
 
 func _on_input_event(viewport, event, shape_idx) -> void:
-	if not player:
+	if not player or not visible:
 		return
 	
 	if event is InputEventMouseButton and event.pressed:

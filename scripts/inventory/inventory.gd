@@ -3,6 +3,7 @@ extends Control
 var is_open: bool = false
 var inventory_data := []
 var player: Node = null
+var cash = 0
 
 @onready var slots_container := $body/Control/backpack_grid
 @onready var empty_label = $body/empty_label
@@ -15,14 +16,19 @@ var droppedMineral := preload("res://scenes/dropped_mineral.tscn")
 
 var all_slots: Array[Control] = []
 
+
 var is_animating := false
 var current_page := 0
 var items_per_page := 10
+
+var _base_prices: Dictionary
 
 var open = false
 
 func _ready() -> void:
 	await get_tree().process_frame  
+	if not _load_data():
+		return
 	player = get_tree().get_first_node_in_group("player")
 	
 	add_to_group("inventory")
@@ -45,6 +51,26 @@ func _ready() -> void:
 	
 	scale = Vector2(0,0)
 	rotation_degrees = -90
+
+func _load_data() -> bool:
+	_base_prices = _read_json("res://data/prices.json")
+
+	if _base_prices == null:
+		return false
+
+	return true
+
+func _read_json(path: String) -> Variant:
+	var file := FileAccess.open(path, FileAccess.READ)
+	if not file:
+		push_error("inventory: cannot open '%s'" % path)
+		return null
+	var text := file.get_as_text()
+	file.close()
+	var result = JSON.parse_string(text)
+	if result == null:
+		push_error("inventory: JSON parse failed for '%s'" % path)
+	return result
 
 func _process(delta):
 	if open:
@@ -173,14 +199,14 @@ func prev_page():
 
 
 func crack_mineral(id: int):
-	if inventory_data[id].weight <= 2.5 * inventory_data[id].mweight or inventory_data[id].weight < 30:
+	if inventory_data[id].weight <= 2 * inventory_data[id].mweight or inventory_data[id].weight < 30:
 		print("Can't crack")
 	else:
 		var base_chance = 0.2
 		var r = inventory_data[id].mweight / inventory_data[id].weight
 		var rock_r = 1 - r
 		
-		var success = base_chance + pow(rock_r, 2) * 0.4
+		var success = (base_chance + pow(rock_r, 2) * 0.4) / (inventory_data[id].fragility / 2.2)
 		success = clamp(success, 0, 1)
 		
 		if randf() < success:
@@ -212,6 +238,7 @@ func drop_mineral(id: int):
 	new_dropped_mineral.quality = inventory_data[id].quality
 	new_dropped_mineral.weight = inventory_data[id].weight
 	new_dropped_mineral.mweight = inventory_data[id].mweight
+	new_dropped_mineral.fragility = inventory_data[id].fragility
 	inventory_data.remove_at(id)
 	map.add_child(new_dropped_mineral)
 	inv_updated()
@@ -221,7 +248,16 @@ func inv_updated() -> void:
 	player.inv_updated(inventory_data)
 	weight_label.text = str(snapped(player.total_weight / 1000, 0.01 )) + " / " + str(snapped(player.backpack_size / 1000, 0.01)) + "KG"
 
-func _on_mineral_collected(mineral_type: String, quality: float, weight: float, mweight: float) -> void:
-	inventory_data.append({"type": mineral_type, "quality": quality, "weight": weight, "mweight": mweight})
+func _on_mineral_collected(mineral_type: String, quality: float, weight: float, mweight: float, fragility: float) -> void:
+	inventory_data.append({"type": mineral_type, "quality": quality, "weight": weight, "mweight": mweight, "fragility": fragility})
 	inv_updated()
 	print("Inventory updated: ", mineral_type, " quality: ", quality)
+
+func sell_mineral(id: int):
+	if id < 0 or id >= inventory_data.size():
+		return
+	cash += snapped(snapped(inventory_data[id].mweight,1) * _base_prices[inventory_data[id].type] * pow(inventory_data[id].quality,0.85),0.01)
+	inventory_data.remove_at(id)
+	inv_updated()
+	show_page(current_page)
+	print("cash: ", cash)

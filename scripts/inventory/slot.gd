@@ -20,7 +20,7 @@ func set_slot_data(type: String, quality: float, weight: float, mweight: float, 
 		weight_label.text = "Weight: " + str(snapped(weight/1000,0.01)) + "KG"
 	else:
 		weight_label.text = "Weight: " + str(snapped(weight,0.01)) + "G"
-	mweight_label.text = "Mineral percentage: " + str(snapped((mweight / weight * 100),0.01))
+	mweight_label.text = "Mineral percentage: " + str(snapped((mweight / weight * 100),1))
 	
 	self.id = id
 	
