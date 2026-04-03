@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 @export var base_movement_speed: float = 160.0
-@export var backpack_size: float = 10000
+@export var backpack_size: float = 5000
+var carry_capacity = 25000
 @export var inspect_range: float = 81
 var current_movespeed = base_movement_speed
 var total_weight = 0.0
@@ -35,19 +36,25 @@ func _input(event: InputEvent) -> void:
 			enter_inventory(bp_node)
 
 func move_multi() -> float:
-	var load_ratio = total_weight / backpack_size
-	if load_ratio <= 0.8:
+	var load_ratio = total_weight / carry_capacity
+
+	var start_slow := 0.6
+	var full_stop := 1.0
+
+	if load_ratio <= start_slow:
 		return 1.0
-	elif load_ratio >= 1.2:
+
+	if load_ratio >= full_stop:
 		return 0.0
-	
-	var t = clamp((load_ratio - 0.8) / 0.4, 0.0, 1.0)
-	var e := 2
-	var c := pow(t,e)
-	
-	var speed_at_full := 0.5
-	
-	return lerp(1.0, speed_at_full, c)
+
+	var t = (load_ratio - start_slow) / (full_stop - start_slow)
+
+	var e := 2.0
+	var c := pow(t, e)
+
+	var min_speed := 0.2
+
+	return lerp(1.0, min_speed, c)
 
 func inv_updated(inventory: Array) -> void:
 	total_weight = 0
@@ -84,12 +91,16 @@ func _physics_process(delta: float) -> void:
 		else:
 			sprite.play("default")
 
-func enter_inspect_mode(rock: Node2D) -> void:
+func enter_inspect_mode(rock: Node2D, zoom = -1.5, mine = true) -> void:
 	current_mode = Mode.INSPECT
 	inspected_rock = rock
-	CursorManager.set_cursor("mine")
+	if mine:
+		CursorManager.set_cursor("mine")
 	_set_other_rocks_visible(rock, false)
-	mode_changed.emit(current_mode, rock)
+	if zoom > 0:
+		mode_changed.emit(current_mode, rock, zoom)
+	else:
+		mode_changed.emit(current_mode, rock)
 	print("Entered INSPECT mode")
 
 func enter_inventory(backpack: Node2D) -> void:
@@ -127,6 +138,6 @@ func _set_other_rocks_visible(excluded: Node2D, visible: bool) -> void:
 		if rock == excluded:
 			continue
 		rock.visible = visible
-		var klik = rock.get_node_or_null("kamien_klik")
-		if klik:
-			klik.input_pickable = visible
+		for child in rock.get_children():
+			if child is Area2D:
+				child.input_pickable = visible

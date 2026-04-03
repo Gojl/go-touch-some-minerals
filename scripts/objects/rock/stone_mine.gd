@@ -143,3 +143,4 @@ func finish_mining() -> void:
 		player.exit_inspect()
 
 	queue_free()
+	

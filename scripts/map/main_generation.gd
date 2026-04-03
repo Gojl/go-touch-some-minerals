@@ -1,8 +1,8 @@
 extends Node2D
 
 @export var rock_scene: PackedScene
-@export var map_width: int = 100        
-@export var map_depth: int = 120        
+@export var map_width: int = 100
+@export var map_height: int = 100
 @export var region_name: String = "upper_silesia"
 
 @export var tilemap: TileMapLayer
@@ -10,7 +10,8 @@ extends Node2D
 # Loaded data
 var _mineral_atlas: Dictionary = {}     
 var _vein_data: Dictionary = {}        
-var _region_weights: Dictionary = {}    
+var _region_weights: Dictionary = {}
+var _occupied_tiles: Dictionary = {}   # Vector2i -> true, prevents stacking
 
 func _ready() -> void:
 	if not _load_data():
@@ -85,14 +86,8 @@ func spawn_veins() -> void:
 			_spawn_vein(mineral_name, vein, atlas)
 
 func _spawn_vein(mineral_name: String, vein: Dictionary, atlas: Dictionary) -> void:
-	var depth_min: int = vein["depth_min"]
-	var depth_max: int = min(vein["depth_max"], map_depth)
-
-	if depth_min > depth_max:
-		return
-
 	var cx: int = randi_range(-map_width / 2, map_width / 2)
-	var cy: int = randi_range(depth_min, depth_max)   
+	var cy: int = randi_range(-map_height / 2, map_height / 2)
 
 	var vein_size: int = randi_range(vein["vein_size"][0], vein["vein_size"][1])
 	var cluster_chance: float = vein["cluster_chance"]
@@ -104,12 +99,15 @@ func _spawn_vein(mineral_name: String, vein: Dictionary, atlas: Dictionary) -> v
 			continue
 
 		var tx: int = cx + randi_range(-spread, spread)
-		var ty: int = cy + randi_range(-2, 2)
-
-		ty = clamp(ty, depth_min, depth_max)
+		var ty: int = cy + randi_range(-spread, spread)
 
 		if tx == 0 and ty == 0:
 			tx = 1
+
+		var tile := Vector2i(tx, ty)
+		if _occupied_tiles.has(tile):
+			continue
+		_occupied_tiles[tile] = true
 
 		var rock := rock_scene.instantiate()
 		rock.global_position = tilemap.map_to_local(Vector2i(tx, ty))

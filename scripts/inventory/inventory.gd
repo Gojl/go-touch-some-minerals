@@ -84,7 +84,7 @@ func _process(delta):
 	else:
 		visible = true
 
-func _on_toggle_inventory(newMode, bpNode: Node2D) -> void:	
+func _on_toggle_inventory(newMode, bpNode: Node2D, _useless_zoom = null) -> void:	
 	if newMode == player.Mode.INV:
 		position = bpNode.position
 		show_page(current_page)
@@ -239,6 +239,7 @@ func drop_mineral(id: int):
 	new_dropped_mineral.weight = inventory_data[id].weight
 	new_dropped_mineral.mweight = inventory_data[id].mweight
 	new_dropped_mineral.fragility = inventory_data[id].fragility
+	new_dropped_mineral.add_to_group("rocks")
 	inventory_data.remove_at(id)
 	map.add_child(new_dropped_mineral)
 	inv_updated()
@@ -250,8 +251,11 @@ func inv_updated() -> void:
 
 func _on_mineral_collected(mineral_type: String, quality: float, weight: float, mweight: float, fragility: float) -> void:
 	inventory_data.append({"type": mineral_type, "quality": quality, "weight": weight, "mweight": mweight, "fragility": fragility})
-	inv_updated()
-	print("Inventory updated: ", mineral_type, " quality: ", quality)
+	if player.total_weight + weight > player.backpack_size:
+		drop_mineral(inventory_data.size()-1)
+	else:
+		inv_updated()
+		print("Inventory updated: ", mineral_type, " quality: ", quality)
 
 func sell_mineral(id: int):
 	if id < 0 or id >= inventory_data.size():
