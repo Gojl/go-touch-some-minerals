@@ -1,0 +1,35 @@
+Najpierw świat powinien być traktowany jako siatka (tilemapa) podzielona na chunki, żeby nie generować wszystkiego naraz. Każdy chunk jest generowany osobno w momencie, kiedy gracz się do niego zbliża. Dla każdego tile’a bierzesz wartość z noise (np. FastNoiseLite), która określa wysokość terenu. Na podstawie tej wartości przypisujesz typ podłoża: niższe wartości to bardziej „brudna” ziemia, środkowe to trawa, wyższe to sucha lub jaśniejsza trawa. Drugi noise służy do przełamania monotonii i dodania detali, czyli np. gdzie pojawi się mech, liście albo drobne kamienie.
+
+Po wygenerowaniu samego podłoża robisz drugi przebieg po chunku i losujesz obiekty: drzewa, krzaki i kamienie. Każdy tile ma określoną szansę na spawn obiektu, zależną od typu podłoża (np. drzewa tylko na trawie). Kamienie spawnują się jako osobne instancje sceny, ale z ograniczeniem, żeby nie nachodziły na siebie i nie pojawiały się w miejscu startu gracza.
+
+Dopiero kiedy masz kamień, przypisujesz do niego minerał. Procentowe szanse na pojawianie się bazujesz na regionie, a potem losujesz inne wartosci typu waga procenty itp. To daje typ minerału dla tego konkretnego kamienia.
+
+Następnie sprawdzasz, czy ten kamień należy do żyły. Jeśli tak, to zamiast pojedynczego kamienia generujesz grupę, losujesz wielkość żyły i w losowych offsetach wokół pozycji startowej tworzysz kolejne kamienie tego samego typu minerału. Offsety powinny być małe, żeby tworzyć skupiska, a nie rozrzucone punkty. Każdy nowy kamień sprawdza, czy może się tam pojawić (czy tile jest wolny, czy nie ma kolizji itd.).
+
+Jeśli nie trafisz żyły, zostaje pojedynczy kamień z tym minerałem.
+
+Finalnie wygląda to tak, że chunk się generuje: najpierw teren z noise, potem detale, potem obiekty, a kamienie od razu dostają przypisany minerał i ewentualnie rozszerzają się w żyły. Dzięki temu świat jest spójny, a minerały nie są losowe tylko zależne od miejsca i tworzą skupiska. 
+wiem że tomek probowal napisac api do generacji ale nie wiem jak mu w tym poszlo wiec jak na razie bazujemy na tych noisach
+progi wysokosci 
+
+< -0.2 → ziemia (ciemna)
+-0.2 do 0.2 → trawa
+0.2 → jasna trawa / sucha
+
+złoto:       < -0.3
+srebro:      < -0.25
+galena:      < -0.2
+piryt:       < -0.1
+miedź:       -0.3 do 0.0
+fluoryt:     < -0.15
+topaz:       < -0.35
+ametyst:     < -0.25
+opal:        < -0.2
+
+żelazo:      -0.2 do 0.1
+kwarc:       -0.2 do 0.2
+kalcyt:      -0.1 do 0.2
+malachit:    -0.2 do 0.0
+agat:        -0.1 do 0.1 
+
+i powyzej 0.2 nic sie nie moze generowac z mineralow
