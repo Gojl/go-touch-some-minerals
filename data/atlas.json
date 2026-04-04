@@ -1,169 +1,154 @@
 {
-  "minerals": [
-	{
-	  "name": "gold",
-	  "avg_weight_kg": 0.05,
-	  "mineral_percent": 0.9,
-	  "base_quality": 0.85,
-	  "quality_variation": 0.1,
-	  "fragility": 2,
-	  "mohs_hardness": 2.5,
-	  "rarity_percent": 2,
-	  "spawn_height": "<-0.2"
-	},
-	{
-	  "name": "iron",
-	  "avg_weight_kg": 5.0,
-	  "mineral_percent": 0.45,
-	  "base_quality": 0.55,
-	  "quality_variation": 0.2,
-	  "fragility": 2,
-	  "mohs_hardness": 4,
-	  "rarity_percent": 25,
-	  "spawn_height": "-0.2..0.2"
-	},
-	{
-	  "name": "galena",
-	  "avg_weight_kg": 3.0,
-	  "mineral_percent": 0.6,
-	  "base_quality": 0.65,
-	  "quality_variation": 0.2,
-	  "fragility": 4,
-	  "mohs_hardness": 2.5,
-	  "rarity_percent": 10,
-	  "spawn_height": "<-0.2"
-	},
-	{
-	  "name": "silver",
-	  "avg_weight_kg": 0.3,
-	  "mineral_percent": 0.7,
-	  "base_quality": 0.8,
-	  "quality_variation": 0.15,
-	  "fragility": 2,
-	  "mohs_hardness": 2.5,
-	  "rarity_percent": 4,
-	  "spawn_height": "<-0.2"
-	},
-	{
-	  "name": "copper",
-	  "avg_weight_kg": 2.0,
-	  "mineral_percent": 0.5,
-	  "base_quality": 0.65,
-	  "quality_variation": 0.2,
-	  "fragility": 2,
-	  "mohs_hardness": 3,
-	  "rarity_percent": 18,
-	  "spawn_height": "-0.2..0.2"
-	},
-	{
-	  "name": "pyrite",
-	  "avg_weight_kg": 1.5,
-	  "mineral_percent": 0.7,
-	  "base_quality": 0.6,
-	  "quality_variation": 0.25,
-	  "fragility": 3,
-	  "mohs_hardness": 6,
-	  "rarity_percent": 30,
-	  "spawn_height": "<-0.2"
-	},
-	{
-	  "name": "fluorite",
-	  "avg_weight_kg": 1.2,
-	  "mineral_percent": 0.75,
-	  "base_quality": 0.7,
-	  "quality_variation": 0.2,
-	  "fragility": 4,
-	  "mohs_hardness": 4,
-	  "rarity_percent": 12,
-	  "spawn_height": "-0.2..0.2"
-	},
-	{
-	  "name": "calcite",
-	  "avg_weight_kg": 2.5,
-	  "mineral_percent": 0.6,
-	  "base_quality": 0.55,
-	  "quality_variation": 0.25,
-	  "fragility": 4,
-	  "mohs_hardness": 3,
-	  "rarity_percent": 28,
-	  "spawn_height": "-0.2..0.2"
-	},
-	{
-	  "name": "malachite",
-	  "avg_weight_kg": 0.8,
-	  "mineral_percent": 0.65,
-	  "base_quality": 0.75,
-	  "quality_variation": 0.2,
-	  "fragility": 4,
-	  "mohs_hardness": 3.5,
-	  "rarity_percent": 8,
-	  "spawn_height": "-0.2..0.2"
-	},
-	{
-	  "name": "topaz",
-	  "avg_weight_kg": 0.4,
-	  "mineral_percent": 0.8,
-	  "base_quality": 0.9,
-	  "quality_variation": 0.08,
-	  "fragility": 2,
-	  "mohs_hardness": 8,
-	  "rarity_percent": 3,
-	  "spawn_height": "<-0.2"
-	},
-	{
-	  "name": "amethyst",
-	  "avg_weight_kg": 0.6,
-	  "mineral_percent": 0.8,
-	  "base_quality": 0.85,
-	  "quality_variation": 0.15,
-	  "fragility": 3,
-	  "mohs_hardness": 7,
-	  "rarity_percent": 7,
-	  "spawn_height": "-0.2..0.2"
-	},
-	{
-	  "name": "quartz",
-	  "avg_weight_kg": 2.0,
-	  "mineral_percent": 0.85,
-	  "base_quality": 0.7,
-	  "quality_variation": 0.2,
-	  "fragility": 3,
-	  "mohs_hardness": 7,
-	  "rarity_percent": 35,
-	  "spawn_height": "-0.2..0.2"
-	},
-	{
-	  "name": "opal",
-	  "avg_weight_kg": 0.3,
-	  "mineral_percent": 0.7,
-	  "base_quality": 0.9,
-	  "quality_variation": 0.12,
-	  "fragility": 5,
-	  "mohs_hardness": 5.5,
-	  "rarity_percent": 2,
-	  "spawn_height": "-0.2..0.2"
-	},
-	{
-	  "name": "amber",
-	  "avg_weight_kg": 0.05,
-	  "mineral_percent": 1.0,
-	  "base_quality": 0.8,
-	  "quality_variation": 0.15,
-	  "fragility": 5,
-	  "mohs_hardness": 2,
-	  "rarity_percent": 6,
-	  "spawn_height": "-0.2..0.2"
-	},
-	{
-	  "name": "agate",
-	  "avg_weight_kg": 0.9,
-	  "mineral_percent": 0.85,
-	  "base_quality": 0.8,
-	  "quality_variation": 0.18,
-	  "fragility": 2,
-	  "mohs_hardness": 7,
-	  "rarity_percent": 9,
-	  "spawn_height": "-0.2..0.2"
-	}
-  ]
-}
+	"minerals": [
+	  {
+		"name": "gold",
+		"avg_weight_kg": 0.05,
+		"mineral_percent": 0.9,
+		"base_quality": 0.85,
+		"quality_variation": 0.1,
+		"fragility": 2,
+		"mohs_hardness": 2.5,
+		"rarity_percent": 2
+	  },
+	  {
+		"name": "iron",
+		"avg_weight_kg": 5.0,
+		"mineral_percent": 0.45,
+		"base_quality": 0.55,
+		"quality_variation": 0.2,
+		"fragility": 2,
+		"mohs_hardness": 4,
+		"rarity_percent": 25
+	  },
+	  {
+		"name": "galena",
+		"avg_weight_kg": 3.0,
+		"mineral_percent": 0.6,
+		"base_quality": 0.65,
+		"quality_variation": 0.2,
+		"fragility": 4,
+		"mohs_hardness": 2.5,
+		"rarity_percent": 10
+	  },
+	  {
+		"name": "silver",
+		"avg_weight_kg": 0.3,
+		"mineral_percent": 0.7,
+		"base_quality": 0.8,
+		"quality_variation": 0.15,
+		"fragility": 2,
+		"mohs_hardness": 2.5,
+		"rarity_percent": 4
+	  },
+	  {
+		"name": "copper",
+		"avg_weight_kg": 2.0,
+		"mineral_percent": 0.5,
+		"base_quality": 0.65,
+		"quality_variation": 0.2,
+		"fragility": 2,
+		"mohs_hardness": 3,
+		"rarity_percent": 18
+	  },
+	  {
+		"name": "pyrite",
+		"avg_weight_kg": 1.5,
+		"mineral_percent": 0.7,
+		"base_quality": 0.6,
+		"quality_variation": 0.25,
+		"fragility": 3,
+		"mohs_hardness": 6,
+		"rarity_percent": 30
+	  },
+	  {
+		"name": "fluorite",
+		"avg_weight_kg": 1.2,
+		"mineral_percent": 0.75,
+		"base_quality": 0.7,
+		"quality_variation": 0.2,
+		"fragility": 4,
+		"mohs_hardness": 4,
+		"rarity_percent": 12
+	  },
+	  {
+		"name": "calcite",
+		"avg_weight_kg": 2.5,
+		"mineral_percent": 0.6,
+		"base_quality": 0.55,
+		"quality_variation": 0.25,
+		"fragility": 4,
+		"mohs_hardness": 3,
+		"rarity_percent": 28
+	  },
+	  {
+		"name": "malachite",
+		"avg_weight_kg": 0.8,
+		"mineral_percent": 0.65,
+		"base_quality": 0.75,
+		"quality_variation": 0.2,
+		"fragility": 4,
+		"mohs_hardness": 3.5,
+		"rarity_percent": 8
+	  },
+	  {
+		"name": "topaz",
+		"avg_weight_kg": 0.4,
+		"mineral_percent": 0.8,
+		"base_quality": 0.9,
+		"quality_variation": 0.08,
+		"fragility": 2,
+		"mohs_hardness": 8,
+		"rarity_percent": 3
+	  },
+	  {
+		"name": "amethyst",
+		"avg_weight_kg": 0.6,
+		"mineral_percent": 0.8,
+		"base_quality": 0.85,
+		"quality_variation": 0.15,
+		"fragility": 3,
+		"mohs_hardness": 7,
+		"rarity_percent": 7
+	  },
+	  {
+		"name": "quartz",
+		"avg_weight_kg": 2.0,
+		"mineral_percent": 0.85,
+		"base_quality": 0.7,
+		"quality_variation": 0.2,
+		"fragility": 3,
+		"mohs_hardness": 7,
+		"rarity_percent": 35
+	  },
+	  {
+		"name": "opal",
+		"avg_weight_kg": 0.3,
+		"mineral_percent": 0.7,
+		"base_quality": 0.9,
+		"quality_variation": 0.12,
+		"fragility": 5,
+		"mohs_hardness": 5.5,
+		"rarity_percent": 2
+	  },
+	  {
+		"name": "amber",
+		"avg_weight_kg": 0.05,
+		"mineral_percent": 1.0,
+		"base_quality": 0.8,
+		"quality_variation": 0.15,
+		"fragility": 5,
+		"mohs_hardness": 2,
+		"rarity_percent": 6
+	  },
+	  {
+		"name": "agate",
+		"avg_weight_kg": 0.9,
+		"mineral_percent": 0.85,
+		"base_quality": 0.8,
+		"quality_variation": 0.18,
+		"fragility": 2,
+		"mohs_hardness": 7,
+		"rarity_percent": 9
+	  }
+	]
+  }
