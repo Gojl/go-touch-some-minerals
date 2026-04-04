@@ -2,13 +2,13 @@ extends Node2D
 
 var mineral_type: String = "iron"
 
-var base_mineral_quality: float = 0.55  
-var quality_variation:    float = 0.2    
-var mineral_fragility:    int   = 2      
-var mohs_hardness:        float = 4.0   
-var mineral_percentage:   float = 0.45  
-var weight:               float = 5000.0 
-var mineral_weight:       float = 2250.0 
+var base_mineral_quality: float = 0.55
+var quality_variation:    float = 0.2
+var mineral_fragility:    int   = 2
+var mohs_hardness:        float = 4.0
+var mineral_percentage:   float = 0.45
+var weight:               float = 5000.0
+var mineral_weight:       float = 2250.0
 
 
 var base_mineral_health: float:
@@ -23,8 +23,8 @@ var max_force       := 100.0
 
 var charging      := false
 var charge_time   := 0.0
-var mineral_health: float           
-var mineral_quality: float        
+var mineral_health: float
+var mineral_quality: float
 var start_min_qual: float
 var player: Node = null
 
@@ -143,4 +143,3 @@ func finish_mining() -> void:
 		player.exit_inspect()
 
 	queue_free()
-	

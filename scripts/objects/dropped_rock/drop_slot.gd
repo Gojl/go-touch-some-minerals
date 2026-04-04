@@ -8,7 +8,7 @@ extends Node
 
 func _ready() -> void:
 	mineral_updated()
-	
+
 func mineral_updated() -> void:
 	var mineral = get_parent().get_parent()
 	mineral_label.text = "Type: " + mineral.type
@@ -18,6 +18,6 @@ func mineral_updated() -> void:
 	else:
 		weight_label.text = "Weight: " + str(snapped(mineral.weight,0.01)) + "G"
 	mweight_label.text = "Mineral percentage: " + str(snapped((mineral.mweight / mineral.weight * 100),1))
-		
+
 	for child in text_grid.get_children():
 		child.custom_minimum_size = Vector2(text_grid.size.x, text_grid.size.y / text_grid.get_child_count())

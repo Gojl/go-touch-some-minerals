@@ -6,7 +6,7 @@ extends Node
 @onready var weight_label = $text_grid/weight_label
 @onready var mweight_label = $text_grid/mweight_label
 @onready var drop_button = $drop_button
-var id: int 
+var id: int
 
 func clear() -> void:
 	for child in text_grid.get_children():
@@ -21,8 +21,8 @@ func set_slot_data(type: String, quality: float, weight: float, mweight: float, 
 	else:
 		weight_label.text = "Weight: " + str(snapped(weight,0.01)) + "G"
 	mweight_label.text = "Mineral percentage: " + str(snapped((mweight / weight * 100),1))
-	
+
 	self.id = id
-	
+
 	for child in text_grid.get_children():
 		child.custom_minimum_size = Vector2(text_grid.size.x, text_grid.size.y / text_grid.get_child_count())

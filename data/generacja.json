@@ -3,106 +3,106 @@
 	"gold": {
 	  "vein_size": [2, 6],
 	  "vein_rarity": 2,
-	  "depth_min": 40,
-	  "depth_max": 100,
+	  "height_min": -1.0,
+	  "height_max": -0.3,
 	  "cluster_chance": 0.4
 	},
 	"iron": {
 	  "vein_size": [6, 20],
 	  "vein_rarity": 40,
-	  "depth_min": 10,
-	  "depth_max": 120,
+	  "height_min": -0.2,
+	  "height_max": 0.1,
 	  "cluster_chance": 0.7
 	},
 	"galena": {
 	  "vein_size": [4, 12],
 	  "vein_rarity": 18,
-	  "depth_min": 20,
-	  "depth_max": 110,
+	  "height_min": -1.0,
+	  "height_max": -0.2,
 	  "cluster_chance": 0.6
 	},
 	"silver": {
 	  "vein_size": [3, 8],
 	  "vein_rarity": 6,
-	  "depth_min": 30,
-	  "depth_max": 100,
+	  "height_min": -1.0,
+	  "height_max": -0.25,
 	  "cluster_chance": 0.5
 	},
 	"copper": {
 	  "vein_size": [5, 16],
 	  "vein_rarity": 25,
-	  "depth_min": 15,
-	  "depth_max": 100,
+	  "height_min": -0.3,
+	  "height_max": 0.0,
 	  "cluster_chance": 0.65
 	},
 	"pyrite": {
 	  "vein_size": [6, 14],
 	  "vein_rarity": 35,
-	  "depth_min": 10,
-	  "depth_max": 90,
+	  "height_min": -1.0,
+	  "height_max": -0.1,
 	  "cluster_chance": 0.7
 	},
 	"fluorite": {
 	  "vein_size": [3, 10],
 	  "vein_rarity": 12,
-	  "depth_min": 30,
-	  "depth_max": 90,
+	  "height_min": -1.0,
+	  "height_max": -0.15,
 	  "cluster_chance": 0.55
 	},
 	"calcite": {
 	  "vein_size": [8, 22],
 	  "vein_rarity": 50,
-	  "depth_min": 5,
-	  "depth_max": 80,
+	  "height_min": -0.1,
+	  "height_max": 0.2,
 	  "cluster_chance": 0.8
 	},
 	"malachite": {
 	  "vein_size": [3, 9],
 	  "vein_rarity": 10,
-	  "depth_min": 25,
-	  "depth_max": 90,
+	  "height_min": -0.2,
+	  "height_max": 0.0,
 	  "cluster_chance": 0.5
 	},
 	"topaz": {
 	  "vein_size": [1, 4],
 	  "vein_rarity": 3,
-	  "depth_min": 50,
-	  "depth_max": 120,
+	  "height_min": -1.0,
+	  "height_max": -0.35,
 	  "cluster_chance": 0.3
 	},
 	"amethyst": {
 	  "vein_size": [2, 6],
 	  "vein_rarity": 7,
-	  "depth_min": 40,
-	  "depth_max": 100,
+	  "height_min": -1.0,
+	  "height_max": -0.25,
 	  "cluster_chance": 0.45
 	},
 	"quartz": {
 	  "vein_size": [8, 24],
 	  "vein_rarity": 60,
-	  "depth_min": 5,
-	  "depth_max": 120,
+	  "height_min": -0.2,
+	  "height_max": 0.2,
 	  "cluster_chance": 0.85
 	},
 	"opal": {
 	  "vein_size": [1, 3],
 	  "vein_rarity": 2,
-	  "depth_min": 40,
-	  "depth_max": 100,
+	  "height_min": -1.0,
+	  "height_max": -0.2,
 	  "cluster_chance": 0.25
 	},
 	"amber": {
 	  "vein_size": [1, 5],
 	  "vein_rarity": 8,
-	  "depth_min": 0,
-	  "depth_max": 10,
+	  "height_min": 0.0,
+	  "height_max": 0.2,
 	  "cluster_chance": 0.3
 	},
 	"agate": {
 	  "vein_size": [3, 8],
 	  "vein_rarity": 10,
-	  "depth_min": 15,
-	  "depth_max": 80,
+	  "height_min": -0.1,
+	  "height_max": 0.1,
 	  "cluster_chance": 0.5
 	}
   }

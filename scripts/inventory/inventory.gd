@@ -26,29 +26,29 @@ var _base_prices: Dictionary
 var open = false
 
 func _ready() -> void:
-	await get_tree().process_frame  
+	await get_tree().process_frame
 	if not _load_data():
 		return
 	player = get_tree().get_first_node_in_group("player")
-	
+
 	add_to_group("inventory")
-	
+
 	inv_updated()
-	
+
 	for i in range(items_per_page):
 		var slot = invSlot.instantiate()
 		slots_container.add_child(slot)
 		all_slots.append(slot)
 		slot.hide()
-		
-	
+
+
 	if player:
 		player.mineral_collected.connect(_on_mineral_collected)
 		print("Inventory connected to player")
 		player.mode_changed.connect(_on_toggle_inventory)
 	else:
 		push_error("Inventory: Could not find player!")
-	
+
 	scale = Vector2(0,0)
 	rotation_degrees = -90
 
@@ -84,7 +84,7 @@ func _process(delta):
 	else:
 		visible = true
 
-func _on_toggle_inventory(newMode, bpNode: Node2D, _useless_zoom = null) -> void:	
+func _on_toggle_inventory(newMode, bpNode: Node2D, _useless_zoom = null) -> void:
 	if newMode == player.Mode.INV:
 		position = bpNode.position
 		show_page(current_page)
@@ -103,13 +103,13 @@ func hide_inventory() -> void:
 
 func show_page(page: int) -> void:
 	var start := page*items_per_page
-	
+
 	if inventory_data.size() > 0:
 		empty_label.visible = false
 		for slot_index in range(items_per_page):
 			var data_index := start + slot_index
 			var slot := all_slots[slot_index]
-			
+
 			if data_index < inventory_data.size():
 				var item = inventory_data[data_index]
 				slot.show()
@@ -205,10 +205,10 @@ func crack_mineral(id: int):
 		var base_chance = 0.2
 		var r = inventory_data[id].mweight / inventory_data[id].weight
 		var rock_r = 1 - r
-		
+
 		var success = (base_chance + pow(rock_r, 2) * 0.4) / (inventory_data[id].fragility / 2.2)
 		success = clamp(success, 0, 1)
-		
+
 		if randf() < success:
 			inventory_data[id].weight = (inventory_data[id].weight - inventory_data[id].mweight) * randf_range(0.7,0.9)
 			inventory_data[id].weight += inventory_data[id].mweight
@@ -227,10 +227,10 @@ func crack_mineral(id: int):
 
 func drop_mineral(id: int):
 	print("Dropping mineral")
-	
+
 	if id < 0 or id >= inventory_data.size():
 		return
-	
+
 	var map = player.get_parent()
 	var new_dropped_mineral = droppedMineral.instantiate()
 	new_dropped_mineral.global_position = player.global_position + Vector2(15, 0)

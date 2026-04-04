@@ -3,31 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://dgamsydns7kby" path="res://scenes/character.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cbwutyt1btvmk" path="res://scripts/map/main_generation.gd" id="1_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://2cr77bs4qo5q" path="res://assets/snow-expansion.png" id="2_tbgi4"]
-[ext_resource type="Texture2D" uid="uid://b11d5xm7dngkg" path="res://assets/Cute_Fantasy_Free/Tiles/Cliff_Tile.png" id="2_tefeu"]
 [ext_resource type="Script" uid="uid://hm3qgt3wwkbk" path="res://tile_map_layer.gd" id="4_tipki"]
 [ext_resource type="PackedScene" uid="uid://cpmy28d78jxck" path="res://scenes/rock.tscn" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://gcee5il0cqvq" path="res://scripts/player/player.gd" id="7_tipki"]
 [ext_resource type="Script" uid="uid://b64qlv47hfqy4" path="res://scripts/player/zoom.gd" id="8_tipki"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o6xl0"]
-resource_name = "OldTiles"
-texture = ExtResource("2_tefeu")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tefeu"]
 resource_name = "BasicTiles"
@@ -1377,8 +1356,7 @@ terrain_set_0/terrain_1/name = "Water"
 terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 terrain_set_0/terrain_2/name = "Path"
 terrain_set_0/terrain_2/color = Color(0.792766, 0.000231316, 0.721036, 1)
-sources/1 = SubResource("TileSetAtlasSource_tefeu")
-sources/0 = SubResource("TileSetAtlasSource_o6xl0")
+sources/0 = SubResource("TileSetAtlasSource_tefeu")
 
 [node name="Main" type="Node2D" unique_id=163653872 node_paths=PackedStringArray("tilemap")]
 script = ExtResource("1_o6xl0")

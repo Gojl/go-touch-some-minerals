@@ -24,10 +24,10 @@ func _pressed() -> void:
 			var base_chance = 0.2
 			var r = mineral.mweight / mineral.weight
 			var rock_r = 1 - r
-			
+
 			var success = (base_chance + pow(rock_r, 2) * 0.4) / (mineral.fragility / 2.2)
 			success = clamp(success, 0, 1)
-			
+
 			if randf() < success:
 				mineral.weight = (mineral.weight - mineral.mweight) * randf_range(0.7,0.9)
 				mineral.weight += mineral.mweight

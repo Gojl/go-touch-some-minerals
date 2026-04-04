@@ -84,12 +84,12 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
-	
+
 	var direction := Vector2(
 		Input.get_axis("left", "right"),
 		Input.get_axis("up", "down")
 	).normalized()
-	
+
 	velocity = direction * current_movespeed
 	var collision = move_and_collide(velocity * delta)
 	if collision:
@@ -97,10 +97,10 @@ func _physics_process(delta: float) -> void:
 		if collider is RigidBody2D:
 			var push_direction = (collider.global_position-global_position).normalized()
 			collider.apply_force(push_direction * current_movespeed / 2.5 / collider.mass)
-	
+
 	if global_position.distance_to(get_global_mouse_position()) > inspect_range:
 		CursorManager.reset_cursor()
-	
+
 	var sprite = get_node_or_null("AnimatedSprite2D")
 	if sprite:
 		if direction != Vector2.ZERO:

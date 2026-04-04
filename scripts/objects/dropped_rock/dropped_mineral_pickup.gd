@@ -6,7 +6,7 @@ var player: Node = null
 
 func _ready():
 	connect("input_event", Callable(self, "_on_input_event"))
-	
+
 	await get_tree().process_frame
 	player = get_tree().get_first_node_in_group("player")
 
