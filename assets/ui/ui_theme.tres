@@ -1,0 +1,23 @@
+[gd_resource type="Theme" format=3 uid="uid://5gc0xqn5q73k"]
+
+[ext_resource type="FontFile" uid="uid://cjdgd0fam5324" path="res://assets/fonts/PressStart2P-Regular.ttf" id="1_q4r4s"]
+[ext_resource type="Texture2D" uid="uid://ckw8t6vh3o7px" path="res://assets/ui/button_long1_highlight.png" id="2_l64jj"]
+[ext_resource type="Texture2D" uid="uid://bs6u1b3vxj6sy" path="res://assets/ui/button_long.png" id="2_pxcak"]
+[ext_resource type="Texture2D" uid="uid://butp17s3sln05" path="res://assets/ui/button_long1_pressed.png" id="4_l64jj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2t3ff"]
+texture = ExtResource("2_l64jj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wf4hb"]
+texture = ExtResource("2_pxcak")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x27uq"]
+texture = ExtResource("4_l64jj")
+
+[resource]
+Button/font_sizes/font_size = 18
+Button/fonts/font = ExtResource("1_q4r4s")
+Button/styles/hover = SubResource("StyleBoxTexture_2t3ff")
+Button/styles/normal = SubResource("StyleBoxTexture_wf4hb")
+Button/styles/pressed = SubResource("StyleBoxTexture_x27uq")
+Label/fonts/font = ExtResource("1_q4r4s")

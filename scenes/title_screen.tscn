@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://doanvxhse6k5h"]
+
+[ext_resource type="Script" uid="uid://c64evv5extjd3" path="res://scripts/ui/title_screen.gd" id="1_fgkus"]
+[ext_resource type="Texture2D" uid="uid://qe2h63psupkc" path="res://assets/ui/background.png" id="2_s4lrb"]
+[ext_resource type="Theme" uid="uid://5gc0xqn5q73k" path="res://assets/ui/ui_theme.tres" id="2_sa3yf"]
+
+[node name="titleScreen" type="Control" unique_id=632711449]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fgkus")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1590202868]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_s4lrb")
+
+[node name="Label" type="Label" parent="." unique_id=943592457]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -319.0
+offset_top = -91.0
+offset_right = 325.0
+offset_bottom = -63.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_sa3yf")
+theme_type_variation = &"HeaderLarge"
+text = "Go touch some minerals!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="start" type="Button" parent="." unique_id=1526027914]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -184.0
+offset_top = -19.727509
+offset_right = 184.0
+offset_bottom = 22.272491
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_sa3yf")
+text = "Start"
+
+[node name="atlas" type="Button" parent="." unique_id=501017676]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -184.0
+offset_top = 41.0
+offset_right = 184.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_sa3yf")
+text = "Atlas"
+
+[node name="exit" type="Button" parent="." unique_id=23516405]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -184.0
+offset_top = 99.0
+offset_right = 184.0
+offset_bottom = 141.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_sa3yf")
+text = "Exit"
+
+[connection signal="pressed" from="start" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_button_2_pressed"]

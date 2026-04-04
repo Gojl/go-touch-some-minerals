@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://d3ili5is1hcmr"]
+
+[ext_resource type="Texture2D" uid="uid://dnlb1v20ndkfe" path="res://assets/ui/mapa.png" id="1_5knl1"]
+[ext_resource type="Script" uid="uid://fqp8a8xb3k4" path="res://scenes/control.gd" id="2_i8xu6"]
+
+[node name="polska" type="Control" unique_id=1258881020]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1159811910]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_5knl1")
+
+[node name="Control" type="Control" parent="." unique_id=1384961813]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_i8xu6")
+
+[node name="Ciekoty" type="Button" parent="Control" unique_id=1400222393]
+layout_mode = 0
+anchor_left = 0.6119792
+anchor_top = 0.6419753
+anchor_right = 0.6380208
+anchor_bottom = 0.6898148
+offset_top = 3.0517578e-05
+disabled = true
+text = "+"
+metadata/_edit_use_anchors_ = true
+
+[node name="Siemianowice" type="Button" parent="Control" unique_id=1499891895]
+layout_mode = 0
+anchor_left = 0.49479166
+anchor_top = 0.7515432
+anchor_right = 0.5208333
+anchor_bottom = 0.7993827
+disabled = true
+text = "+"
+metadata/_edit_use_anchors_ = true
+
+[node name="Klodzko" type="Button" parent="Control" unique_id=2104842247]
+layout_mode = 0
+anchor_left = 0.3689236
+anchor_top = 0.712963
+anchor_right = 0.3949653
+anchor_bottom = 0.76080245
+disabled = true
+text = "+"
+metadata/_edit_use_anchors_ = true
+
+[node name="Oborniki" type="Button" parent="Control" unique_id=89884013]
+layout_mode = 0
+anchor_left = 0.3784722
+anchor_top = 0.5771605
+anchor_right = 0.4045139
+anchor_bottom = 0.625
+text = "+"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Control/Oborniki" to="Control" method="_on_oborniki_pressed"]
