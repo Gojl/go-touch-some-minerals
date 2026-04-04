@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://74y637tll3rd"]
+
+[ext_resource type="Script" uid="uid://ciqlarglknrs4" path="res://scripts/objects/dropped_rock/drop_slot_free.gd" id="1_83lru"]
+[ext_resource type="Texture2D" uid="uid://dum1idv4gpplv" path="res://assets/inventory.png" id="1_m5pxc"]
+[ext_resource type="Script" uid="uid://dlir6ukpfmml" path="res://scripts/objects/dropped_rock/drop_slot.gd" id="2_32cfl"]
+[ext_resource type="FontFile" uid="uid://cjdgd0fam5324" path="res://assets/fonts/PressStart2P-Regular.ttf" id="3_w3a6c"]
+[ext_resource type="Texture2D" uid="uid://bed2n58t7jwmy" path="res://assets/temp/drop.png" id="4_nllkt"]
+[ext_resource type="Script" uid="uid://bafraivehq3fc" path="res://scripts/objects/dropped_rock/pickup.gd" id="5_32cfl"]
+[ext_resource type="Texture2D" uid="uid://b12hribyb6uuk" path="res://assets/temp/crack.png" id="6_kuuqf"]
+[ext_resource type="Script" uid="uid://cjy4wphi8pti1" path="res://scripts/objects/dropped_rock/dropped_crack.gd" id="8_m5pxc"]
+
+[node name="Control" type="Control" unique_id=1819975887]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1_83lru")
+
+[node name="slot" type="TextureRect" parent="." unique_id=76794542]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 0
+offset_left = 100.0
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+mouse_filter = 2
+texture = ExtResource("1_m5pxc")
+expand_mode = 1
+script = ExtResource("2_32cfl")
+
+[node name="text_grid" type="GridContainer" parent="slot" unique_id=14178636]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 200.0
+offset_right = 990.0
+offset_bottom = 848.0
+scale = Vector2(0.25, 0.25)
+mouse_filter = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+
+[node name="mineral_label" type="RichTextLabel" parent="slot/text_grid" unique_id=1633363418]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_w3a6c")
+theme_override_font_sizes/normal_font_size = 68
+text = "type"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="quality_label" type="RichTextLabel" parent="slot/text_grid" unique_id=1077894184]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_w3a6c")
+theme_override_font_sizes/normal_font_size = 68
+text = "quality"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="weight_label" type="RichTextLabel" parent="slot/text_grid" unique_id=146834154]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_w3a6c")
+theme_override_font_sizes/normal_font_size = 68
+text = "weight"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="mweight_label" type="RichTextLabel" parent="slot/text_grid" unique_id=1345873499]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_w3a6c")
+theme_override_font_sizes/normal_font_size = 48
+text = "mineral percentage"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="pickup_button" type="TextureButton" parent="slot" unique_id=2003923685]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 210.0
+offset_top = 10.0
+offset_right = 290.0
+offset_bottom = 90.0
+rotation = 3.1415927
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(40, 40)
+texture_normal = ExtResource("4_nllkt")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_32cfl")
+
+[node name="crack_button" type="TextureButton" parent="slot" unique_id=198887166]
+z_index = 100
+layout_mode = 0
+offset_left = 170.0
+offset_top = 30.0
+offset_right = 250.0
+offset_bottom = 110.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("6_kuuqf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("8_m5pxc")

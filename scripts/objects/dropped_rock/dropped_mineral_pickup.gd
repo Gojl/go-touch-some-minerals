@@ -2,6 +2,7 @@ extends Area2D
 
 var player: Node = null
 @onready var mineral = get_parent()
+@onready var drop_slot = preload("res://scenes/drop_slot.tscn")
 
 func _ready():
 	connect("input_event", Callable(self, "_on_input_event"))
@@ -29,3 +30,7 @@ func _on_input_event(viewport, event, shape_idx) -> void:
 		if player.global_position.distance_to(mineral.global_position) <= player.inspect_range:
 			if event.button_index == MOUSE_BUTTON_LEFT and player.get_current_mode() == player.Mode.EXPLORE:
 				player.enter_inspect_mode(mineral, 20, false)
+				var newSlot = drop_slot.instantiate()
+				mineral.add_child(newSlot)
+				newSlot.top_level = true
+				newSlot.global_position = mineral.global_position

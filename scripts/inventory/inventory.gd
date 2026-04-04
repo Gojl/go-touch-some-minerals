@@ -199,7 +199,7 @@ func prev_page():
 
 
 func crack_mineral(id: int):
-	if inventory_data[id].weight <= 2 * inventory_data[id].mweight or inventory_data[id].weight < 30:
+	if inventory_data[id].weight <= 1.75 * inventory_data[id].mweight or inventory_data[id].weight < 30:
 		print("Can't crack")
 	else:
 		var base_chance = 0.2

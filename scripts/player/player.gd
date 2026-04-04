@@ -34,6 +34,23 @@ func _input(event: InputEvent) -> void:
 			exit_inspect()
 		elif current_mode == Mode.EXPLORE:
 			enter_inventory(bp_node)
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index != MOUSE_BUTTON_LEFT:
+			return
+		if get_current_mode() != Mode.INSPECT:
+			return
+		if get_viewport().gui_get_hovered_control():
+			return
+		var query = PhysicsPointQueryParameters2D.new()
+		query.position = event.position
+		var result = get_world_2d().direct_space_state.intersect_point(query)
+		var clicked_inspected_rock = false
+		for r in result:
+			if r.collider.get_parent() == inspected_rock:
+				clicked_inspected_rock = true
+				break
+		if not clicked_inspected_rock:
+			exit_inspect()
 
 func move_multi() -> float:
 	var load_ratio = total_weight / carry_capacity
