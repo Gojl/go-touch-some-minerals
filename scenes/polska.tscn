@@ -1,7 +1,29 @@
 [gd_scene format=3 uid="uid://d3ili5is1hcmr"]
 
-[ext_resource type="Texture2D" uid="uid://dnlb1v20ndkfe" path="res://assets/ui/mapa.png" id="1_5knl1"]
-[ext_resource type="Script" uid="uid://fqp8a8xb3k4" path="res://scenes/control.gd" id="2_i8xu6"]
+[ext_resource type="Texture2D" uid="uid://b0rdl8w6xluqb" path="res://assets/ui/mapa.png" id="1_5knl1"]
+[ext_resource type="Script" uid="uid://c155ptdr2kk1q" path="res://scripts/ui/polska.gd" id="1_cpuoa"]
+[ext_resource type="Theme" uid="uid://5gc0xqn5q73k" path="res://assets/ui/ui_theme.tres" id="3_cpuoa"]
+[ext_resource type="Texture2D" uid="uid://ch1u0p765ur0u" path="res://assets/ui/znacznik-hover.png" id="4_e0ay5"]
+[ext_resource type="Texture2D" uid="uid://dhq0jrg5yl71i" path="res://assets/ui/znacznik.png" id="5_yuodx"]
+[ext_resource type="Texture2D" uid="uid://cep38jmdgulli" path="res://assets/ui/znacznik-pressed.png" id="6_v2gum"]
+[ext_resource type="FontFile" uid="uid://d4gslqmidwpds" path="res://assets/fonts/Pixel-UniCode.ttf" id="8_yuodx"]
+[ext_resource type="FontFile" uid="uid://ppyx8v8pntsc" path="res://assets/fonts/Born2bSportyFS.otf" id="9_v2gum"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_con8a"]
+texture = ExtResource("4_e0ay5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hsvje"]
+texture = ExtResource("5_yuodx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_260ht"]
+texture = ExtResource("6_v2gum")
+
+[sub_resource type="Theme" id="Theme_cpuoa"]
+Button/font_sizes/font_size = 23
+Button/fonts/font = ExtResource("9_v2gum")
+Button/styles/hover = SubResource("StyleBoxTexture_con8a")
+Button/styles/normal = SubResource("StyleBoxTexture_hsvje")
+Button/styles/pressed = SubResource("StyleBoxTexture_260ht")
 
 [node name="polska" type="Control" unique_id=1258881020]
 layout_mode = 3
@@ -10,6 +32,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_cpuoa")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1159811910]
 layout_mode = 1
@@ -20,53 +43,79 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_5knl1")
 
-[node name="Control" type="Control" parent="." unique_id=1384961813]
+[node name="slupia" type="Button" parent="." unique_id=1400222393 groups=["miejscowości"]]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = 0.7803819
+anchor_top = 0.64351845
+anchor_right = 0.8072917
+anchor_bottom = 0.69135803
+offset_top = 3.0517578e-05
+theme = SubResource("Theme_cpuoa")
+autowrap_trim_flags = 192
+metadata/_edit_use_anchors_ = true
+
+[node name="siemianowice" type="Button" parent="." unique_id=1499891895 groups=["miejscowości"]]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6571181
+anchor_top = 0.75308645
+anchor_right = 0.6840278
+anchor_bottom = 0.8009259
+theme = SubResource("Theme_cpuoa")
+autowrap_trim_flags = 192
+metadata/_edit_use_anchors_ = true
+
+[node name="klodzko" type="Button" parent="." unique_id=2104842247 groups=["miejscowości"]]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.53125
+anchor_top = 0.71450615
+anchor_right = 0.5581597
+anchor_bottom = 0.7623457
+theme = SubResource("Theme_cpuoa")
+autowrap_trim_flags = 192
+metadata/_edit_use_anchors_ = true
+
+[node name="oborniki" type="Button" parent="." unique_id=89884013 groups=["miejscowości"]]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5407986
+anchor_top = 0.5787037
+anchor_right = 0.5668403
+anchor_bottom = 0.6265433
+theme = SubResource("Theme_cpuoa")
+autowrap_trim_flags = 192
+metadata/_edit_use_anchors_ = true
+
+[node name="Back" type="Button" parent="." unique_id=561529132]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.020833334
+anchor_top = 0.037037037
+anchor_right = 0.17708333
+anchor_bottom = 0.09876543
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_i8xu6")
-
-[node name="Ciekoty" type="Button" parent="Control" unique_id=1400222393]
-layout_mode = 0
-anchor_left = 0.6119792
-anchor_top = 0.6419753
-anchor_right = 0.6380208
-anchor_bottom = 0.6898148
-offset_top = 3.0517578e-05
-disabled = true
-text = "+"
+theme = ExtResource("3_cpuoa")
+text = "Back"
 metadata/_edit_use_anchors_ = true
 
-[node name="Siemianowice" type="Button" parent="Control" unique_id=1499891895]
-layout_mode = 0
-anchor_left = 0.49479166
-anchor_top = 0.7515432
-anchor_right = 0.5208333
-anchor_bottom = 0.7993827
-disabled = true
-text = "+"
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=24056239]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07204861
+anchor_top = 0.33641976
+anchor_right = 0.3359375
+anchor_bottom = 0.77160496
+theme_override_fonts/normal_font = ExtResource("8_yuodx")
+theme_override_fonts/bold_font = ExtResource("9_v2gum")
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 45
+bbcode_enabled = true
+text = "[center][color=gray]Select a town"
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Klodzko" type="Button" parent="Control" unique_id=2104842247]
-layout_mode = 0
-anchor_left = 0.3689236
-anchor_top = 0.712963
-anchor_right = 0.3949653
-anchor_bottom = 0.76080245
-disabled = true
-text = "+"
-metadata/_edit_use_anchors_ = true
-
-[node name="Oborniki" type="Button" parent="Control" unique_id=89884013]
-layout_mode = 0
-anchor_left = 0.3784722
-anchor_top = 0.5771605
-anchor_right = 0.4045139
-anchor_bottom = 0.625
-text = "+"
-metadata/_edit_use_anchors_ = true
-
-[connection signal="pressed" from="Control/Oborniki" to="Control" method="_on_oborniki_pressed"]
+[connection signal="pressed" from="oborniki" to="." method="_on_oborniki_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

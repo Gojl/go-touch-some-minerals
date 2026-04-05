@@ -1,0 +1,34 @@
+{
+  "oborniki": {
+	"name": "Oborniki Śląskie",
+	"population": 9099,
+	"area": "14.46 km2",
+	"town-rights": 1945,
+	"region": "lower_silesia",
+	"wiki": "https://en.wikipedia.org/wiki/Oborniki_%C5%9Al%C4%85skie"
+  },
+  "klodzko": {
+	"name": "Kłodzko",
+	"population": 25717,
+	"area": "25 km2",
+	"town-rights": 1233,
+	"region": "klodzko_valley",
+	"wiki": "https://en.wikipedia.org/wiki/K%C5%82odzko"
+  },
+  "siemianowice": {
+	"name": "Siemianowice Śląskie",
+	"population": 65684,
+	"area": "25.5 km2",
+	"town-rights": 1932,
+	"region": "upper_silesia",
+	"wiki": "https://en.wikipedia.org/wiki/Siemianowice_%C5%9Al%C4%85skie"
+  },
+  "slupia": {
+	"name": "Nowa Słupia",
+	"population": 1600,
+	"area": "13.97 km2",
+	"town-rights": 1351,
+	"region": "swietokrzyskie_mountains",
+	"wiki": "https://en.wikipedia.org/wiki/Nowa_S%C5%82upia"
+  }
+}

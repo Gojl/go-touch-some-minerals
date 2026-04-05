@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0rdl8w6xluqb"
-path="res://.godot/imported/mapa.png-322fdcddfdcba25eb026565658fab47f.ctex"
+uid="uid://ch1u0p765ur0u"
+path="res://.godot/imported/znacznik-hover.png-465be12b921974de71458d6ff181a2c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/mapa.png"
-dest_files=["res://.godot/imported/mapa.png-322fdcddfdcba25eb026565658fab47f.ctex"]
+source_file="res://assets/ui/znacznik-hover.png"
+dest_files=["res://.godot/imported/znacznik-hover.png-465be12b921974de71458d6ff181a2c4.ctex"]
 
 [params]
 

@@ -24,70 +24,59 @@ texture = ExtResource("2_s4lrb")
 
 [node name="Label" type="Label" parent="." unique_id=943592457]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -319.0
-offset_top = -91.0
-offset_right = 325.0
-offset_bottom = -63.0
+anchors_preset = -1
+anchor_left = 0.22222222
+anchor_top = 0.34567901
+anchor_right = 0.78125
+anchor_bottom = 0.3888889
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_sa3yf")
 theme_type_variation = &"HeaderLarge"
-text = "Go touch some minerals!"
+text = "Go touch
+some minerals!"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="start" type="Button" parent="." unique_id=1526027914]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -184.0
-offset_top = -19.727509
-offset_right = 184.0
-offset_bottom = 22.272491
+anchors_preset = -1
+anchor_left = 0.3402778
+anchor_top = 0.4691358
+anchor_right = 0.6597222
+anchor_bottom = 0.5339506
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_sa3yf")
 text = "Start"
+metadata/_edit_use_anchors_ = true
 
 [node name="atlas" type="Button" parent="." unique_id=501017676]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -184.0
-offset_top = 41.0
-offset_right = 184.0
-offset_bottom = 83.0
+anchors_preset = -1
+anchor_left = 0.3402778
+anchor_top = 0.56790125
+anchor_right = 0.6597222
+anchor_bottom = 0.63271606
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_sa3yf")
 text = "Atlas"
+metadata/_edit_use_anchors_ = true
 
 [node name="exit" type="Button" parent="." unique_id=23516405]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -184.0
-offset_top = 99.0
-offset_right = 184.0
-offset_bottom = 141.0
+anchors_preset = -1
+anchor_left = 0.3402778
+anchor_top = 0.6666667
+anchor_right = 0.6597222
+anchor_bottom = 0.7314815
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_sa3yf")
 text = "Exit"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="start" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="exit" to="." method="_on_button_2_pressed"]
