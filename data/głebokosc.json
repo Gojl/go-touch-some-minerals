@@ -1,0 +1,39 @@
+{
+  "layers": [
+	{
+	  "from": 1.0,
+	  "to": 0.3,
+	  "description": "jasna trawa / suchy teren"
+	},
+	{
+	  "from": 0.3,
+	  "to": 0.1,
+	  "description": "trawa z kamieniami"
+	},
+	{
+	  "from": 0.1,
+	  "to": -0.1,
+	  "description": "trawa + ziemia (przejście)"
+	},
+	{
+	  "from": -0.1,
+	  "to": -0.3,
+	  "description": "ziemia (ciemna, dużo kamieni)"
+	},
+	{
+	  "from": -0.3,
+	  "to": -0.5,
+	  "description": "ziemia + skała (przejście)"
+	},
+	{
+	  "from": -0.5,
+	  "to": -0.7,
+	  "description": "skała"
+	},
+	{
+	  "from": -0.7,
+	  "to": -1.0,
+	  "description": "głęboka skała"
+	}
+  ]
+}
