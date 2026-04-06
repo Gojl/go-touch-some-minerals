@@ -131,15 +131,7 @@ func apply_hit(force: float, hit_pos: Vector2) -> void:
 				var excess_loss := clampf(excess_force / (base_mineral_health * 0.5), 0.0, 1.0)
 				loss_factor    += pow(excess_loss * 1.35, 1.05)
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 			mineral_quality -= (float(mineral_fragility) + ql_bonus) * loss_factor / 10
-=======
-			mineral_quality -= (float(mineral_fragility) / 6.0 + ql_bonus) * loss_factor
->>>>>>> 472fc5a (Further generation improvements, tool implementation, mining overhaul)
-=======
-			mineral_quality -= (float(mineral_fragility) + ql_bonus) * loss_factor / 10
->>>>>>> d146faa (Small mining fixes, general fix)
 
 	mineral_quality = snapped(clamp(mineral_quality, 0.0, 1.0), 0.01)
 	_check_result()

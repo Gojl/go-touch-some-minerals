@@ -12,15 +12,7 @@ var _detail_noise  := FastNoiseLite.new()
 var _mineral_atlas:  Dictionary = {}
 var _vein_data:      Dictionary = {}
 var _region_weights: Dictionary = {}
-<<<<<<< HEAD
-<<<<<<< HEAD
 var _terrain_layers: Array      = []
-=======
-var _terrain_layers: Array      = []   # from głebokosc.json, sorted high→low
->>>>>>> 472fc5a (Further generation improvements, tool implementation, mining overhaul)
-=======
-var _terrain_layers: Array      = []
->>>>>>> d6ddbd0 (green)
 
 var _generated_chunks: Dictionary = {}
 var _occupied_tiles:   Dictionary = {}
