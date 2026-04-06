@@ -1,0 +1,46 @@
+{
+  "shop": [
+	{
+	  "name": "pickaxe_basic",
+	  "cost": 100,
+	  "unlock_requirement": null,
+	  "description": "Podstawowy kilof do metali"
+	},
+	{
+	  "name": "pickaxe_upgraded",
+	  "cost": 400,
+	  "unlock_requirement": "pickaxe_basic",
+	  "description": "Lepszy kilof – szybsze kopanie, mniejsza strata jakości"
+	},
+	{
+	  "name": "hammer_basic",
+	  "cost": 120,
+	  "unlock_requirement": null,
+	  "description": "Podstawowy młotek do minerałów w skale"
+	},
+	{
+	  "name": "hammer_upgraded",
+	  "cost": 450,
+	  "unlock_requirement": "hammer_basic",
+	  "description": "Lepszy młotek – efektywniejsze kruszenie"
+	},
+	{
+	  "name": "chisel_basic",
+	  "cost": 150,
+	  "unlock_requirement": null,
+	  "description": "Dłuto do wydobywania kryształów"
+	},
+	{
+	  "name": "chisel_upgraded",
+	  "cost": 500,
+	  "unlock_requirement": "chisel_basic",
+	  "description": "Precyzyjne dłuto – minimalna strata jakości"
+	},
+	{
+	  "name": "shovel",
+	  "cost": 80,
+	  "unlock_requirement": null,
+	  "description": "Łopata do zbierania luźnych minerałów"
+	}
+  ]
+}

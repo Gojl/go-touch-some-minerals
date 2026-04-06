@@ -1,0 +1,140 @@
+{
+  "tools": [
+	{
+	  "name": "hand",
+	  "type": "universal",
+	  "tier": 0,
+	  "efficiency": {
+		"metal_in_rock": 0.1,
+		"mineral_in_rock": 0.3,
+		"crystal_in_rock": 0.1,
+		"loose": 1.0
+	  },
+	  "quality_loss": {
+		"metal_in_rock": 0.4,
+		"mineral_in_rock": 0.2,
+		"crystal_in_rock": 0.5,
+		"loose": 0.0
+	  }
+	},
+	{
+	  "name": "pickaxe_basic",
+	  "type": "metal_in_rock",
+	  "tier": 1,
+	  "efficiency": {
+		"metal_in_rock": 1.0,
+		"mineral_in_rock": 0.6,
+		"crystal_in_rock": 0.3,
+		"loose": 0.2
+	  },
+	  "quality_loss": {
+		"metal_in_rock": 0.1,
+		"mineral_in_rock": 0.2,
+		"crystal_in_rock": 0.4,
+		"loose": 0.0
+	  }
+	},
+	{
+	  "name": "pickaxe_upgraded",
+	  "type": "metal_in_rock",
+	  "tier": 2,
+	  "efficiency": {
+		"metal_in_rock": 1.4,
+		"mineral_in_rock": 0.7,
+		"crystal_in_rock": 0.4,
+		"loose": 0.2
+	  },
+	  "quality_loss": {
+		"metal_in_rock": 0.05,
+		"mineral_in_rock": 0.15,
+		"crystal_in_rock": 0.35,
+		"loose": 0.0
+	  }
+	},
+	{
+	  "name": "hammer_basic",
+	  "type": "mineral_in_rock",
+	  "tier": 1,
+	  "efficiency": {
+		"metal_in_rock": 0.5,
+		"mineral_in_rock": 1.0,
+		"crystal_in_rock": 0.4,
+		"loose": 0.2
+	  },
+	  "quality_loss": {
+		"metal_in_rock": 0.2,
+		"mineral_in_rock": 0.1,
+		"crystal_in_rock": 0.3,
+		"loose": 0.0
+	  }
+	},
+	{
+	  "name": "hammer_upgraded",
+	  "type": "mineral_in_rock",
+	  "tier": 2,
+	  "efficiency": {
+		"metal_in_rock": 0.6,
+		"mineral_in_rock": 1.3,
+		"crystal_in_rock": 0.5,
+		"loose": 0.2
+	  },
+	  "quality_loss": {
+		"metal_in_rock": 0.15,
+		"mineral_in_rock": 0.05,
+		"crystal_in_rock": 0.25,
+		"loose": 0.0
+	  }
+	},
+	{
+	  "name": "chisel_basic",
+	  "type": "crystal_in_rock",
+	  "tier": 1,
+	  "efficiency": {
+		"metal_in_rock": 0.3,
+		"mineral_in_rock": 0.5,
+		"crystal_in_rock": 1.0,
+		"loose": 0.2
+	  },
+	  "quality_loss": {
+		"metal_in_rock": 0.3,
+		"mineral_in_rock": 0.2,
+		"crystal_in_rock": 0.1,
+		"loose": 0.0
+	  }
+	},
+	{
+	  "name": "chisel_upgraded",
+	  "type": "crystal_in_rock",
+	  "tier": 2,
+	  "efficiency": {
+		"metal_in_rock": 0.4,
+		"mineral_in_rock": 0.6,
+		"crystal_in_rock": 1.4,
+		"loose": 0.2
+	  },
+	  "quality_loss": {
+		"metal_in_rock": 0.25,
+		"mineral_in_rock": 0.15,
+		"crystal_in_rock": 0.05,
+		"loose": 0.0
+	  }
+	},
+	{
+	  "name": "shovel",
+	  "type": "loose",
+	  "tier": 1,
+	  "efficiency": {
+		"metal_in_rock": 0.1,
+		"mineral_in_rock": 0.2,
+		"crystal_in_rock": 0.2,
+		"loose": 1.5
+	  },
+	  "quality_loss": {
+		"metal_in_rock": 0.4,
+		"mineral_in_rock": 0.3,
+		"crystal_in_rock": 0.3,
+		"loose": 0.0
+	  }
+	}
+  ]
+}
