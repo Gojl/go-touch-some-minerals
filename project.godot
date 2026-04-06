@@ -15,13 +15,14 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="go touch some minerals"
-run/main_scene="uid://dqtiadjopasix"
+run/main_scene="uid://doanvxhse6k5h"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 CursorManager="*uid://bsy4w3gib6sej"
+Game="*uid://8k178xwobpmc"
 
 [display]
 

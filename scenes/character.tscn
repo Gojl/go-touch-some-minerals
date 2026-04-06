@@ -51,14 +51,14 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkhd4"]
 size = Vector2(11, 12)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1146184692]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1341554331]
 position = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_my7n2")
 
-[node name="Inventory" parent="." instance=ExtResource("3_my7n2")]
+[node name="Inventory" parent="." unique_id=1313668986 instance=ExtResource("3_my7n2")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1148838304]
 position = Vector2(-4, 9)
 shape = SubResource("RectangleShape2D_rkhd4")

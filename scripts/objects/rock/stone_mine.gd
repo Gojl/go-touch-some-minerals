@@ -1,6 +1,7 @@
 extends Node2D
 
-var mineral_type: String = "iron"
+var mineral_type: String       = "iron"
+var generation_type: String    = "mineral_in_rock"
 
 var base_mineral_quality: float = 0.55
 var quality_variation:    float = 0.2
@@ -73,16 +74,25 @@ func release_hit() -> void:
 	apply_hit(force, get_global_mouse_position())
 
 func apply_hit(force: float, hit_pos: Vector2) -> void:
+	var tool          = player.get_tool() if player else {}
+	var efficiency    := 1.0
+	var ql_bonus      := 0.0
+	if not tool.is_empty() and tool.has("efficiency"):
+		efficiency = float(tool["efficiency"].get(generation_type, 1.0))
+		ql_bonus   = float(tool["quality_loss"].get(generation_type, 0.0))
+
+	var eff_force := force * efficiency
+
 	var core_pos    := get_core_global_position()
 	var dist        := hit_pos.distance_to(core_pos)
 
-	var core_radius  := 2.0
-	var ideal_radius := 3.0
+	var core_radius      := 2.0
+	var ideal_radius     := 3.0
 	var core_force_scale := 20.0
 
 	if dist <= core_radius:
 		var dist_factor := 2.0 - (dist / core_radius)
-		var loss := (float(mineral_fragility) / 5.0) * (1.0 + force / core_force_scale) * dist_factor / 10.0
+		var loss := (float(mineral_fragility) / 5.0 + ql_bonus) * (1.0 + force / core_force_scale) * dist_factor / 10.0
 		mineral_quality -= loss
 
 	elif dist <= ideal_radius:
@@ -93,8 +103,8 @@ func apply_hit(force: float, hit_pos: Vector2) -> void:
 			var ideal_force     := base_mineral_health * 0.97
 			var max_force_error := base_mineral_health * 0.9
 			var force_ratio     := force / ideal_force
-			var force_error     = abs(force - ideal_force)
-			var error_norm      = clamp(force_error / max_force_error, 0.0, 1.0)
+			var force_error      = abs(force - ideal_force)
+			var error_norm       = clamp(force_error / max_force_error, 0.0, 1.0)
 			var loss_factor     := pow(error_norm, 3.5)
 
 			loss_factor = max(loss_factor, error_norm * 0.08)
@@ -111,17 +121,17 @@ func apply_hit(force: float, hit_pos: Vector2) -> void:
 			else:
 				loss_factor  = loss_factor * 2.2 + pow(error_norm, 1.2)
 
-			var absorbed_force = min(force, mineral_health)
-			var excess_force   = max(force - mineral_health, 0.0)
+			var absorbed_force = min(eff_force, mineral_health)
+			var excess_force    = max(eff_force - mineral_health, 0.0)
 
 			loss_factor *= start_min_qual * start_min_qual
 			mineral_health -= absorbed_force
 
 			if excess_force > 0.0:
 				var excess_loss := clampf(excess_force / (base_mineral_health * 0.5), 0.0, 1.0)
-				loss_factor    += pow(excess_loss * 1.5, 1.35)
+				loss_factor    += pow(excess_loss * 1.35, 1.05)
 
-			mineral_quality -= (float(mineral_fragility) / 6.0) * loss_factor
+			mineral_quality -= (float(mineral_fragility) + ql_bonus) * loss_factor / 10
 
 	mineral_quality = snapped(clamp(mineral_quality, 0.0, 1.0), 0.01)
 	_check_result()

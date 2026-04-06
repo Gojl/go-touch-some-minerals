@@ -12,20 +12,14 @@ var _detail_noise  := FastNoiseLite.new()
 var _mineral_atlas:  Dictionary = {}
 var _vein_data:      Dictionary = {}
 var _region_weights: Dictionary = {}
+var _terrain_layers: Array      = []
 
 var _generated_chunks: Dictionary = {}
 var _occupied_tiles:   Dictionary = {}
 var _player: Node = null
 var _last_player_chunk := Vector2i(-9999, -9999)
 
-const HEIGHT_DARK_EARTH_MAX := -0.45
-const HEIGHT_GRASS_MAX      :=  0.3
-
-const NO_MINERAL_ABOVE      :=  0.3
-
-const ROCK_CHANCE_DARK_EARTH := 0.0005
-const ROCK_CHANCE_GRASS      := 0.0007
-const ROCK_CHANCE_DRY_GRASS  := 0.0003
+const NO_MINERAL_ABOVE := 0.3
 
 func _ready() -> void:
 	if not _load_data():
@@ -89,15 +83,18 @@ func _generate_chunk(chunk: Vector2i) -> void:
 			if _occupied_tiles.has(tile):
 				continue
 
+			if tilemap.is_river_tile(tile):
+				continue
+
 			_try_spawn_rock(tile, height)
 
 func _rock_chance(height: float) -> float:
-	if height < HEIGHT_DARK_EARTH_MAX:
-		return ROCK_CHANCE_DARK_EARTH
-	elif height < HEIGHT_GRASS_MAX:
-		return ROCK_CHANCE_GRASS
-	else:
-		return ROCK_CHANCE_DRY_GRASS
+	for layer in _terrain_layers:
+		var lo = min(float(layer["from"]), float(layer["to"]))
+		var hi = max(float(layer["from"]), float(layer["to"]))
+		if height >= lo and height <= hi:
+			return float(layer["rock_spawn_chance"])
+	return 0.0
 
 func _try_spawn_rock(tile: Vector2i, height: float) -> void:
 	var mineral := _pick_mineral(height)
@@ -116,12 +113,13 @@ func _try_spawn_rock(tile: Vector2i, height: float) -> void:
 			var neighbor := tile + offset
 			if neighbor == Vector2i.ZERO or _occupied_tiles.has(neighbor):
 				continue
+			if tilemap.is_river_tile(neighbor):
+				continue
 			_place_rock(neighbor, mineral)
 
 func _pick_mineral(height: float) -> String:
 	if height >= NO_MINERAL_ABOVE:
 		return ""
-
 
 	var candidates: Array = []
 	var total_weight := 0
@@ -133,7 +131,8 @@ func _pick_mineral(height: float) -> String:
 		if region_w == 0:
 			continue
 		var vein: Dictionary = _vein_data[mineral_name]
-		if height >= float(vein["height_min"]) and height < float(vein["height_max"]):
+		var spawn_range := _parse_spawn_layer(str(_mineral_atlas[mineral_name]["spawn_layer"]))
+		if height >= spawn_range.x and height < spawn_range.y:
 			candidates.append({ "name": mineral_name, "weight": region_w })
 			total_weight += region_w
 
@@ -158,6 +157,7 @@ func _place_rock(tile: Vector2i, mineral_name: String) -> void:
 
 func _configure_rock(rock: Node, mineral_name: String, atlas: Dictionary) -> void:
 	rock.mineral_type         = mineral_name
+	rock.generation_type      = str(atlas["generation_type"])
 	rock.base_mineral_quality = float(atlas["base_quality"])
 	rock.quality_variation    = float(atlas["quality_variation"])
 	rock.mineral_fragility    = int(atlas["fragility"])
@@ -182,17 +182,20 @@ func _configure_rock(rock: Node, mineral_name: String, atlas: Dictionary) -> voi
 	rock.mineral_weight = total_weight_g * actual_pct
 
 func _load_data() -> bool:
-	var atlas_raw = _read_json("res://data/atlas.json")
-	var gen_raw   = _read_json("res://data/generacja.json")
-	var reg_raw   = _read_json("res://data/regiony.json")
+	var atlas_raw  = _read_json("res://data/atlas.json")
+	var gen_raw    = _read_json("res://data/generacja.json")
+	var reg_raw    = _read_json("res://data/regiony.json")
+	var depth_raw  = _read_json("res://data/głebokosc.json")
 
-	if atlas_raw == null or gen_raw == null or reg_raw == null:
+	if atlas_raw == null or gen_raw == null or reg_raw == null or depth_raw == null:
 		return false
 
 	for entry in atlas_raw["minerals"]:
 		_mineral_atlas[entry["name"]] = entry
 
 	_vein_data = gen_raw["veins"]
+
+	_terrain_layers = depth_raw["layers"]
 
 	var found_region := false
 	for region in reg_raw["regions"]:
@@ -206,6 +209,15 @@ func _load_data() -> bool:
 		return false
 
 	return true
+
+func _parse_spawn_layer(spawn_layer: String) -> Vector2:
+	var parts := spawn_layer.split(":")
+	if parts.size() != 2:
+		push_warning("main_generation: bad spawn_layer format '%s'" % spawn_layer)
+		return Vector2(-1.0, 1.0)
+	var a := float(parts[0])
+	var b := float(parts[1])
+	return Vector2(min(a, b), max(a, b))
 
 func _read_json(path: String) -> Variant:
 	var file := FileAccess.open(path, FileAccess.READ)

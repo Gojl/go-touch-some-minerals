@@ -3,7 +3,6 @@ extends Control
 var is_open: bool = false
 var inventory_data := []
 var player: Node = null
-var cash = 0
 
 @onready var slots_container := $body/Control/backpack_grid
 @onready var empty_label = $body/empty_label
@@ -260,8 +259,9 @@ func _on_mineral_collected(mineral_type: String, quality: float, weight: float, 
 func sell_mineral(id: int):
 	if id < 0 or id >= inventory_data.size():
 		return
-	cash += snapped(snapped(inventory_data[id].mweight,1) * _base_prices[inventory_data[id].type] * pow(inventory_data[id].quality,0.85),0.01)
+	Game.money += snapped(snapped(inventory_data[id].mweight,1) * _base_prices[inventory_data[id].type] * pow(inventory_data[id].quality,0.85),0.01)
 	inventory_data.remove_at(id)
+	Game.save_data()
 	inv_updated()
 	show_page(current_page)
-	print("cash: ", cash)
+	print("cash: ", Game.money)

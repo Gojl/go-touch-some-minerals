@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var base_movement_speed: float = 160.0
-@export var backpack_size: float = 5000
+@export var backpack_size: float = 10000
 var carry_capacity = 25000
 @export var inspect_range: float = 81
 var current_movespeed = base_movement_speed
@@ -19,6 +19,9 @@ var global_chunk: Vector2i = Vector2i.ZERO
 var current_mode: Mode = Mode.EXPLORE
 var inspected_rock: Node2D = null
 
+var _tool_data: Dictionary = {}
+var current_tool: String   = "chisel_upgraded"
+
 @onready var bp_node = $backpack
 
 signal mode_changed(new_mode: Mode, rock: Node2D)
@@ -27,6 +30,8 @@ signal chunk_changed(new_chunk: Vector2i)
 
 func _ready() -> void:
 	add_to_group("player")
+	visible = true
+	_load_tools()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("inventory"):
@@ -149,6 +154,31 @@ func get_current_mode() -> Mode:
 
 func get_inspected_rock() -> Node2D:
 	return inspected_rock
+
+func _load_tools() -> void:
+	var file := FileAccess.open("res://data/narzedzia.json", FileAccess.READ)
+	if not file:
+		push_error("player: cannot open narzedzia.json")
+		return
+	var result = JSON.parse_string(file.get_as_text())
+	file.close()
+	if result == null:
+		push_error("player: failed to parse narzedzia.json")
+		return
+	for tool in result["tools"]:
+		_tool_data[tool["name"]] = tool
+	if not _tool_data.has(current_tool):
+		push_error("player: default tool '%s' not found in narzedzia.json" % current_tool)
+
+func get_tool() -> Dictionary:
+	if _tool_data.has(current_tool):
+		return _tool_data[current_tool]
+	push_warning("player: tool '%s' not loaded, returning neutral fallback" % current_tool)
+	return {
+		"name": "fallback", "type": "universal", "tier": 0,
+		"efficiency":   {"metal_in_rock": 1.0, "mineral_in_rock": 1.0, "crystal_in_rock": 1.0, "loose": 1.0},
+		"quality_loss": {"metal_in_rock": 0.0, "mineral_in_rock": 0.0, "crystal_in_rock": 0.0, "loose": 0.0}
+	}
 
 func _set_other_rocks_visible(excluded: Node2D, visible: bool) -> void:
 	for rock in get_tree().get_nodes_in_group("rocks"):

@@ -1,39 +1,46 @@
 {
-  "layers": [
-	{
-	  "from": 1.0,
-	  "to": 0.3,
-	  "description": "jasna trawa / suchy teren"
-	},
-	{
-	  "from": 0.3,
-	  "to": 0.1,
-	  "description": "trawa z kamieniami"
-	},
-	{
-	  "from": 0.1,
-	  "to": -0.1,
-	  "description": "trawa + ziemia (przejście)"
-	},
-	{
-	  "from": -0.1,
-	  "to": -0.3,
-	  "description": "ziemia (ciemna, dużo kamieni)"
-	},
-	{
-	  "from": -0.3,
-	  "to": -0.5,
-	  "description": "ziemia + skała (przejście)"
-	},
-	{
-	  "from": -0.5,
-	  "to": -0.7,
-	  "description": "skała"
-	},
-	{
-	  "from": -0.7,
-	  "to": -1.0,
-	  "description": "głęboka skała"
-	}
-  ]
-}
+	"layers": [
+	  {
+		"from": 1.0,
+		"to": 0.3,
+		"description": "jasna trawa / suchy teren",
+		"rock_spawn_chance": 0.0003
+	  },
+	  {
+		"from": 0.3,
+		"to": 0.1,
+		"description": "trawa z kamieniami",
+		"rock_spawn_chance": 0.0007
+	  },
+	  {
+		"from": 0.1,
+		"to": -0.1,
+		"description": "trawa + ziemia (przejście)",
+		"rock_spawn_chance": 0.0005
+	  },
+	  {
+		"from": -0.1,
+		"to": -0.3,
+		"description": "ziemia (ciemna, dużo kamieni)",
+		"rock_spawn_chance": 0.0007
+	  },
+	  {
+		"from": -0.3,
+		"to": -0.5,
+		"description": "ziemia + skała (przejście)",
+		"rock_spawn_chance": 0.0006
+	  },
+	  {
+		"from": -0.5,
+		"to": -0.7,
+		"description": "skała",
+		"rock_spawn_chance": 0.0005
+	  },
+	  {
+		"from": -0.7,
+		"to": -1.0,
+		"description": "głęboka skała",
+		"rock_spawn_chance": 0.0004
+	  }
+	]
+  }

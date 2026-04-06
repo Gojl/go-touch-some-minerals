@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://bllugc62550xn" path="res://scripts/inventory/button_next.gd" id="6_sr8g6"]
 
 [node name="inventory" type="Control" unique_id=2059234828]
+visible = false
 z_index = 1
 layout_mode = 3
 anchors_preset = 0
