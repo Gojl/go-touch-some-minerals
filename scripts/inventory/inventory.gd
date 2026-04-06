@@ -8,6 +8,7 @@ var player: Node = null
 @onready var empty_label = $body/empty_label
 @onready var invSlot := preload("res://scenes/inv_slot.tscn")
 @onready var weight_label = $body/weight_label
+@onready var money_label = $body/money_label
 
 @export var slide_time := 0.2
 
@@ -246,7 +247,8 @@ func drop_mineral(id: int):
 
 func inv_updated() -> void:
 	player.inv_updated(inventory_data)
-	weight_label.text = str(snapped(player.total_weight / 1000, 0.01 )) + " / " + str(snapped(player.backpack_size / 1000, 0.01)) + "KG"
+	weight_label.text = str(snapped(player.total_weight / 1000, 0.01 )) + " / " + str(snapped(player.backpack_size / 1000, 0.01)) + " KG"
+	money_label.text = str(Game.money) + " PLN"
 
 func _on_mineral_collected(mineral_type: String, quality: float, weight: float, mweight: float, fragility: float) -> void:
 	inventory_data.append({"type": mineral_type, "quality": quality, "weight": weight, "mweight": mweight, "fragility": fragility})

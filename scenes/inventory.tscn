@@ -54,6 +54,20 @@ autowrap_mode = 0
 horizontal_alignment = 2
 vertical_alignment = 1
 
+[node name="money_label" type="RichTextLabel" parent="body" unique_id=1876822988]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 47.0
+offset_right = 1619.0
+offset_bottom = 164.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/normal_font = ExtResource("3_ty45s")
+theme_override_font_sizes/normal_font_size = 68
+text = "money"
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
 [node name="page_buttons" type="GridContainer" parent="body" unique_id=1063816596]
 layout_mode = 0
 offset_left = 880.0
