@@ -8,7 +8,9 @@
 [ext_resource type="Script" uid="uid://gcee5il0cqvq" path="res://scripts/player/player.gd" id="7_tipki"]
 [ext_resource type="Texture2D" uid="uid://qe2h63psupkc" path="res://assets/ui/background.png" id="8_85g3d"]
 [ext_resource type="Script" uid="uid://b64qlv47hfqy4" path="res://scripts/player/zoom.gd" id="8_tipki"]
+[ext_resource type="FontFile" uid="uid://d4gslqmidwpds" path="res://assets/fonts/Pixel-UniCode.ttf" id="8_ya4ey"]
 [ext_resource type="Theme" uid="uid://5gc0xqn5q73k" path="res://assets/ui/ui_theme.tres" id="9_85g3d"]
+[ext_resource type="FontFile" uid="uid://ppyx8v8pntsc" path="res://assets/fonts/Born2bSportyFS.otf" id="9_eb6dy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tefeu"]
 resource_name = "BasicTiles"
@@ -1374,11 +1376,32 @@ script = ExtResource("4_tipki")
 position = Vector2(0.9999981, 1.9999995)
 scale = Vector2(0.957, 1)
 script = ExtResource("7_tipki")
+metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=290969692]
 position = Vector2(1.9930496e-06, 1.0000004)
 zoom = Vector2(4, 4)
 script = ExtResource("8_tipki")
+base_inspect_zoom = 17.0
+zoom_speed = 5.0
+
+[node name="MineralInfo" type="RichTextLabel" parent="Player/Camera2D" unique_id=1863013815]
+visible = false
+offset_left = -31.347961
+offset_top = -9.0
+offset_right = 250.14343
+offset_bottom = 239.66522
+scale = Vector2(0.048257645, 0.048257645)
+theme_override_fonts/normal_font = ExtResource("8_ya4ey")
+theme_override_fonts/bold_font = ExtResource("9_eb6dy")
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/bold_font_size = 60
+bbcode_enabled = true
+text = "[b]Rocky[/b]
+[color=gray]Something:[/color] 20%
+[color=gray]Something:[/color] 10%
+[color=gray]Nwm co jeszcze"
+fit_content = true
 
 [node name="backpack" type="Node2D" parent="Player" unique_id=1369344309]
 position = Vector2(-10, -1)
@@ -1398,16 +1421,19 @@ texture = ExtResource("8_85g3d")
 
 [node name="Label" type="Label" parent="LoadingScreen" unique_id=590004738]
 layout_mode = 1
-anchors_preset = 14
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -8.0
-offset_bottom = 8.0
+offset_left = -53.586212
+offset_top = -7.4999924
+offset_right = 202.41379
+offset_bottom = 8.500008
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.424749, 0.424749)
 theme = ExtResource("9_85g3d")
-theme_override_font_sizes/font_size = 8
 text = "Loading Level..."
 horizontal_alignment = 1
 vertical_alignment = 1

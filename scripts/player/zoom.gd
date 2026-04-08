@@ -1,9 +1,9 @@
 extends Camera2D
 
 
-@export var base_inspect_zoom = 30
+@export var base_inspect_zoom: float
 var inspect_zoom: Vector2
-@export var zoom_speed := 4.0
+@export var zoom_speed: float
 var default_zoom: Vector2
 var player: CharacterBody2D = null
 var is_inspecting: bool = false

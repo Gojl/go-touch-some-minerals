@@ -26,9 +26,13 @@ Game="*uid://8k178xwobpmc"
 
 [display]
 
-window/stretch/mode="viewport"
-window/stretch/aspect="expand"
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_height"
 mouse_cursor/custom_image="uid://eoum26qr063n"
+
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
 
 [input]
 
