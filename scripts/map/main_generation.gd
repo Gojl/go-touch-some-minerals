@@ -22,6 +22,9 @@ var _last_player_chunk := Vector2i(-9999, -9999)
 const NO_MINERAL_ABOVE := 0.3
 
 func _ready() -> void:
+	var loading = get_node_or_null("LoadingScreen")
+	if loading:
+		loading.show()
 	if not _load_data():
 		return
 	_setup_noise()
@@ -30,7 +33,19 @@ func _ready() -> void:
 	if not _player:
 		push_error("main_generation: player not found")
 		return
-	_check_player_chunk()
+	await _generate_initial_chunks()
+	if loading:
+		loading.hide()
+
+func _generate_initial_chunks() -> void:
+	var player_tile  := tilemap.local_to_map(tilemap.to_local(_player.global_position))
+	var player_chunk := Vector2i(
+		floori(float(player_tile.x) / float(chunk_size)),
+		floori(float(player_tile.y) / float(chunk_size))
+	)
+	_last_player_chunk = player_chunk
+	_generate_chunks_around(player_chunk)
+	await get_tree().process_frame
 
 func _process(_delta: float) -> void:
 	_check_player_chunk()

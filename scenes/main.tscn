@@ -3,10 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://dgamsydns7kby" path="res://scenes/character.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cbwutyt1btvmk" path="res://scripts/map/main_generation.gd" id="1_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://2cr77bs4qo5q" path="res://assets/snow-expansion.png" id="2_tbgi4"]
-[ext_resource type="Script" uid="uid://hm3qgt3wwkbk" path="res://tile_map_layer.gd" id="4_tipki"]
+[ext_resource type="Script" uid="uid://hm3qgt3wwkbk" path="res://scripts/map/tile_map_layer.gd" id="4_tipki"]
 [ext_resource type="PackedScene" uid="uid://cpmy28d78jxck" path="res://scenes/rock.tscn" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://gcee5il0cqvq" path="res://scripts/player/player.gd" id="7_tipki"]
+[ext_resource type="Texture2D" uid="uid://qe2h63psupkc" path="res://assets/ui/background.png" id="8_85g3d"]
 [ext_resource type="Script" uid="uid://b64qlv47hfqy4" path="res://scripts/player/zoom.gd" id="8_tipki"]
+[ext_resource type="Theme" uid="uid://5gc0xqn5q73k" path="res://assets/ui/ui_theme.tres" id="9_85g3d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tefeu"]
 resource_name = "BasicTiles"
@@ -1380,3 +1382,32 @@ script = ExtResource("8_tipki")
 
 [node name="backpack" type="Node2D" parent="Player" unique_id=1369344309]
 position = Vector2(-10, -1)
+
+[node name="LoadingScreen" type="TextureRect" parent="." unique_id=77599533]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -85.0
+offset_right = 155.17242
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_85g3d")
+
+[node name="Label" type="Label" parent="LoadingScreen" unique_id=590004738]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("9_85g3d")
+theme_override_font_sizes/font_size = 8
+text = "Loading Level..."
+horizontal_alignment = 1
+vertical_alignment = 1
