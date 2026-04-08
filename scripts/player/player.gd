@@ -26,7 +26,6 @@ var current_tool: String   = "chisel_upgraded"
 
 signal mode_changed(new_mode: Mode, rock: Node2D)
 signal mineral_collected(mineral_type: String, quality: float)
-signal chunk_changed(new_chunk: Vector2i)
 
 func _ready() -> void:
 	add_to_group("player")
@@ -180,11 +179,11 @@ func get_tool() -> Dictionary:
 		"quality_loss": {"metal_in_rock": 0.0, "mineral_in_rock": 0.0, "crystal_in_rock": 0.0, "loose": 0.0}
 	}
 
-func _set_other_rocks_visible(excluded: Node2D, visible: bool) -> void:
+func _set_other_rocks_visible(excluded: Node2D, tvisible: bool) -> void:
 	for rock in get_tree().get_nodes_in_group("rocks"):
 		if rock == excluded:
 			continue
-		rock.visible = visible
+		rock.visible = tvisible
 		for child in rock.get_children():
 			if child is Area2D:
 				child.input_pickable = visible

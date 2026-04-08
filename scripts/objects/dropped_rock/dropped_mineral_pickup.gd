@@ -23,7 +23,7 @@ func _mouse_exit() -> void:
 func _exit_tree() -> void:
 	CursorManager.reset_cursor()
 
-func _on_input_event(viewport, event, shape_idx) -> void:
+func _on_input_event(_viewport, event, _shape_idx) -> void:
 	if not player:
 		return
 	if event is InputEventMouseButton and event.pressed:

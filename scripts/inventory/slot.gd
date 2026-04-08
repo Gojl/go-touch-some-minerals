@@ -13,7 +13,7 @@ func clear() -> void:
 		child.text = ""
 	id = -1
 
-func set_slot_data(type: String, quality: float, weight: float, mweight: float, id: int) -> void:
+func set_slot_data(type: String, quality: float, weight: float, mweight: float, tid: int) -> void:
 	mineral_label.text = "Type: " + type
 	quality_label.text = "Quality: " + str(quality)
 	if weight/1000 >= 1:
@@ -22,7 +22,7 @@ func set_slot_data(type: String, quality: float, weight: float, mweight: float, 
 		weight_label.text = "Weight: " + str(snapped(weight,0.01)) + "G"
 	mweight_label.text = "Mineral percentage: " + str(snapped((mweight / weight * 100),1))
 
-	self.id = id
+	id = tid
 
 	for child in text_grid.get_children():
 		child.custom_minimum_size = Vector2(text_grid.size.x, text_grid.size.y / text_grid.get_child_count())

@@ -11,10 +11,10 @@ var cursors: Array
 func _ready() -> void:
 	cursors = [{"type": "mine", "name": cursor_mine}, {"type":"idle","name": cursor_idle}, {"type":"inspect","name": cursor_inspect}, {"type": "select", "name": cursor_select}]
 
-func set_cursor(name: String) -> void:
+func set_cursor(cname: String) -> void:
 	for cursor in cursors:
-		if cursor["type"] == name:
-			current_cursor = name
+		if cursor["type"] == cname:
+			current_cursor = cname
 			Input.set_custom_mouse_cursor(cursor["name"])
 func reset_cursor() -> void:
 	current_cursor = "idle"

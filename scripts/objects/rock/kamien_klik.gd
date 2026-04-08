@@ -30,7 +30,7 @@ func _mouse_exit() -> void:
 func _exit_tree() -> void:
 	_mouse_exit()
 
-func _on_input_event(viewport, event, shape_idx) -> void:
+func _on_input_event(_viewport, event, _shape_idx) -> void:
 	if not player or not visible:
 		return
 

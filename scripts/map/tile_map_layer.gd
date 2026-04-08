@@ -149,7 +149,7 @@ func _tile_in_river(tile: Vector2i, river: Dictionary) -> bool:
 	var wander   := _river_noise.get_noise_1d(float(tile.y) + river["wander_offset"])
 	var center_x = river["base_x"] + int(wander * river_wander_amplitude)
 	var w_noise  = abs(_width_noise.get_noise_1d(float(tile.y) + river["width_offset"]))
-	var half_w   := (river_min_width + int(w_noise * (river_max_width - river_min_width))) / 2
+	var half_w   = (river_min_width + (w_noise * (river_max_width - river_min_width))) / 2
 	return abs(tile.x - center_x) <= half_w
 
 func is_river_tile(tile: Vector2i) -> bool:

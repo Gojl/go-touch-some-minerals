@@ -145,7 +145,7 @@ func _pick_mineral(height: float) -> String:
 		var region_w: int = _region_weights[mineral_name]
 		if region_w == 0:
 			continue
-		var vein: Dictionary = _vein_data[mineral_name]
+		var _vein: Dictionary = _vein_data[mineral_name]
 		var spawn_range := _parse_spawn_layer(str(_mineral_atlas[mineral_name]["spawn_layer"]))
 		if height >= spawn_range.x and height < spawn_range.y:
 			candidates.append({ "name": mineral_name, "weight": region_w })
