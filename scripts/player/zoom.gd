@@ -19,7 +19,6 @@ func _ready():
 		return
 
 	player.mode_changed.connect(_on_player_mode_changed)
-	print("Camera connected to player signals")
 
 func _on_player_mode_changed(new_mode, rock: Node2D, nzoom = base_inspect_zoom) -> void:
 	if new_mode == player.Mode.EXPLORE:
@@ -33,12 +32,19 @@ func _process(delta):
 	if not player:
 		return
 
-	if is_inspecting and target_rock:
+	if is_inspecting and target_rock and player.current_mode == player.Mode.INSPECT:
+		var rock_position = target_rock.global_position + Vector2(-10, 0)
+		global_position = global_position.lerp(
+			rock_position,
+			delta * zoom_speed
+		)
+		zoom = zoom.lerp(inspect_zoom, delta * zoom_speed)
+	elif is_inspecting and target_rock:
 		global_position = global_position.lerp(
 			target_rock.global_position,
 			delta * zoom_speed
 		)
-		zoom = zoom.lerp(inspect_zoom, delta * zoom_speed)
+		zoom = zoom.lerp(inspect_zoom + Vector2(5, 5), delta * zoom_speed)
 	else:
 		global_position = global_position.lerp(
 			player.global_position,

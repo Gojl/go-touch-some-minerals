@@ -149,7 +149,7 @@ func finish_mining() -> void:
 		player.collect_mineral(mineral_type, mineral_quality, weight, mineral_weight, mineral_fragility)
 		player.exit_inspect()
 	else:
-		push_warning("stone_mine: mineral destroyed — no yield for %s" % mineral_type)
+		print("stone_mine: mineral destroyed — no yield for", mineral_type)
 		player.exit_inspect()
 
 	queue_free()

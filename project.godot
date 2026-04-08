@@ -26,8 +26,8 @@ Game="*uid://8k178xwobpmc"
 
 [display]
 
-window/stretch/mode="canvas_items"
-window/stretch/aspect="keep_height"
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 mouse_cursor/custom_image="uid://eoum26qr063n"
 
 [gui]

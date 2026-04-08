@@ -1,6 +1,6 @@
 extends Node
 
-var money: int = 0
+var money: float = 0
 var items: Array = []
 
 const SAVE_PATH := "user://save.json"

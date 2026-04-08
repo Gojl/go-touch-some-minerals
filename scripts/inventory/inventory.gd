@@ -44,7 +44,6 @@ func _ready() -> void:
 
 	if player:
 		player.mineral_collected.connect(_on_mineral_collected)
-		print("Inventory connected to player")
 		player.mode_changed.connect(_on_toggle_inventory)
 	else:
 		push_error("Inventory: Could not find player!")

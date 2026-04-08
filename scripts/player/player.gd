@@ -46,7 +46,7 @@ func _input(event: InputEvent) -> void:
 		if get_viewport().gui_get_hovered_control():
 			return
 		var query = PhysicsPointQueryParameters2D.new()
-		query.position = event.position
+		query.position = get_global_mouse_position()
 		var result = get_world_2d().direct_space_state.intersect_point(query)
 		var clicked_inspected_rock = false
 		for r in result:
@@ -113,6 +113,8 @@ func _physics_process(delta: float) -> void:
 			sprite.play("default")
 
 func enter_inspect_mode(rock: Node2D, zoom = -1.5, mine = true) -> void:
+	if current_mode == Mode.INSPECT:
+		return
 	current_mode = Mode.INSPECT
 	inspected_rock = rock
 	if mine:
