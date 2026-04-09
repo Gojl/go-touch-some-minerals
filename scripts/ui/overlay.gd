@@ -6,6 +6,7 @@ extends ColorRect
 var _tween: Tween = null
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	modulate.a = 0.0
 
 func fade_in(alpha: float = -1.0, _z_index: int = 1, duration: float = -1.0) -> void:

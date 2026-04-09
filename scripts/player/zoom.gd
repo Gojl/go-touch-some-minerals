@@ -39,12 +39,16 @@ func _process(delta):
 			delta * zoom_speed
 		)
 		zoom = zoom.lerp(inspect_zoom, delta * zoom_speed)
+		
+		player.cancel_blocked = true
 	elif is_inspecting and target_rock:
 		global_position = global_position.lerp(
 			target_rock.global_position,
 			delta * zoom_speed
 		)
 		zoom = zoom.lerp(inspect_zoom + Vector2(5, 5), delta * zoom_speed)
+		
+		player.cancel_blocked = true
 	else:
 		global_position = global_position.lerp(
 			player.global_position,
@@ -55,6 +59,8 @@ func _process(delta):
 func _input(event):
 	if not player:
 		return
-
+		
 	if is_inspecting and event.is_action_pressed("cancel"):
 		player.exit_inspect()
+		await get_tree().process_frame
+		player.cancel_blocked = false

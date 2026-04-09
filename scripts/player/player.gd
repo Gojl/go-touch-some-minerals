@@ -22,6 +22,10 @@ var inspected_rock: Node2D = null
 var _tool_data: Dictionary = {}
 var current_tool: String   = "chisel_upgraded"
 
+const PAUSE_MENU_SCENE = preload("res://scenes/pause_menu.tscn")
+var _pause_menu: CanvasLayer = null
+var cancel_blocked: bool = false
+
 @onready var bp_node = $backpack
 
 signal mode_changed(new_mode: Mode, rock: Node2D)
@@ -33,6 +37,11 @@ func _ready() -> void:
 	_load_tools()
 
 func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel") and not cancel_blocked:
+		if get_tree().paused:
+			_close_pause()
+		else:
+			_open_pause()
 	if event.is_action_pressed("inventory"):
 		if current_mode == Mode.INV:
 			exit_inspect()
@@ -188,3 +197,20 @@ func _set_other_rocks_visible(excluded: Node2D, tvisible: bool) -> void:
 		for child in rock.get_children():
 			if child is Area2D:
 				child.input_pickable = visible
+
+func _open_pause() -> void:
+	if _pause_menu:
+		return
+	_pause_menu = PAUSE_MENU_SCENE.instantiate()
+	get_tree().root.add_child(_pause_menu)
+	$Camera2D/Overlay.fade_in(0.7, 6, 0.1)
+	_pause_menu.closed.connect(_close_pause)
+	get_tree().paused = true
+
+func _close_pause() -> void:
+	if not _pause_menu:
+		return
+	get_tree().paused = false
+	$Camera2D/Overlay.fade_out(0.1)
+	_pause_menu.queue_free()
+	_pause_menu = null

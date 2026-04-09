@@ -18,3 +18,4 @@ func _pressed() -> void:
 		player.collect_mineral(mineral.type, mineral.quality, mineral.weight, mineral.mweight,mineral.fragility)
 		player.exit_inspect()
 		mineral.queue_free()
+		player.cancel_blocked = false
