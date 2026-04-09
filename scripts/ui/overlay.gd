@@ -8,7 +8,7 @@ var _tween: Tween = null
 func _ready() -> void:
 	modulate.a = 0.0
 
-func fade_in(alpha: float = -1.0, duration: float = -1.0, _z_index: int = 1) -> void:
+func fade_in(alpha: float = -1.0, _z_index: int = 1, duration: float = -1.0) -> void:
 	if duration < 0:
 		duration = default_duration
 	if alpha < 0:

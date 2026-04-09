@@ -120,7 +120,7 @@ func enter_inspect_mode(rock: Node2D, zoom = -1.5, mine = true) -> void:
 	if mine:
 		CursorManager.set_cursor("mine")
 	_set_other_rocks_visible(rock, false)
-	$Camera2D/Overlay.fade_in(0.4)
+	$Camera2D/Overlay.fade_in(0.4, 1)
 	if zoom > 0:
 		mode_changed.emit(current_mode, rock, zoom)
 	else:
@@ -129,7 +129,7 @@ func enter_inspect_mode(rock: Node2D, zoom = -1.5, mine = true) -> void:
 func enter_inventory(backpack: Node2D) -> void:
 	current_mode = Mode.INV
 	inspected_rock = backpack
-	$Camera2D/Overlay.fade_in()
+	$Camera2D/Overlay.fade_in(0.7, 3)
 	mode_changed.emit(current_mode, backpack)
 
 func enter_mine_mode(rock: Node2D) -> void:

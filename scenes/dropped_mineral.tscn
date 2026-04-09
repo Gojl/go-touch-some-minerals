@@ -8,6 +8,7 @@
 radius = 14.0
 
 [node name="RigidBody2D" type="RigidBody2D" unique_id=404374660]
+z_index = 2
 gravity_scale = 0.0
 linear_damp = 6.0
 angular_damp = 6.0
