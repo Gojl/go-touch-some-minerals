@@ -3,6 +3,7 @@ extends Area2D
 signal clicked(rock)
 
 var player: Node = null
+var infoslot = preload("res://scenes/mineral_info.tscn")
 
 func _ready() -> void:
 	connect("input_event", Callable(self, "_on_input_event"))
@@ -41,6 +42,8 @@ func _on_input_event(_viewport, event, _shape_idx) -> void:
 			if current_mode == player.Mode.EXPLORE:
 				if event.button_index == MOUSE_BUTTON_RIGHT or event.button_index == MOUSE_BUTTON_LEFT:
 					player.enter_inspect_mode(rock_node)
+					var newSlot = infoslot.instantiate()
+					rock_node.add_child(newSlot)
 					emit_signal("clicked", rock_node)
 			elif current_mode == player.Mode.INSPECT:
 				if event.button_index == MOUSE_BUTTON_RIGHT or event.button_index == MOUSE_BUTTON_LEFT:

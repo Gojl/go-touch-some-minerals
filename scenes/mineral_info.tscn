@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cum8j1jenrdg2"]
+
+[ext_resource type="Script" uid="uid://xd5fka4k6oay" path="res://scripts/objects/rock/mineral_info.gd" id="1_7bwj4"]
+[ext_resource type="Texture2D" uid="uid://dum1idv4gpplv" path="res://assets/inventory.png" id="1_k6atl"]
+[ext_resource type="FontFile" uid="uid://d4gslqmidwpds" path="res://assets/fonts/Pixel-UniCode.ttf" id="2_7bwj4"]
+[ext_resource type="FontFile" uid="uid://ppyx8v8pntsc" path="res://assets/fonts/Born2bSportyFS.otf" id="3_bs5c0"]
+
+[node name="MineralInfo" type="Control" unique_id=2117857579]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -9.0
+offset_right = -9.0
+script = ExtResource("1_7bwj4")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=488972154]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -9.853167
+offset_top = -11.999999
+offset_right = 1910.1469
+offset_bottom = 1068.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5707964
+scale = Vector2(0.01, 0.017)
+texture = ExtResource("1_k6atl")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=950615287]
+layout_mode = 0
+offset_left = -26.1233
+offset_top = -9.0
+offset_right = 255.36809
+offset_bottom = 239.66522
+scale = Vector2(0.048257645, 0.048257645)
+theme_override_fonts/normal_font = ExtResource("2_7bwj4")
+theme_override_fonts/bold_font = ExtResource("3_bs5c0")
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/bold_font_size = 60
+bbcode_enabled = true
+text = "[b]Rocky[/b]
+[color=gray]Something:[/color] 20%
+[color=gray]Something:[/color] 10%
+[color=gray]Nwm co jeszcze"
+fit_content = true

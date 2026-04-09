@@ -81,6 +81,12 @@ func _setup_rivers() -> void:
 	var spacing = (river_x_spread * 2) / max(river_count, 1)
 	for i in range(river_count):
 		var base_x = -river_x_spread + i * spacing + rng.randi_range(0, spacing / 2)
+		if base_x in range(-100,100):
+			if base_x < 0:
+				base_x -= 50
+			else:
+				base_x += 50
+			base_x *= 2
 		_rivers.append({
 			"base_x":        base_x,
 			"wander_offset": rng.randf_range(0.0, 1000.0),

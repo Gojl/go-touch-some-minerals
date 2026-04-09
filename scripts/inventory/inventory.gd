@@ -78,7 +78,7 @@ func _process(delta):
 	else:
 		scale = scale.lerp(Vector2(0,0), delta * 4)
 		rotation_degrees = lerpf(rotation_degrees, -90, delta * 4)
-	if scale <= Vector2(0.0005,0.0005):
+	if scale <= Vector2(0.003,0.003):
 		visible = false
 	else:
 		visible = true

@@ -124,18 +124,15 @@ func enter_inspect_mode(rock: Node2D, zoom = -1.5, mine = true) -> void:
 		mode_changed.emit(current_mode, rock, zoom)
 	else:
 		mode_changed.emit(current_mode, rock)
-	$Camera2D/MineralInfo.show()
 
 func enter_inventory(backpack: Node2D) -> void:
 	current_mode = Mode.INV
 	inspected_rock = backpack
 	mode_changed.emit(current_mode, backpack)
-	$Camera2D/MineralInfo.hide()
 
 func enter_mine_mode(rock: Node2D) -> void:
 	current_mode = Mode.MINE
 	mode_changed.emit(current_mode, rock)
-	$Camera2D/MineralInfo.hide()
 
 func exit_inspect() -> void:
 	if CursorManager.current_cursor != "idle":
@@ -144,11 +141,10 @@ func exit_inspect() -> void:
 	inspected_rock = null
 	_set_other_rocks_visible(null, true)
 	mode_changed.emit(current_mode, null)
-	$Camera2D/MineralInfo.hide()
 
 func collect_mineral(mineral_type: String, quality: float, weight: float, mineral_weight: float, fragility: float) -> void:
 	mineral_collected.emit(mineral_type, quality, weight,mineral_weight, fragility)
-	print("Collected: ", mineral_type, " quality: ", quality, " weight: ", weight)
+	Notifications.notify("Collected: " + mineral_type + " quality: " + str(quality) + " weight: " + str(round(weight/1000)) + " KG")
 
 func get_current_mode() -> Mode:
 	return current_mode

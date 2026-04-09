@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 
 CursorManager="*uid://bsy4w3gib6sej"
 Game="*uid://8k178xwobpmc"
+Notifications="*uid://bl44c6oonv1yg"
 
 [display]
 

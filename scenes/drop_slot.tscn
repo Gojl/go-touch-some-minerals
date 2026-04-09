@@ -14,15 +14,15 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.06, 0.06)
 script = ExtResource("1_83lru")
 
 [node name="slot" type="TextureRect" parent="." unique_id=76794542]
 custom_minimum_size = Vector2(300, 400)
 layout_mode = 0
-offset_left = 100.0
+offset_left = -500.0
 offset_top = -200.0
-offset_right = 400.0
+offset_right = -200.0
 offset_bottom = 200.0
 mouse_filter = 2
 texture = ExtResource("1_m5pxc")
