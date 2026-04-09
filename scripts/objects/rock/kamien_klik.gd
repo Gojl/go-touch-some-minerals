@@ -34,16 +34,16 @@ func _exit_tree() -> void:
 func _on_input_event(_viewport, event, _shape_idx) -> void:
 	if not player or not visible:
 		return
-		
-	if event is InputEventMouseButton and event.pressed:
-		var current_mode = player.get_current_mode()
-		var rock_node = get_parent()
-		if player.global_position.distance_to(rock_node.global_position) <= player.inspect_range:
-			if event.button_index == MOUSE_BUTTON_LEFT:
-				if current_mode == player.Mode.EXPLORE:
-					player.enter_inspect_mode(rock_node)
-					var newSlot = infoslot.instantiate()
-					rock_node.add_child(newSlot)
-					emit_signal("clicked", rock_node)
-				elif current_mode == player.Mode.INSPECT:
-					player.enter_mine_mode(rock_node)
+	if event is not InputEventMouseButton or not event.pressed:
+		return
+	
+	var current_mode = player.get_current_mode()
+	var rock_node = get_parent()
+	if player.global_position.distance_to(rock_node.global_position) <= player.inspect_range and event.button_index == MOUSE_BUTTON_LEFT:
+		if current_mode == player.Mode.EXPLORE:
+			player.enter_inspect_mode(rock_node)
+			var newSlot = infoslot.instantiate()
+			rock_node.add_child(newSlot)
+			emit_signal("clicked", rock_node)
+		elif current_mode == player.Mode.INSPECT:
+			player.enter_mine_mode(rock_node)

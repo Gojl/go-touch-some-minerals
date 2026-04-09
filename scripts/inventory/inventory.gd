@@ -10,7 +10,7 @@ var player: Node = null
 @onready var weight_label = $body/weight_label
 @onready var money_label = $body/money_label
 
-@export var slide_time := 0.2
+@export var slide_time := 0.1
 
 var droppedMineral := preload("res://scenes/dropped_mineral.tscn")
 
@@ -73,11 +73,11 @@ func _read_json(path: String) -> Variant:
 
 func _process(delta):
 	if open:
-		scale = scale.lerp(Vector2(0.018,0.018), delta * 4)
-		rotation_degrees = lerpf(rotation_degrees, 0, delta * 4)
+		scale = scale.lerp(Vector2(0.018,0.018), delta * 10)
+		rotation_degrees = lerpf(rotation_degrees, 0, delta * 10)
 	else:
-		scale = scale.lerp(Vector2(0,0), delta * 4)
-		rotation_degrees = lerpf(rotation_degrees, -90, delta * 4)
+		scale = scale.lerp(Vector2(0,0), delta * 10)
+		rotation_degrees = lerpf(rotation_degrees, -90, delta * 10)
 	if scale <= Vector2(0.003,0.003):
 		visible = false
 	else:
@@ -255,7 +255,6 @@ func _on_mineral_collected(mineral_type: String, quality: float, weight: float, 
 		drop_mineral(inventory_data.size()-1)
 	else:
 		inv_updated()
-		print("Inventory updated: ", mineral_type, " quality: ", quality)
 
 func sell_mineral(id: int):
 	if id < 0 or id >= inventory_data.size():
@@ -265,4 +264,3 @@ func sell_mineral(id: int):
 	Game.save_data()
 	inv_updated()
 	show_page(current_page)
-	print("cash: ", Game.money)

@@ -10,6 +10,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+mouse_default_cursor_shape = 12
 script = ExtResource("1_oihfr")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=2032326740]
@@ -24,6 +26,7 @@ offset_top = -139.0
 offset_right = 222.5
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("1_mbgik")
 theme_override_font_sizes/normal_font_size = 34
 bbcode_enabled = true

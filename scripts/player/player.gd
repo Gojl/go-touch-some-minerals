@@ -132,6 +132,7 @@ func enter_inventory(backpack: Node2D) -> void:
 
 func enter_mine_mode(rock: Node2D) -> void:
 	current_mode = Mode.MINE
+	rock.first_hit = true
 	mode_changed.emit(current_mode, rock)
 
 func exit_inspect() -> void:
@@ -144,7 +145,6 @@ func exit_inspect() -> void:
 
 func collect_mineral(mineral_type: String, quality: float, weight: float, mineral_weight: float, fragility: float) -> void:
 	mineral_collected.emit(mineral_type, quality, weight,mineral_weight, fragility)
-	Notifications.notify("Collected: " + mineral_type + " quality: " + str(quality) + " weight: " + str(round(weight/1000)) + " KG")
 
 func get_current_mode() -> Mode:
 	return current_mode

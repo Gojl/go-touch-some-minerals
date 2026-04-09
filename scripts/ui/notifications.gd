@@ -6,7 +6,6 @@ var queue: Array[String] = []
 var is_showing := false
 
 func notify(text: String):
-	print("CALLED:", text)
 	queue.append(text)
 	_try_show_next()
 

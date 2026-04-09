@@ -1,7 +1,7 @@
 extends Node2D
 
-var mineral_type: String       = "iron"
-var generation_type: String    = "mineral_in_rock"
+var mineral_type:       String = "iron"
+var generation_type:    String = "mineral_in_rock"
 
 var base_mineral_quality: float = 0.55
 var quality_variation:    float = 0.2
@@ -10,6 +10,8 @@ var mohs_hardness:        float = 4.0
 var mineral_percentage:   float = 0.45
 var weight:               float = 5000.0
 var mineral_weight:       float = 2250.0
+
+var first_hit:            bool  = true
 
 
 var base_mineral_health: float:
@@ -52,10 +54,16 @@ func _on_mine_input(_viewport, event, _shape_idx) -> void:
 		return
 
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if first_hit:
+			print("pierwszy")
+			first_hit = false
+			return
 		if event.pressed:
+			print("STARTING CHARGE")
 			charging   = true
 			charge_time = 0.0
 		else:
+			print("RELEASE - HIT")
 			release_hit()
 
 func get_core_global_position() -> Vector2:
@@ -67,10 +75,12 @@ func _process(delta: float) -> void:
 
 func release_hit() -> void:
 	if not charging:
+		print("RELEASED, BUT NO CHARGE")
 		return
 	charging = false
 	var force := (charge_time / max_charge_time) * max_force
 	charge_time = 0.0
+	print("HIT FORCE:", force)
 	apply_hit(force, get_global_mouse_position())
 
 func apply_hit(force: float, hit_pos: Vector2) -> void:
@@ -91,14 +101,15 @@ func apply_hit(force: float, hit_pos: Vector2) -> void:
 	var core_force_scale := 20.0
 
 	if dist <= core_radius:
+		Notifications.notify("You damaged the core")
 		var dist_factor := 2.0 - (dist / core_radius)
 		var loss := (float(mineral_fragility) / 5.0 + ql_bonus) * (1.0 + force / core_force_scale) * dist_factor / 10.0
 		mineral_quality -= loss
-
 	elif dist <= ideal_radius:
 		if force >= base_mineral_health * 2.0:
 			mineral_health  = 0.0
 			mineral_quality = 0.0
+			print("IDEAL HIT - skill issue lmao")
 		else:
 			var ideal_force     := base_mineral_health * 0.97
 			var max_force_error := base_mineral_health * 0.9
@@ -132,6 +143,9 @@ func apply_hit(force: float, hit_pos: Vector2) -> void:
 				loss_factor    += pow(excess_loss * 1.35, 1.05)
 
 			mineral_quality -= (float(mineral_fragility) + ql_bonus) * loss_factor / 10
+			Notifications.notify("Good hit")
+	else:
+		Notifications.notify("You hit too far")
 
 	mineral_quality = snapped(clamp(mineral_quality, 0.0, 1.0), 0.01)
 	_check_result()
@@ -146,10 +160,12 @@ func finish_mining() -> void:
 		return
 
 	if mineral_quality > 0.0:
+		print("MINERAL EXTRACTED, quality:", mineral_quality)
+		Notifications.notify("Collected: " + mineral_type + " quality: " + str(mineral_quality) + " weight: " + str(round(weight/1000)) + " KG")
 		player.collect_mineral(mineral_type, mineral_quality, weight, mineral_weight, mineral_fragility)
 		player.exit_inspect()
 	else:
-		print("stone_mine: mineral destroyed — no yield for", mineral_type)
+		Notifications.notify("You destroyed the mineral")
 		player.exit_inspect()
 
 	queue_free()
