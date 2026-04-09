@@ -9,7 +9,7 @@
 
 [node name="inventory" type="Control" unique_id=2059234828]
 visible = false
-z_index = 1
+z_index = 2
 layout_mode = 3
 anchors_preset = 0
 mouse_filter = 2
