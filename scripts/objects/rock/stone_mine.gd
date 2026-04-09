@@ -167,5 +167,8 @@ func finish_mining() -> void:
 	else:
 		Notifications.notify("You destroyed the mineral")
 		player.exit_inspect()
+		
+	await get_tree().process_frame
+	player.cancel_blocked = false
 
 	queue_free()
