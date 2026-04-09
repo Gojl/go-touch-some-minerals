@@ -56,7 +56,5 @@ func _input(event):
 	if not player:
 		return
 
-
-	if is_inspecting:
-		if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
-			player.exit_inspect()
+	if is_inspecting and event.is_action_pressed("cancel"):
+		player.exit_inspect()

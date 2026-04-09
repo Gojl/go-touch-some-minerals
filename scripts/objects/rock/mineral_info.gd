@@ -10,6 +10,5 @@ func _ready() -> void:
 	player.mode_changed.connect(_clear)
 
 func _clear(mode, _rock = null, _zoom = -1.5) -> void:
-	print("clear")
 	if mode != player.Mode.INSPECT:
 		queue_free()
