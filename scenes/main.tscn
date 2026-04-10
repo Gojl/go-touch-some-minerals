@@ -1361,6 +1361,28 @@ terrain_set_0/terrain_2/name = "Path"
 terrain_set_0/terrain_2/color = Color(0.792766, 0.000231316, 0.721036, 1)
 sources/0 = SubResource("TileSetAtlasSource_tefeu")
 
+[sub_resource type="GDScript" id="GDScript_choun"]
+script/source = "extends Area2D
+
+@export var button: Button
+
+func _ready() -> void:
+	body_entered.connect(_on_body_entered)
+	body_exited.connect(_on_body_exited)
+	button.visible = false
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group(\"player\"):
+		button.visible = true
+
+func _on_body_exited(body: Node2D) -> void:
+	if body.is_in_group(\"player\"):
+		button.visible = false
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eb6dy"]
+radius = 148.40822
+
 [node name="Main" type="Node2D" unique_id=163653872 node_paths=PackedStringArray("tilemap")]
 script = ExtResource("1_o6xl0")
 rock_scene = ExtResource("5_tbgi4")
@@ -1399,6 +1421,17 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("8_choun")
+
+[node name="ReturnButton" type="Button" parent="Player/Camera2D" unique_id=787927363]
+z_index = 3
+offset_left = -140.02089
+offset_top = -73.0
+offset_right = 186.82756
+offset_bottom = -33.97287
+scale = Vector2(0.24297144, 0.24297144)
+theme = ExtResource("9_85g3d")
+theme_override_font_sizes/font_size = 18
+text = "Retutn to town"
 
 [node name="backpack" type="Node2D" parent="Player" unique_id=1369344309]
 position = Vector2(-10, -1)
@@ -1439,3 +1472,12 @@ theme = ExtResource("9_85g3d")
 text = "Loading Level..."
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ReturnZone" type="Area2D" parent="." unique_id=1936478431 node_paths=PackedStringArray("button")]
+script = SubResource("GDScript_choun")
+button = NodePath("../Player/Camera2D/ReturnButton")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ReturnZone" unique_id=1334598082]
+shape = SubResource("CircleShape2D_eb6dy")
+
+[connection signal="pressed" from="Player/Camera2D/ReturnButton" to="Player" method="_on_return_button_pressed"]

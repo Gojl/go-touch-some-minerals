@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dum1idv4gpplv" path="res://assets/inventory.png" id="1_k6atl"]
 [ext_resource type="FontFile" uid="uid://d4gslqmidwpds" path="res://assets/fonts/Pixel-UniCode.ttf" id="2_7bwj4"]
 [ext_resource type="FontFile" uid="uid://ppyx8v8pntsc" path="res://assets/fonts/Born2bSportyFS.otf" id="3_bs5c0"]
+[ext_resource type="Theme" uid="uid://5gc0xqn5q73k" path="res://assets/ui/ui_theme.tres" id="5_bs5c0"]
 
 [node name="MineralInfo" type="Control" unique_id=2117857579]
 layout_mode = 3
@@ -44,3 +45,25 @@ text = "[b]Rocky[/b]
 [color=gray]Something:[/color] 10%
 [color=gray]Nwm co jeszcze"
 fit_content = true
+
+[node name="Tip1" type="Label" parent="." unique_id=1176427971]
+layout_mode = 0
+offset_left = -22.999998
+offset_top = 14.0
+offset_right = 249.0
+offset_bottom = 30.0
+scale = Vector2(0.06, 0.06)
+theme = ExtResource("5_bs5c0")
+theme_override_colors/font_color = Color(0.7607843, 0.7607843, 0.7607843, 1)
+text = "Left click - mine"
+
+[node name="Tip2" type="Label" parent="." unique_id=1937095575]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 14.0
+offset_right = 285.0
+offset_bottom = 30.0
+scale = Vector2(0.06, 0.06)
+theme = ExtResource("5_bs5c0")
+theme_override_colors/font_color = Color(0.7605938, 0.76059383, 0.76059383, 1)
+text = "Right click - exit"

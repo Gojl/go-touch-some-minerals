@@ -214,3 +214,6 @@ func _close_pause() -> void:
 	$Camera2D/Overlay.fade_out(0.1)
 	_pause_menu.queue_free()
 	_pause_menu = null
+
+func _on_return_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/polska.tscn")
