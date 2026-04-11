@@ -26,9 +26,11 @@ shape = SubResource("CircleShape2D_mek2u")
 script = ExtResource("1_mek2u")
 
 [node name="Sprite2D" type="Sprite2D" parent="collider" unique_id=402501468]
+z_index = -2
 texture = ExtResource("2_ik6fu")
 
 [node name="Sprite2D2" type="Sprite2D" parent="collider" unique_id=1495694699]
+z_index = -2
 texture = ExtResource("3_ik6fu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collider" unique_id=1381146703]

@@ -1383,12 +1383,22 @@ func _on_body_exited(body: Node2D) -> void:
 [sub_resource type="CircleShape2D" id="CircleShape2D_eb6dy"]
 radius = 148.40822
 
+[sub_resource type="Gradient" id="Gradient_choun"]
+offsets = PackedFloat32Array(0, 0.6686747, 0.71686745, 0.72289157)
+colors = PackedColorArray(0.3137255, 1, 1, 0.3137255, 0.3137255, 1, 1, 0.3137255, 0.3137255, 1, 1, 1, 0.3137255, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ya4ey"]
+gradient = SubResource("Gradient_choun")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Main" type="Node2D" unique_id=163653872 node_paths=PackedStringArray("tilemap")]
 script = ExtResource("1_o6xl0")
 rock_scene = ExtResource("5_tbgi4")
 tilemap = NodePath("TileMapLayer")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1414109468]
+z_index = -3
 rotation = -3.14159
 tile_set = SubResource("TileSet_tefeu")
 script = ExtResource("4_tipki")
@@ -1431,7 +1441,7 @@ offset_bottom = -33.97287
 scale = Vector2(0.24297144, 0.24297144)
 theme = ExtResource("9_85g3d")
 theme_override_font_sizes/font_size = 18
-text = "Retutn to town"
+text = "Return to town"
 
 [node name="backpack" type="Node2D" parent="Player" unique_id=1369344309]
 position = Vector2(-10, -1)
@@ -1479,5 +1489,10 @@ button = NodePath("../Player/Camera2D/ReturnButton")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ReturnZone" unique_id=1334598082]
 shape = SubResource("CircleShape2D_eb6dy")
+
+[node name="Sprite2D" type="Sprite2D" parent="ReturnZone" unique_id=1929353496]
+z_index = -1
+scale = Vector2(4.6, 4.6)
+texture = SubResource("GradientTexture2D_ya4ey")
 
 [connection signal="pressed" from="Player/Camera2D/ReturnButton" to="Player" method="_on_return_button_pressed"]
