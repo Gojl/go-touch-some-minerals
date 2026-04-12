@@ -9,8 +9,16 @@
 	  "fragility": 2,
 	  "mohs_hardness": 2.5,
 	  "rarity_percent": 2,
-	  "spawn_layer": "-0.5:-1.0",
-	  "generation_type": "metal_in_rock"
+	  "spawn_layer": "-0.5 → -1.0",
+	  "generation_type": "metal_in_rock",
+
+	  "color": "golden",
+	  "streak": "golden",
+	  "luster": "metallic",
+	  "cleavage": "none (malleable)",
+	  "density": "very high (19.3)",
+	  "fracture": "irregular",
+	  "transparency": "opaque"
 	},
 	{
 	  "name": "iron",
@@ -21,8 +29,16 @@
 	  "fragility": 2,
 	  "mohs_hardness": 4,
 	  "rarity_percent": 25,
-	  "spawn_layer": "-0.1:-0.3",
-	  "generation_type": "mineral_in_rock"
+	  "spawn_layer": "-0.1 → -0.3",
+	  "generation_type": "mineral_in_rock",
+
+	  "color": "dark gray / rusty",
+	  "streak": "reddish brown",
+	  "luster": "metallic / dull",
+	  "cleavage": "none",
+	  "density": "high (7.8)",
+	  "fracture": "irregular",
+	  "transparency": "opaque"
 	},
 	{
 	  "name": "galena",
@@ -33,8 +49,16 @@
 	  "fragility": 4,
 	  "mohs_hardness": 2.5,
 	  "rarity_percent": 10,
-	  "spawn_layer": "-0.3:-0.7",
-	  "generation_type": "metal_in_rock"
+	  "spawn_layer": "-0.3 → -0.7",
+	  "generation_type": "metal_in_rock",
+
+	  "color": "lead gray",
+	  "streak": "gray-black",
+	  "luster": "metallic",
+	  "cleavage": "perfect",
+	  "density": "very high (7.6)",
+	  "fracture": "uneven",
+	  "transparency": "opaque"
 	},
 	{
 	  "name": "silver",
@@ -45,8 +69,16 @@
 	  "fragility": 2,
 	  "mohs_hardness": 2.5,
 	  "rarity_percent": 4,
-	  "spawn_layer": "-0.4:-0.9",
-	  "generation_type": "metal_in_rock"
+	  "spawn_layer": "-0.4 → -0.9",
+	  "generation_type": "metal_in_rock",
+
+	  "color": "silver",
+	  "streak": "silver-white",
+	  "luster": "metallic",
+	  "cleavage": "none (malleable)",
+	  "density": "very high (10.5)",
+	  "fracture": "hackly",
+	  "transparency": "opaque"
 	},
 	{
 	  "name": "copper",
@@ -57,9 +89,18 @@
 	  "fragility": 2,
 	  "mohs_hardness": 3,
 	  "rarity_percent": 18,
-	  "spawn_layer": "-0.1:-0.4",
-	  "generation_type": "metal_in_rock"
+	  "spawn_layer": "-0.1 → -0.4",
+	  "generation_type": "metal_in_rock",
+
+	  "color": "reddish-orange",
+	  "streak": "copper-red",
+	  "luster": "metallic",
+	  "cleavage": "none",
+	  "density": "high (8.9)",
+	  "fracture": "hackly",
+	  "transparency": "opaque"
 	},
+
 	{
 	  "name": "pyrite",
 	  "avg_weight_kg": 1.5,
@@ -69,8 +110,16 @@
 	  "fragility": 3,
 	  "mohs_hardness": 6,
 	  "rarity_percent": 30,
-	  "spawn_layer": "-0.2:-0.5",
-	  "generation_type": "metal_in_rock"
+	  "spawn_layer": "-0.2 → -0.5",
+	  "generation_type": "metal_in_rock",
+
+	  "color": "brassy yellow",
+	  "streak": "greenish-black",
+	  "luster": "metallic",
+	  "cleavage": "poor",
+	  "density": "high (5.0)",
+	  "fracture": "uneven",
+	  "transparency": "opaque"
 	},
 	{
 	  "name": "fluorite",
@@ -81,9 +130,18 @@
 	  "fragility": 4,
 	  "mohs_hardness": 4,
 	  "rarity_percent": 12,
-	  "spawn_layer": "-0.2:-0.6",
-	  "generation_type": "crystal_in_rock"
+	  "spawn_layer": "-0.2 → -0.6",
+	  "generation_type": "crystal_in_rock",
+
+	  "color": "purple / green / colorless",
+	  "streak": "white",
+	  "luster": "vitreous",
+	  "cleavage": "perfect",
+	  "density": "medium (3.2)",
+	  "fracture": "uneven",
+	  "transparency": "transparent to translucent"
 	},
+
 	{
 	  "name": "calcite",
 	  "avg_weight_kg": 2.5,
@@ -93,9 +151,18 @@
 	  "fragility": 4,
 	  "mohs_hardness": 3,
 	  "rarity_percent": 28,
-	  "spawn_layer": "-0.1:-0.3",
-	  "generation_type": "mineral_in_rock"
+	  "spawn_layer": "-0.1 → -0.3",
+	  "generation_type": "mineral_in_rock",
+
+	  "color": "white / colorless",
+	  "streak": "white",
+	  "luster": "vitreous",
+	  "cleavage": "perfect",
+	  "density": "medium (2.7)",
+	  "fracture": "conchoidal",
+	  "transparency": "transparent to translucent"
 	},
+
 	{
 	  "name": "malachite",
 	  "avg_weight_kg": 0.8,
@@ -105,9 +172,18 @@
 	  "fragility": 4,
 	  "mohs_hardness": 3.5,
 	  "rarity_percent": 8,
-	  "spawn_layer": "-0.1:-0.3",
-	  "generation_type": "mineral_in_rock"
+	  "spawn_layer": "-0.1 → -0.3",
+	  "generation_type": "mineral_in_rock",
+
+	  "color": "green (banded)",
+	  "streak": "light green",
+	  "luster": "silky / earthy",
+	  "cleavage": "poor",
+	  "density": "medium (3.9)",
+	  "fracture": "uneven",
+	  "transparency": "opaque"
 	},
+
 	{
 	  "name": "topaz",
 	  "avg_weight_kg": 0.4,
@@ -117,9 +193,18 @@
 	  "fragility": 2,
 	  "mohs_hardness": 8,
 	  "rarity_percent": 3,
-	  "spawn_layer": "-0.7:-1.0",
-	  "generation_type": "crystal_in_rock"
+	  "spawn_layer": "-0.7 → -1.0",
+	  "generation_type": "crystal_in_rock",
+
+	  "color": "yellow / blue / colorless",
+	  "streak": "white",
+	  "luster": "vitreous",
+	  "cleavage": "perfect",
+	  "density": "medium (3.5)",
+	  "fracture": "conchoidal",
+	  "transparency": "transparent"
 	},
+
 	{
 	  "name": "amethyst",
 	  "avg_weight_kg": 0.6,
@@ -129,9 +214,18 @@
 	  "fragility": 3,
 	  "mohs_hardness": 7,
 	  "rarity_percent": 7,
-	  "spawn_layer": "-0.3:-0.6",
-	  "generation_type": "crystal_in_rock"
+	  "spawn_layer": "-0.3 → -0.6",
+	  "generation_type": "crystal_in_rock",
+
+	  "color": "purple",
+	  "streak": "white",
+	  "luster": "vitreous",
+	  "cleavage": "none",
+	  "density": "medium (2.65)",
+	  "fracture": "conchoidal",
+	  "transparency": "transparent"
 	},
+
 	{
 	  "name": "quartz",
 	  "avg_weight_kg": 2.0,
@@ -141,9 +235,18 @@
 	  "fragility": 3,
 	  "mohs_hardness": 7,
 	  "rarity_percent": 35,
-	  "spawn_layer": "0.1:-0.3",
-	  "generation_type": "crystal_in_rock"
+	  "spawn_layer": "0.1 → -0.3",
+	  "generation_type": "crystal_in_rock",
+
+	  "color": "colorless / white",
+	  "streak": "white",
+	  "luster": "vitreous",
+	  "cleavage": "none",
+	  "density": "medium (2.65)",
+	  "fracture": "conchoidal",
+	  "transparency": "transparent to translucent"
 	},
+
 	{
 	  "name": "opal",
 	  "avg_weight_kg": 0.3,
@@ -153,9 +256,18 @@
 	  "fragility": 5,
 	  "mohs_hardness": 5.5,
 	  "rarity_percent": 2,
-	  "spawn_layer": "-0.7:-1.0",
-	  "generation_type": "loose"
+	  "spawn_layer": "-0.7 → -1.0",
+	  "generation_type": "loose",
+
+	  "color": "iridescent",
+	  "streak": "white",
+	  "luster": "waxy",
+	  "cleavage": "none",
+	  "density": "low (2.1)",
+	  "fracture": "conchoidal",
+	  "transparency": "translucent"
 	},
+
 	{
 	  "name": "amber",
 	  "avg_weight_kg": 0.05,
@@ -165,9 +277,18 @@
 	  "fragility": 5,
 	  "mohs_hardness": 2,
 	  "rarity_percent": 6,
-	  "spawn_layer": "0.3:0.1",
-	  "generation_type": "loose"
+	  "spawn_layer": "0.3 → 0.1",
+	  "generation_type": "loose",
+
+	  "color": "yellow / orange",
+	  "streak": "white",
+	  "luster": "resinous",
+	  "cleavage": "none",
+	  "density": "low (1.1)",
+	  "fracture": "conchoidal",
+	  "transparency": "transparent to translucent"
 	},
+
 	{
 	  "name": "agate",
 	  "avg_weight_kg": 0.9,
@@ -177,8 +298,16 @@
 	  "fragility": 2,
 	  "mohs_hardness": 7,
 	  "rarity_percent": 9,
-	  "spawn_layer": "0.2:-0.2",
-	  "generation_type": "crystal_in_rock"
+	  "spawn_layer": "0.2 → -0.2",
+	  "generation_type": "crystal_in_rock",
+
+	  "color": "banded (various colors)",
+	  "streak": "white",
+	  "luster": "waxy",
+	  "cleavage": "none",
+	  "density": "medium (2.6)",
+	  "fracture": "conchoidal",
+	  "transparency": "translucent"
 	}
   ]
 }
