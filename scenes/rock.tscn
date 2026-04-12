@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cbyq2ruarefj" path="res://scripts/objects/rock/kamien_klik.gd" id="1_mek2u"]
 [ext_resource type="Texture2D" uid="uid://cuptfaj5q1if3" path="res://assets/temp/kamień.png" id="2_ik6fu"]
-[ext_resource type="Texture2D" uid="uid://bghs1xnhka4mc" path="res://assets/temp/złoto czyste.png" id="3_ik6fu"]
 [ext_resource type="Script" uid="uid://cg8juq4wxd1p2" path="res://scripts/objects/rock/stone_mine.gd" id="4_872ht"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mek2u"]
@@ -28,10 +27,6 @@ script = ExtResource("1_mek2u")
 [node name="Sprite2D" type="Sprite2D" parent="collider" unique_id=402501468]
 z_index = -2
 texture = ExtResource("2_ik6fu")
-
-[node name="Sprite2D2" type="Sprite2D" parent="collider" unique_id=1495694699]
-z_index = -2
-texture = ExtResource("3_ik6fu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collider" unique_id=1381146703]
 visible = false

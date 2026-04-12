@@ -8,7 +8,7 @@
 	  "cluster_chance": 0.4
 	},
 	"iron": {
-	  "vein_size": [6, 20],
+	  "vein_size": [3, 15],
 	  "vein_rarity": 40,
 	  "height_min": -0.2,
 	  "height_max": 0.1,
@@ -29,14 +29,14 @@
 	  "cluster_chance": 0.5
 	},
 	"copper": {
-	  "vein_size": [5, 16],
+	  "vein_size": [3, 16],
 	  "vein_rarity": 25,
 	  "height_min": -0.3,
 	  "height_max": 0.0,
 	  "cluster_chance": 0.65
 	},
 	"pyrite": {
-	  "vein_size": [6, 14],
+	  "vein_size": [3, 14],
 	  "vein_rarity": 35,
 	  "height_min": -1.0,
 	  "height_max": -0.1,
@@ -50,7 +50,7 @@
 	  "cluster_chance": 0.55
 	},
 	"calcite": {
-	  "vein_size": [8, 22],
+	  "vein_size": [3, 12],
 	  "vein_rarity": 50,
 	  "height_min": -0.1,
 	  "height_max": 0.2,
@@ -78,7 +78,7 @@
 	  "cluster_chance": 0.45
 	},
 	"quartz": {
-	  "vein_size": [8, 24],
+	  "vein_size": [3, 18],
 	  "vein_rarity": 60,
 	  "height_min": -0.2,
 	  "height_max": 0.2,

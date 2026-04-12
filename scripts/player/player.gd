@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var base_movement_speed: float = 160.0
+@export var base_movement_speed: float = 100.0
 @export var backpack_size: float = 10000
 var carry_capacity = 25000
 @export var inspect_range: float = 81

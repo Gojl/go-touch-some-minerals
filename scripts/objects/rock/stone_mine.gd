@@ -23,6 +23,7 @@ var max_force       := 100.0
 
 @onready var mine_area:   Area2D          = $MineArea
 @onready var mine_shape:  CollisionShape2D = $MineArea/CollisionShape2D
+@onready var sprite: Sprite2D = $collider/Sprite2D
 
 var charging      := false
 var charge_time   := 0.0
@@ -30,6 +31,32 @@ var mineral_health: float
 var mineral_quality: float
 var start_min_qual: float
 var player: Node = null
+
+var default_texture = preload("res://assets/rock_1.png")
+
+var mineral_textures = {
+	#"gold": preload("res://assets/gold.png"),
+	"iron": preload("res://assets/Ferrum.png"),
+	#"galena": preload("res://assets/galena.png"),
+	#"silver": preload("res://assets/silver.png"),
+	#"copper": preload("res://assets/copper.png"),
+	"pyrite": preload("res://assets/pyrite.png"),
+	#"fluorite": preload("res://assets/fluorite.png"),
+	"calcite": preload("res://assets/calcite.png"),
+	"malachite": preload("res://assets/malachite.png"),
+	"topaz": preload("res://assets/topaz.png"),
+	"amethyst": preload("res://assets/amethyst.png"),
+	"quartz": preload("res://assets/quartz.png"),
+	#"opal": preload("res://assets/opal.png"),
+	#"amber": preload("res://assets/amber.png"),
+	"agate": preload("res://assets/agate.png")
+}
+
+func update_texture():
+	if mineral_type in mineral_textures:
+		sprite.texture = mineral_textures[mineral_type]
+	else:
+		sprite.texture = default_texture
 
 func _ready() -> void:
 	add_to_group("rocks")
@@ -46,6 +73,7 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	if not player:
 		push_error("stone_mine: Could not find player node in group 'player'!")
+	update_texture()
 
 func _on_mine_input(_viewport, event, _shape_idx) -> void:
 	if not player:
