@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://cgypqjra0sdh1"]
 
 [ext_resource type="FontFile" uid="uid://d4gslqmidwpds" path="res://assets/fonts/Pixel-UniCode.ttf" id="1_mbgik"]
-[ext_resource type="Script" uid="uid://xkrm7lx5ydik" path="res://scripts/ui/notiifcation.gd" id="1_oihfr"]
+[ext_resource type="Script" uid="uid://xkrm7lx5ydik" path="res://scripts/ui/notifcation.gd" id="1_oihfr"]
 
-[node name="Notiifcation" type="Control" unique_id=142401840]
+[node name="Notifcation" type="Control" unique_id=142401840]
+light_mask = 2
+visibility_layer = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

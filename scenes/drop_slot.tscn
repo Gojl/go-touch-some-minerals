@@ -10,6 +10,8 @@
 [ext_resource type="Script" uid="uid://cjy4wphi8pti1" path="res://scripts/objects/dropped_rock/dropped_crack.gd" id="8_m5pxc"]
 
 [node name="Control" type="Control" unique_id=1819975887]
+light_mask = 2
+visibility_layer = 2
 z_index = 2
 layout_mode = 3
 anchors_preset = 0

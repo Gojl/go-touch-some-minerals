@@ -137,7 +137,6 @@ func apply_hit(force: float, hit_pos: Vector2) -> void:
 		if force >= base_mineral_health * 2.0:
 			mineral_health  = 0.0
 			mineral_quality = 0.0
-			print("IDEAL HIT - skill issue lmao")
 		else:
 			var ideal_force     := base_mineral_health * 0.97
 			var max_force_error := base_mineral_health * 0.9
@@ -188,8 +187,12 @@ func finish_mining() -> void:
 		return
 
 	if mineral_quality > 0.0:
-		print("MINERAL EXTRACTED, quality:", mineral_quality)
-		Notifications.notify("Collected: " + mineral_type + " quality: " + str(mineral_quality) + " weight: " + str(round(weight/1000)) + " KG")
+		var notif_weight: String
+		if weight < 1000:
+			notif_weight = str(snapped(weight,0.01)) + "G"
+		else:
+			notif_weight = str(snapped(weight/1000,0.01)) + "KG"
+		Notifications.notify("Collected: " + mineral_type + " quality: " + str(mineral_quality) + " weight: " + notif_weight)
 		player.collect_mineral(mineral_type, mineral_quality, weight, mineral_weight, mineral_fragility)
 		player.exit_inspect()
 	else:

@@ -26,6 +26,8 @@ Button/styles/normal = SubResource("StyleBoxTexture_hsvje")
 Button/styles/pressed = SubResource("StyleBoxTexture_260ht")
 
 [node name="polska" type="Control" unique_id=1258881020]
+light_mask = 2
+visibility_layer = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

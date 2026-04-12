@@ -1,6 +1,6 @@
 extends Node
 
-const NOTIF_SCENE = preload("res://scenes/notiifcation.tscn")
+const NOTIF_SCENE = preload("res://scenes/notifcation.tscn")
 
 var queue: Array[String] = []
 var is_showing := false

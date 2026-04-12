@@ -8,6 +8,8 @@
 script = ExtResource("1_myx47")
 
 [node name="PauseMenu" type="Control" parent="." unique_id=1201197252]
+light_mask = 2
+visibility_layer = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

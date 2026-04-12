@@ -7,6 +7,8 @@
 [ext_resource type="Theme" uid="uid://5gc0xqn5q73k" path="res://assets/ui/ui_theme.tres" id="5_bs5c0"]
 
 [node name="MineralInfo" type="Control" unique_id=2117857579]
+light_mask = 2
+visibility_layer = 2
 layout_mode = 3
 anchors_preset = 0
 offset_left = -9.0

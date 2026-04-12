@@ -5,6 +5,8 @@
 [ext_resource type="Theme" uid="uid://5gc0xqn5q73k" path="res://assets/ui/ui_theme.tres" id="2_sa3yf"]
 
 [node name="titleScreen" type="Control" unique_id=632711449]
+light_mask = 2
+visibility_layer = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
