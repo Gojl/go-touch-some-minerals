@@ -199,7 +199,7 @@ func prev_page():
 
 func crack_mineral(id: int):
 	if inventory_data[id].weight <= 1.75 * inventory_data[id].mweight or inventory_data[id].weight < 30:
-		print("Can't crack")
+		Notifications.notify("Can't crack")
 	else:
 		var base_chance = 0.2
 		var r = inventory_data[id].mweight / inventory_data[id].weight
@@ -211,9 +211,9 @@ func crack_mineral(id: int):
 		if randf() < success:
 			inventory_data[id].weight = (inventory_data[id].weight - inventory_data[id].mweight) * randf_range(0.7,0.9)
 			inventory_data[id].weight += inventory_data[id].mweight
-			print("Crack successful")
+			Notifications.notify("Crack successful")
 		else:
-			print("Crack failed")
+			Notifications.notify("Crack failed")
 			var loss = randf_range(0.7,0.9)
 			var hweight = (inventory_data[id].weight - inventory_data[id].mweight) * loss
 			inventory_data[id].mweight *= loss - 0.05
@@ -225,7 +225,7 @@ func crack_mineral(id: int):
 		show_page(current_page)
 
 func drop_mineral(id: int):
-	print("Dropping mineral")
+	Notifications.notify("Dropping mineral")
 
 	if id < 0 or id >= inventory_data.size():
 		return

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cpmy28d78jxck"]
 
 [ext_resource type="Script" uid="uid://cbyq2ruarefj" path="res://scripts/objects/rock/kamien_klik.gd" id="1_mek2u"]
-[ext_resource type="Texture2D" uid="uid://cuptfaj5q1if3" path="res://assets/temp/kamień.png" id="2_ik6fu"]
+[ext_resource type="Texture2D" uid="uid://b78dwjpcdc4kq" path="res://assets/agate.png" id="3_ik6fu"]
 [ext_resource type="Script" uid="uid://cg8juq4wxd1p2" path="res://scripts/objects/rock/stone_mine.gd" id="4_872ht"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mek2u"]
@@ -9,10 +9,10 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ik6fu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_872ht"]
-radius = 4.16
+radius = 7.6516123
 
 [node name="Rock" type="Node2D" unique_id=385211476]
-z_index = -1
+z_index = 2
 script = ExtResource("4_872ht")
 
 [node name="inspect" type="StaticBody2D" parent="." unique_id=248087518]
@@ -25,7 +25,7 @@ shape = SubResource("CircleShape2D_mek2u")
 script = ExtResource("1_mek2u")
 
 [node name="Sprite2D" type="Sprite2D" parent="collider" unique_id=402501468]
-texture = ExtResource("2_ik6fu")
+texture = ExtResource("3_ik6fu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collider" unique_id=1381146703]
 visible = false
@@ -34,7 +34,7 @@ shape = SubResource("CircleShape2D_ik6fu")
 [node name="MineArea" type="Area2D" parent="." unique_id=147393657]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MineArea" unique_id=913851991]
-position = Vector2(1.0000001, -0.9999999)
+position = Vector2(-1.1920929e-07, -2.0000002)
 rotation = 0.76635325
 scale = Vector2(1.0202881, 1.1199992)
 shape = SubResource("CircleShape2D_872ht")

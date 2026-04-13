@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://dgamsydns7kby"]
 
 [ext_resource type="Texture2D" uid="uid://brmj0wktqbvjd" path="res://assets/base sprite.png" id="2_rkhd4"]
+[ext_resource type="Texture2D" uid="uid://t6de2xodgnk5" path="res://assets/player/standing.png" id="3_dp8ca"]
 [ext_resource type="Texture2D" uid="uid://b5wq0nqij7kyy" path="res://assets/Cute_Fantasy_Free/Animals/Chicken/Chicken.png" id="3_lrhn5"]
 [ext_resource type="PackedScene" uid="uid://dndlqa4jemn6q" path="res://scenes/inventory.tscn" id="3_my7n2"]
+[ext_resource type="Texture2D" uid="uid://c2talr8y4fo8c" path="res://assets/player/walking.png" id="4_0lw5n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_my7n2"]
 atlas = ExtResource("3_lrhn5")
@@ -19,6 +21,26 @@ region = Rect2(32, 32, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_2cgup"]
 atlas = ExtResource("3_lrhn5")
 region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5ia6"]
+atlas = ExtResource("3_dp8ca")
+region = Rect2(0, 0, 26, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dpix"]
+atlas = ExtResource("4_0lw5n")
+region = Rect2(0, 0, 27, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hyy3"]
+atlas = ExtResource("4_0lw5n")
+region = Rect2(27, 0, 27, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irmqu"]
+atlas = ExtResource("4_0lw5n")
+region = Rect2(54, 0, 27, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7eonc"]
+atlas = ExtResource("4_0lw5n")
+region = Rect2(81, 0, 27, 33)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_my7n2"]
 animations = [{
@@ -46,19 +68,46 @@ animations = [{
 "loop": true,
 "name": &"new_animation",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5ia6")
+}],
+"loop": true,
+"name": &"standing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dpix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hyy3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irmqu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7eonc")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkhd4"]
-size = Vector2(11, 12)
+size = Vector2(12, 16)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1146184692]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1341554331]
-position = Vector2(1, 1)
+position = Vector2(-0.99999976, 3.5384624)
+scale = Vector2(0.84615386, 0.8461538)
 sprite_frames = SubResource("SpriteFrames_my7n2")
+animation = &"standing"
 
 [node name="Inventory" parent="." unique_id=1313668986 instance=ExtResource("3_my7n2")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1148838304]
-position = Vector2(-4, 9)
+position = Vector2(1, 8)
 shape = SubResource("RectangleShape2D_rkhd4")

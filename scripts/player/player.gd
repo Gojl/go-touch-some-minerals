@@ -116,10 +116,12 @@ func _physics_process(delta: float) -> void:
 
 	var sprite = get_node_or_null("AnimatedSprite2D")
 	if sprite:
+		if direction.x != 0:
+			sprite.flip_h = direction.x > 0
 		if direction != Vector2.ZERO:
-			sprite.play("new_animation")
+			sprite.play("walking")
 		else:
-			sprite.play("default")
+			sprite.play("standing")
 
 func enter_inspect_mode(rock: Node2D, zoom = -1.5, mine = true) -> void:
 	if current_mode == Mode.INSPECT:
