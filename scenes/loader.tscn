@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://b24bunxklh7cl"]
+
+[ext_resource type="Texture2D" uid="uid://dum1idv4gpplv" path="res://assets/inventory.png" id="1_xbxub"]
+[ext_resource type="Script" uid="uid://c06cfkvdnakg7" path="res://scripts/loader.gd" id="2_8fdog"]
+[ext_resource type="FontFile" uid="uid://d4gslqmidwpds" path="res://assets/fonts/Pixel-UniCode.ttf" id="3_jfgw4"]
+
+[node name="slot" type="TextureRect" unique_id=76794542]
+light_mask = 2
+visibility_layer = 2
+offset_left = -42.187
+offset_top = -8.0
+offset_right = 707.813
+offset_bottom = 392.0
+scale = Vector2(0.04, 0.04)
+mouse_filter = 2
+texture = ExtResource("1_xbxub")
+expand_mode = 1
+script = ExtResource("2_8fdog")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=475030018]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 280.0
+offset_right = 675.0
+offset_bottom = 340.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1974005949]
+layout_mode = 0
+offset_right = 750.0
+offset_bottom = 300.0
+theme_override_fonts/normal_font = ExtResource("3_jfgw4")
+theme_override_font_sizes/normal_font_size = 84
+bbcode_enabled = true
+text = "Scanning..."
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
