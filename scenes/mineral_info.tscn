@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://5gc0xqn5q73k" path="res://assets/ui/ui_theme.tres" id="5_bs5c0"]
 
 [node name="MineralInfo" type="Control" unique_id=2117857579]
+visible = false
 light_mask = 2
 visibility_layer = 2
 layout_mode = 3
@@ -17,25 +18,27 @@ script = ExtResource("1_7bwj4")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=488972154]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -9.853167
-offset_top = -11.999999
-offset_right = 1910.1469
-offset_bottom = 1068.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -17.0
+offset_right = 1770.0
+offset_bottom = 2383.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = 1.5707964
-scale = Vector2(0.01, 0.017)
+scale = Vector2(0.01, 0.01)
 texture = ExtResource("1_k6atl")
+expand_mode = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=950615287]
 layout_mode = 0
-offset_left = -26.1233
-offset_top = -9.0
-offset_right = 255.36809
-offset_bottom = 239.66522
+offset_left = -28.0
+offset_top = -14.0
+offset_right = 262.0
+offset_bottom = 356.0
 scale = Vector2(0.048257645, 0.048257645)
 theme_override_fonts/normal_font = ExtResource("2_7bwj4")
 theme_override_fonts/bold_font = ExtResource("3_bs5c0")
