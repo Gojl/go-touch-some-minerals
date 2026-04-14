@@ -83,15 +83,12 @@ func _on_mine_input(_viewport, event, _shape_idx) -> void:
 
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if first_hit:
-			print("pierwszy")
 			first_hit = false
 			return
 		if event.pressed:
-			print("STARTING CHARGE")
 			charging   = true
 			charge_time = 0.0
 		else:
-			print("RELEASE - HIT")
 			release_hit()
 
 func get_core_global_position() -> Vector2:
@@ -103,12 +100,10 @@ func _process(delta: float) -> void:
 
 func release_hit() -> void:
 	if not charging:
-		print("RELEASED, BUT NO CHARGE")
 		return
 	charging = false
 	var force := (charge_time / max_charge_time) * max_force
 	charge_time = 0.0
-	print("HIT FORCE:", force)
 	apply_hit(force, get_global_mouse_position())
 
 func apply_hit(force: float, hit_pos: Vector2) -> void:
@@ -168,8 +163,9 @@ func apply_hit(force: float, hit_pos: Vector2) -> void:
 			if excess_force > 0.0:
 				var excess_loss := clampf(excess_force / (base_mineral_health * 0.5), 0.0, 1.0)
 				loss_factor    += pow(excess_loss * 1.35, 1.05)
-
-			mineral_quality -= (float(mineral_fragility) + ql_bonus) * loss_factor / 10
+			if first_hit:
+				loss_factor *= float(7/23)
+			mineral_quality -= (float(mineral_fragility) + ql_bonus) * loss_factor / 7.4
 			Notifications.notify("Good hit")
 	else:
 		Notifications.notify("You hit too far")

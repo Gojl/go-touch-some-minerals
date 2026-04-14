@@ -44,6 +44,7 @@ func _on_input_event(_viewport, event, _shape_idx) -> void:
 			player.enter_inspect_mode(rock_node)
 			var newSlot = infoslot.instantiate()
 			rock_node.add_child(newSlot)
+			newSlot.setInfo(rock_node.mineral_type,rock_node.weight * randf_range(0.85,1.15),clampf(rock_node.mineral_quality * randf_range(0.9,1.1),0,1),rock_node.mineral_percentage + randf_range(-0.15,0.15))
 			emit_signal("clicked", rock_node)
 		elif current_mode == player.Mode.INSPECT:
 			player.enter_mine_mode(rock_node)
