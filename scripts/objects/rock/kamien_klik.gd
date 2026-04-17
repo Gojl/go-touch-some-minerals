@@ -37,7 +37,7 @@ func _on_input_event(_viewport, event, _shape_idx) -> void:
 		return
 	if event is not InputEventMouseButton or not event.pressed:
 		return
-	
+
 	var current_mode = player.get_current_mode()
 	var rock_node = get_parent()
 	if player.global_position.distance_to(rock_node.global_position) <= player.inspect_range and event.button_index == MOUSE_BUTTON_LEFT:

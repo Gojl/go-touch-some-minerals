@@ -17,5 +17,5 @@ func _on_hover(node) -> void:
 		"siemianowice": "[b]Siemianowice[/b]\n[color=gray]Region:[/color] Górny Śląsk\n[color=gray]Population:[/color] 65684\n[color=gray]Area:[/color] 25.5 km2\n[color=gray]Town rights:[/color] 1932\n[color=red]Nie odblokowano[/color]",
 		"slupia": "[b]Nowa Słupia[/b]\n[color=gray]Region:[/color] Góry Świętokrzyskie\n[color=gray]Population:[/color] 1600\n[color=gray]Area:[/color] 13.97 km2\n[color=gray]Town rights:[/color] 1351\n[color=red]Nie odblokowano[/color]"
 	}
-	
+
 	$RichTextLabel.text = cities[node.name]

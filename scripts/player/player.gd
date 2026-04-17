@@ -20,7 +20,7 @@ var current_mode: Mode = Mode.EXPLORE
 var inspected_rock: Node2D = null
 
 var _tool_data: Dictionary = {}
-var current_tool: String   = "chisel_upgraded"
+var current_tool: String   = "hand"
 
 const PAUSE_MENU_SCENE = preload("res://scenes/pause_menu.tscn")
 var _pause_menu: CanvasLayer = null
