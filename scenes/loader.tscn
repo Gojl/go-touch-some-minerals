@@ -2,7 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://dum1idv4gpplv" path="res://assets/inventory.png" id="1_xbxub"]
 [ext_resource type="Script" uid="uid://c06cfkvdnakg7" path="res://scripts/loader.gd" id="2_8fdog"]
+[ext_resource type="Shader" uid="uid://cphe7mtj21dfv" path="res://shaders/corner_round.gdshader" id="3_inh5x"]
 [ext_resource type="FontFile" uid="uid://d4gslqmidwpds" path="res://assets/fonts/Pixel-UniCode.ttf" id="3_jfgw4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7k6qa"]
+shader = ExtResource("3_inh5x")
+shader_parameter/size = Vector2(600, 60)
+shader_parameter/radius = 20.0
+shader_parameter/ratio = 0.0
+shader_parameter/color = Vector4(1, 1, 1, 1)
 
 [node name="slot" type="TextureRect" unique_id=76794542]
 light_mask = 2
@@ -18,6 +26,7 @@ expand_mode = 1
 script = ExtResource("2_8fdog")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=475030018]
+material = SubResource("ShaderMaterial_7k6qa")
 layout_mode = 0
 offset_left = 75.0
 offset_top = 280.0

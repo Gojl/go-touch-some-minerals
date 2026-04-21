@@ -226,7 +226,7 @@ func _load_data() -> bool:
 	return true
 
 func _parse_spawn_layer(spawn_layer: String) -> Vector2:
-	var parts := spawn_layer.split(":")
+	var parts := spawn_layer.split(" → ")
 	if parts.size() != 2:
 		push_warning("main_generation: bad spawn_layer format '%s'" % spawn_layer)
 		return Vector2(-1.0, 1.0)

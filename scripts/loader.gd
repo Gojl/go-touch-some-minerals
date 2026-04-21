@@ -13,15 +13,14 @@ func _ready() -> void:
 var target: Node = null
 var time: float
 var telapsed = 0
-const barFull = 600
 @onready var bar = $ColorRect
 
 func _process(delta: float) -> void:
 	if not (target and time and bar):
 		return
 	telapsed += delta
-	var ratio = telapsed / time
-	bar.size.x = barFull * clamp(0,1,ratio)
+	var ratio = clamp(telapsed / time,0,1)
+	bar.material.set_shader_parameter("ratio",ratio)
 	if telapsed >= time:
 		target.visible = true
 		queue_free()
