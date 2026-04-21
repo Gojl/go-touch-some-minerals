@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://da2o26y37kus8"]
+
+[ext_resource type="Script" uid="uid://cxvpp8erf1uu6" path="res://scripts/ui/miasto.gd" id="1_wb1nn"]
+[ext_resource type="Texture2D" uid="uid://mh512w40uwli" path="res://assets/ui/village1.png" id="1_wtati"]
+[ext_resource type="Theme" uid="uid://5gc0xqn5q73k" path="res://assets/ui/ui_theme.tres" id="3_bkv2c"]
+[ext_resource type="Texture2D" uid="uid://dom6ccq1ngva5" path="res://assets/ui/button_sqr.png" id="4_ty4kv"]
+[ext_resource type="Texture2D" uid="uid://d0gabr74tubmj" path="res://assets/ui/button_sqr_pressed.png" id="5_hgufu"]
+[ext_resource type="Texture2D" uid="uid://p44llhm3803g" path="res://assets/ui/button_sqr_highlitght.png" id="6_5ol6o"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ve24b"]
+texture = ExtResource("4_ty4kv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bfhbd"]
+texture = ExtResource("5_hgufu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kchhf"]
+texture = ExtResource("6_5ol6o")
+
+[node name="Miasto" type="Control" unique_id=2114515176]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wb1nn")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1296678664]
+layout_mode = 0
+offset_top = -163.0
+offset_right = 4609.0313
+offset_bottom = 769.0
+texture = ExtResource("1_wtati")
+
+[node name="Previous" type="Button" parent="." unique_id=1666541432]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 313.0
+offset_right = 148.0
+offset_bottom = 363.0
+focus_mode = 0
+theme = ExtResource("3_bkv2c")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ve24b")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bfhbd")
+theme_override_styles/hover = SubResource("StyleBoxTexture_kchhf")
+text = "<"
+
+[node name="Next" type="Button" parent="." unique_id=1547204458]
+layout_mode = 0
+offset_left = 1083.0
+offset_top = 318.0
+offset_right = 1133.0
+offset_bottom = 368.0
+focus_mode = 0
+theme = ExtResource("3_bkv2c")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ve24b")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bfhbd")
+theme_override_styles/hover = SubResource("StyleBoxTexture_kchhf")
+text = ">"
+
+[connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]

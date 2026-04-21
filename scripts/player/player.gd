@@ -218,4 +218,5 @@ func _close_pause() -> void:
 	_pause_menu = null
 
 func _on_return_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/polska.tscn")
+	get_tree().set_meta("going_from_game_to_town", true)
+	get_tree().change_scene_to_file("res://scenes/miasto.tscn")
