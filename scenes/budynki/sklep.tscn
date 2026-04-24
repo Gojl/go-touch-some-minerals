@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://csbiwfy8fahp7"]
+
+[ext_resource type="Script" uid="uid://b137qj37xtmim" path="res://scripts/ui/budynki/skup.gd" id="1_4v26y"]
+[ext_resource type="Texture2D" uid="uid://qe2h63psupkc" path="res://assets/ui/background.png" id="2_r7aux"]
+[ext_resource type="Theme" uid="uid://5gc0xqn5q73k" path="res://assets/ui/ui_theme.tres" id="3_6eeb8"]
+
+[node name="Skup" type="Control" unique_id=1631989373]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4v26y")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=476456668]
+layout_mode = 0
+anchor_right = 1.0132304
+anchor_bottom = 1.0447531
+texture = ExtResource("2_r7aux")
+metadata/_edit_use_anchors_ = true
+
+[node name="Back" type="Button" parent="." unique_id=1393821275]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.020833334
+anchor_top = 0.037037037
+anchor_right = 0.17708333
+anchor_bottom = 0.09876543
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_6eeb8")
+text = "Back"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

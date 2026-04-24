@@ -32,6 +32,49 @@ offset_right = 4609.0313
 offset_bottom = 769.0
 texture = ExtResource("1_wtati")
 
+[node name="Wystawa" type="Button" parent="Background" unique_id=829462244]
+layout_mode = 0
+anchor_left = 0.039921623
+anchor_top = 0.08261803
+anchor_right = 0.22260644
+anchor_bottom = 0.90128756
+focus_mode = 0
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Skup" type="Button" parent="Background" unique_id=818663995]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.24582173
+anchor_top = 0.123390555
+anchor_right = 0.44412804
+anchor_bottom = 0.9688841
+focus_mode = 0
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Dom" type="Button" parent="Background" unique_id=1110600636]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.53785706
+anchor_top = 0.16309012
+anchor_right = 0.7205419
+anchor_bottom = 0.98175967
+focus_mode = 0
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Sklep" type="Button" parent="Background" unique_id=379221592]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.76154834
+anchor_top = 0.16094421
+anchor_right = 0.9442331
+anchor_bottom = 0.9796137
+focus_mode = 0
+flat = true
+metadata/_edit_use_anchors_ = true
+
 [node name="Previous" type="Button" parent="." unique_id=1666541432]
 layout_mode = 0
 offset_left = 98.0
@@ -58,5 +101,9 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_bfhbd")
 theme_override_styles/hover = SubResource("StyleBoxTexture_kchhf")
 text = ">"
 
+[connection signal="pressed" from="Background/Wystawa" to="." method="_enter_house"]
+[connection signal="pressed" from="Background/Skup" to="." method="_enter_house"]
+[connection signal="pressed" from="Background/Dom" to="." method="_enter_house"]
+[connection signal="pressed" from="Background/Sklep" to="." method="_enter_house"]
 [connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]

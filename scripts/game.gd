@@ -1,7 +1,7 @@
 extends Node
 
 var money: float = 0
-var items: Array = []
+var inventory: Array = []
 
 const SAVE_PATH := "user://save.json"
 
@@ -11,7 +11,7 @@ func _ready():
 func save_data():
 	var data = {
 		"money": money,
-		"items": items
+		"inventory": inventory
 	}
 
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
@@ -31,4 +31,4 @@ func load_data():
 
 	if typeof(data) == TYPE_DICTIONARY:
 		money = data.get("money", 0)
-		items = data.get("items", [])
+		inventory = data.get("inventory", [])
