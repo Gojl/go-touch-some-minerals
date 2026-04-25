@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://qe2h63psupkc" path="res://assets/ui/background.png" id="1_621ua"]
 [ext_resource type="Script" uid="uid://b137qj37xtmim" path="res://scripts/ui/budynki/skup.gd" id="1_xt2oe"]
+[ext_resource type="PackedScene" uid="uid://dndlqa4jemn6q" path="res://scenes/inventory.tscn" id="2_nmdov"]
 [ext_resource type="Theme" uid="uid://5gc0xqn5q73k" path="res://assets/ui/ui_theme.tres" id="3_oonnw"]
 
 [node name="Skup" type="Control" unique_id=1631989373]
@@ -13,12 +14,32 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xt2oe")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=476456668]
-layout_mode = 0
-anchor_right = 1.0132304
-anchor_bottom = 1.0447531
-texture = ExtResource("1_621ua")
+[node name="inventory" parent="." unique_id=2059234828 instance=ExtResource("2_nmdov")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 24.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+mode = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=476456668]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_621ua")
 
 [node name="Back" type="Button" parent="." unique_id=1393821275]
 layout_mode = 1
@@ -31,6 +52,21 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_oonnw")
 text = "Back"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="RichTextLabel" parent="." unique_id=955602110]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4019097
+anchor_top = 0.052469134
+anchor_right = 0.5963542
+anchor_bottom = 0.08796296
+grow_horizontal = 2
+theme = ExtResource("3_oonnw")
+bbcode_enabled = true
+text = "[b]Skup minerałów"
+fit_content = true
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

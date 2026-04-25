@@ -14,13 +14,13 @@ func clear() -> void:
 	id = -1
 
 func set_slot_data(type: String, quality: float, weight: float, mweight: float, tid: int) -> void:
-	mineral_label.text = "Type: " + type
-	quality_label.text = "Quality: " + str(quality)
+	mineral_label.text = "[color=gray]Type:\n[/color]" + type.capitalize()
+	quality_label.text = "[color=gray]Quality:\n[/color]" + str(quality)
 	if weight/1000 >= 1:
-		weight_label.text = "Weight: " + str(snapped(weight/1000,0.01)) + "KG"
+		weight_label.text = "[color=gray]Weight:\n[/color]" + str(snapped(weight/1000,0.01)) + "KG"
 	else:
-		weight_label.text = "Weight: " + str(snapped(weight,0.01)) + "G"
-	mweight_label.text = "Mineral percentage: " + str(snapped((mweight / weight * 100),1))
+		weight_label.text = "[color=gray]Weight:\n[/color]" + str(snapped(weight,0.01)) + "G"
+	mweight_label.text = "[color=gray]Percentage:\n[/color]" + str(snapped((mweight / weight * 100),1))
 
 	id = tid
 

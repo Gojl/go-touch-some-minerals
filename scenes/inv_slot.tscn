@@ -3,10 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://dum1idv4gpplv" path="res://assets/inventory.png" id="1_x2nmc"]
 [ext_resource type="Script" uid="uid://dfna7q0pr82en" path="res://scripts/inventory/slot.gd" id="2_221mj"]
 [ext_resource type="FontFile" uid="uid://cjdgd0fam5324" path="res://assets/fonts/PressStart2P-Regular.ttf" id="3_32ko4"]
-[ext_resource type="Texture2D" uid="uid://bed2n58t7jwmy" path="res://assets/temp/drop.png" id="4_j1on0"]
+[ext_resource type="Texture2D" uid="uid://bed2n58t7jwmy" path="res://assets/ui/drop.png" id="4_j1on0"]
 [ext_resource type="Script" uid="uid://28t8yhce313w" path="res://scripts/inventory/drop.gd" id="5_2hek4"]
-[ext_resource type="Texture2D" uid="uid://b12hribyb6uuk" path="res://assets/temp/crack.png" id="6_221mj"]
+[ext_resource type="Texture2D" uid="uid://b12hribyb6uuk" path="res://assets/ui/crack.png" id="6_221mj"]
 [ext_resource type="Script" uid="uid://b5u64lknge2m2" path="res://scripts/inventory/crack.gd" id="7_32ko4"]
+[ext_resource type="Texture2D" uid="uid://b3tvayev7486k" path="res://assets/ui/sell.png" id="8_2hek4"]
 [ext_resource type="Script" uid="uid://cv8pf5rdqeai3" path="res://scripts/inventory/sell.gd" id="8_j1on0"]
 
 [node name="slot" type="TextureRect" unique_id=76794542]
@@ -23,9 +24,9 @@ script = ExtResource("2_221mj")
 [node name="text_grid" type="GridContainer" parent="." unique_id=14178636]
 layout_mode = 0
 offset_left = 30.0
-offset_top = 200.0
+offset_top = 98.0
 offset_right = 990.0
-offset_bottom = 848.0
+offset_bottom = 1126.0
 scale = Vector2(0.25, 0.25)
 mouse_filter = 2
 theme_override_constants/h_separation = 0
@@ -33,47 +34,55 @@ theme_override_constants/v_separation = 0
 
 [node name="mineral_label" type="RichTextLabel" parent="text_grid" unique_id=1633363418]
 layout_mode = 2
+theme_override_constants/line_separation = 40
 theme_override_fonts/normal_font = ExtResource("3_32ko4")
-theme_override_font_sizes/normal_font_size = 68
+theme_override_font_sizes/normal_font_size = 75
+bbcode_enabled = true
 text = "type"
 scroll_active = false
-horizontal_alignment = 1
+autowrap_mode = 0
 vertical_alignment = 1
 
 [node name="quality_label" type="RichTextLabel" parent="text_grid" unique_id=1077894184]
 layout_mode = 2
+theme_override_constants/line_separation = 40
 theme_override_fonts/normal_font = ExtResource("3_32ko4")
-theme_override_font_sizes/normal_font_size = 68
+theme_override_font_sizes/normal_font_size = 75
+bbcode_enabled = true
 text = "quality"
 scroll_active = false
-horizontal_alignment = 1
+autowrap_mode = 0
 vertical_alignment = 1
 
 [node name="weight_label" type="RichTextLabel" parent="text_grid" unique_id=146834154]
 layout_mode = 2
+theme_override_constants/line_separation = 40
 theme_override_fonts/normal_font = ExtResource("3_32ko4")
-theme_override_font_sizes/normal_font_size = 68
+theme_override_font_sizes/normal_font_size = 75
+bbcode_enabled = true
 text = "weight"
 scroll_active = false
-horizontal_alignment = 1
+autowrap_mode = 0
 vertical_alignment = 1
 
 [node name="mweight_label" type="RichTextLabel" parent="text_grid" unique_id=1345873499]
 layout_mode = 2
+theme_override_constants/line_separation = 40
 theme_override_fonts/normal_font = ExtResource("3_32ko4")
-theme_override_font_sizes/normal_font_size = 48
+theme_override_font_sizes/normal_font_size = 75
+bbcode_enabled = true
 text = "mineral percentage"
 scroll_active = false
-horizontal_alignment = 1
+autowrap_mode = 0
 vertical_alignment = 1
 
 [node name="drop_button" type="TextureButton" parent="." unique_id=2003923685]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 0
-offset_left = 230.0
-offset_top = 30.0
-offset_right = 310.0
-offset_bottom = 110.0
+offset_left = 221.0
+offset_top = 28.0
+offset_right = 321.0
+offset_bottom = 128.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("4_j1on0")
 ignore_texture_size = true
@@ -83,10 +92,10 @@ script = ExtResource("5_2hek4")
 [node name="crack_button" type="TextureButton" parent="." unique_id=198887166]
 z_index = 100
 layout_mode = 0
-offset_left = 170.0
-offset_top = 30.0
-offset_right = 250.0
-offset_bottom = 110.0
+offset_left = 161.0
+offset_top = 28.0
+offset_right = 261.0
+offset_bottom = 128.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("6_221mj")
 ignore_texture_size = true
@@ -96,12 +105,12 @@ script = ExtResource("7_32ko4")
 [node name="sell_button" type="TextureButton" parent="." unique_id=1733650323]
 z_index = 100
 layout_mode = 0
-offset_left = 110.0
-offset_top = 30.0
-offset_right = 190.0
-offset_bottom = 110.0
+offset_left = 221.0
+offset_top = 28.0
+offset_right = 321.0
+offset_bottom = 128.0
 scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("6_221mj")
+texture_normal = ExtResource("8_2hek4")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("8_j1on0")

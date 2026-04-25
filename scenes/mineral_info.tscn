@@ -36,10 +36,11 @@ expand_mode = 1
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=950615287]
 layout_mode = 0
 offset_left = -28.0
-offset_top = -14.0
+offset_top = -16.0
 offset_right = 262.0
-offset_bottom = 356.0
+offset_bottom = 419.1642
 scale = Vector2(0.048257645, 0.048257645)
+theme_override_constants/line_separation = -10
 theme_override_fonts/normal_font = ExtResource("2_7bwj4")
 theme_override_fonts/bold_font = ExtResource("3_bs5c0")
 theme_override_font_sizes/normal_font_size = 50
@@ -50,6 +51,7 @@ text = "[b]Rocky[/b]
 [color=gray]Something:[/color] 10%
 [color=gray]Nwm co jeszcze"
 fit_content = true
+autowrap_mode = 0
 
 [node name="Tip1" type="Label" parent="." unique_id=1176427971]
 layout_mode = 0

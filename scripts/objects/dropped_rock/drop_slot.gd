@@ -11,13 +11,13 @@ func _ready() -> void:
 
 func mineral_updated() -> void:
 	var mineral = get_parent().get_parent()
-	mineral_label.text = "Type: " + mineral.type
-	quality_label.text = "Quality: " + str(mineral.quality)
+	mineral_label.text = "[color=gray]Type:\n[/color]" + mineral.type.capitalize()
+	quality_label.text = "[color=gray]Quality:\n[/color]" + str(mineral.quality)
 	if mineral.weight/1000 >= 1:
-		weight_label.text = "Weight: " + str(snapped(mineral.weight/1000,0.01)) + "KG"
+		weight_label.text = "[color=gray]Weight:\n[/color]" + str(snapped(mineral.weight/1000,0.01)) + "KG"
 	else:
-		weight_label.text = "Weight: " + str(snapped(mineral.weight,0.01)) + "G"
-	mweight_label.text = "Mineral percentage: " + str(snapped((mineral.mweight / mineral.weight * 100),1))
+		weight_label.text = "[color=gray]Weight:\n[/color]" + str(snapped(mineral.weight,0.01)) + "G"
+	mweight_label.text = "[color=gray]Percentage:\n[/color]" + str(snapped((mineral.mweight / mineral.weight * 100),1))
 
 	for child in text_grid.get_children():
 		child.custom_minimum_size = Vector2(text_grid.size.x, text_grid.size.y / text_grid.get_child_count())

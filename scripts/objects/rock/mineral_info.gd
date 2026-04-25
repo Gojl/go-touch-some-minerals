@@ -17,11 +17,11 @@ func setInfo(type,weight,quality, mperc) -> void:
 	else:
 		weightToShow = str(snapped(weight/1000,0.01)) + "KG"
 	label.text = (
-		"[b]" + str(type).capitalize() + "[/b]" + 
-		"\n Estimated data:" +
-		"\n[color=gray]Weight: [/color] " + weightToShow +
-		"\n[color=gray]Base quality: [/color]" + str(snapped(quality,0.01)) +
-		"\n[color=gray]Mineral percentage: [/color]" + str(snapped(mperc,0.1)) + "%"
+		"[b]" + str(type).capitalize() + "[/b]" +
+		"\n[font_size=40]Estimated data:[/font_size]" +
+		"\n[color=gray]Weight:\n[/color] " + weightToShow +
+		"\n[color=gray]Base quality:\n[/color]" + str(snapped(quality,0.01)) +
+		"\n[color=gray]Percentage:\n[/color]" + str(snapped(mperc,0.1)) + "%"
 		)
 
 func _clear(mode, _rock = null, _zoom = -1.5) -> void:

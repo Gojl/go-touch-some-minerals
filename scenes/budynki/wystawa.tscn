@@ -14,11 +14,13 @@ grow_vertical = 2
 script = ExtResource("1_7y47m")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=476456668]
-layout_mode = 0
-anchor_right = 1.0132304
-anchor_bottom = 1.0447531
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_i8cw4")
-metadata/_edit_use_anchors_ = true
 
 [node name="Back" type="Button" parent="." unique_id=1393821275]
 layout_mode = 1
