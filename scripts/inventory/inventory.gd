@@ -200,27 +200,32 @@ func _slide_page(direction: int) -> void:
 func crack_mineral(id: int) -> void:
 	var item = Game.inventory[id]
 
-	if item.weight <= 1.75 * item.mweight or item.weight < 30:
-		Notifications.notify("Can't crack")
-		return
-
-	var r: float = item.mweight / item.weight
-	var rock_r := 1.0 - r
-	var success: float = (0.2 + pow(rock_r, 2) * 0.4) / (item.fragility / 2.2)
-	success = clamp(success, 0.0, 1.0)
-
-	if randf() < success:
-		Game.inventory[id].weight = (item.weight - item.mweight) * randf_range(0.7, 0.9) + item.mweight
-		Notifications.notify("Crack successful")
+	if item.type == "rock":
+		Game.inventory[id].weight = item.weight * randf_range(0.7,0.9)
+		Game.inventory[id].mweight = item.weight
+		Game.inventory[id].quality = 1.0
+		Notifications.notify("Crack succesful")
 	else:
-		Notifications.notify("Crack failed")
-		var loss := randf_range(0.7, 0.9)
-		Game.inventory[id].mweight *= loss - 0.05
-		Game.inventory[id].weight   = Game.inventory[id].mweight + (item.weight - item.mweight) * loss
-		Game.inventory[id].quality -= snapped(randf_range(0.08, 0.2), 0.01)
-		if Game.inventory[id].quality <= 0.0:
-			Game.inventory.remove_at(id)
+		if item.weight <= 1.75 * item.mweight or item.weight < 30:
+			Notifications.notify("Can't crack")
+			return
 
+		var r: float = item.mweight / item.weight
+		var rock_r := 1.0 - r
+		var success: float = (0.2 + pow(rock_r, 2) * 0.4) / (item.fragility / 2.2)
+		success = clamp(success, 0.0, 1.0)
+
+		if randf() < success:
+			Game.inventory[id].weight = (item.weight - item.mweight) * randf_range(0.7, 0.9) + item.mweight
+			Notifications.notify("Crack successful")
+		else:
+			Notifications.notify("Crack failed")
+			var loss := randf_range(0.7, 0.9)
+			Game.inventory[id].mweight *= loss - 0.05
+			Game.inventory[id].weight   = Game.inventory[id].mweight + (item.weight - item.mweight) * loss
+			Game.inventory[id].quality -= snapped(randf_range(0.08, 0.2), 0.01)
+			if Game.inventory[id].quality <= 0.0:
+				Game.inventory.remove_at(id)
 	_after_change()
 
 

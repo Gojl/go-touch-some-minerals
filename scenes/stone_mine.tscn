@@ -7,29 +7,29 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_rqtcr"]
 radius = 3.0
 
-[node name="stoneMine" type="Node2D"]
+[node name="stoneMine" type="Node2D" unique_id=1752080666]
 script = ExtResource("1_ma20j")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2004994213]
 texture = ExtResource("2_msq76")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1693363926]
 texture = ExtResource("3_qnknw")
 
-[node name="MineralSprite" type="Area2D" parent="."]
+[node name="MineralSprite" type="Area2D" parent="." unique_id=1865098546]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MineralSprite"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MineralSprite" unique_id=1972522057]
 position = Vector2(-7, -5)
 shape = SubResource("CircleShape2D_rqtcr")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="MineralSprite"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="MineralSprite" unique_id=2011202902]
 position = Vector2(2, 6)
 shape = SubResource("CircleShape2D_rqtcr")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="MineralSprite"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="MineralSprite" unique_id=545783528]
 position = Vector2(-6, 2)
 shape = SubResource("CircleShape2D_rqtcr")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="MineralSprite"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="MineralSprite" unique_id=1230302779]
 position = Vector2(1, -2)
 shape = SubResource("CircleShape2D_rqtcr")

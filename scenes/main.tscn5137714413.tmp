@@ -55,74 +55,16 @@ tilemap = NodePath("TileMapLayer")
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1092615032]
 script = ExtResource("11_ya4ey")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1414109468 node_paths=PackedStringArray("transition_layers")]
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1414109468 node_paths=PackedStringArray("transition_layer")]
 z_index = -3
+rotation = -3.14159
 tile_set = ExtResource("4_ya4ey")
 script = ExtResource("4_tipki")
-transition_layers = [NodePath("TransitionLayer"), NodePath("TransitionLayer2"), NodePath("TransitionLayer3"), NodePath("TransitionLayer4"), NodePath("TransitionLayer5"), NodePath("TransitionLayer6"), NodePath("TransitionLayer7"), NodePath("TransitionLayer8"), NodePath("TransitionLayer9"), NodePath("TransitionLayer10"), NodePath("TransitionLayer11"), NodePath("TransitionLayer12"), NodePath("TransitionLayer13"), NodePath("TransitionLayer14"), NodePath("TransitionLayer15"), NodePath("TransitionLayer16")]
+transition_layer = NodePath("../TransitionLayer")
 
-[node name="TransitionLayer" type="TileMapLayer" parent="TileMapLayer" unique_id=362927729]
-z_index = 1
-tile_set = ExtResource("4_ya4ey")
-
-[node name="TransitionLayer2" type="TileMapLayer" parent="TileMapLayer" unique_id=125240206]
-z_index = 1
-tile_set = ExtResource("4_ya4ey")
-
-[node name="TransitionLayer3" type="TileMapLayer" parent="TileMapLayer" unique_id=421689607]
-z_index = 1
-tile_set = ExtResource("4_ya4ey")
-
-[node name="TransitionLayer4" type="TileMapLayer" parent="TileMapLayer" unique_id=1670888437]
-z_index = 1
-tile_set = ExtResource("4_ya4ey")
-
-[node name="TransitionLayer5" type="TileMapLayer" parent="TileMapLayer" unique_id=644061607]
-z_index = 1
-tile_set = ExtResource("4_ya4ey")
-
-[node name="TransitionLayer6" type="TileMapLayer" parent="TileMapLayer" unique_id=247464232]
-z_index = 1
-tile_set = ExtResource("4_ya4ey")
-
-[node name="TransitionLayer7" type="TileMapLayer" parent="TileMapLayer" unique_id=1439525186]
-z_index = 1
-tile_set = ExtResource("4_ya4ey")
-
-[node name="TransitionLayer8" type="TileMapLayer" parent="TileMapLayer" unique_id=509598105]
-z_index = 1
-tile_set = ExtResource("4_ya4ey")
-
-[node name="TransitionLayer9" type="TileMapLayer" parent="TileMapLayer" unique_id=1873958397]
-z_index = 1
-tile_set = ExtResource("4_ya4ey")
-
-[node name="TransitionLayer10" type="TileMapLayer" parent="TileMapLayer" unique_id=1418065067]
-z_index = 1
-tile_set = ExtResource("4_ya4ey")
-
-[node name="TransitionLayer11" type="TileMapLayer" parent="TileMapLayer" unique_id=2055553875]
-z_index = 1
-tile_set = ExtResource("4_ya4ey")
-
-[node name="TransitionLayer12" type="TileMapLayer" parent="TileMapLayer" unique_id=447685035]
-z_index = 1
-tile_set = ExtResource("4_ya4ey")
-
-[node name="TransitionLayer13" type="TileMapLayer" parent="TileMapLayer" unique_id=2104986632]
-z_index = 1
-tile_set = ExtResource("4_ya4ey")
-
-[node name="TransitionLayer14" type="TileMapLayer" parent="TileMapLayer" unique_id=2069502878]
-z_index = 1
-tile_set = ExtResource("4_ya4ey")
-
-[node name="TransitionLayer15" type="TileMapLayer" parent="TileMapLayer" unique_id=1800573580]
-z_index = 1
-tile_set = ExtResource("4_ya4ey")
-
-[node name="TransitionLayer16" type="TileMapLayer" parent="TileMapLayer" unique_id=652735955]
-z_index = 1
+[node name="TransitionLayer" type="TileMapLayer" parent="." unique_id=362927729]
+z_index = -2
+rotation = -3.1415927
 tile_set = ExtResource("4_ya4ey")
 
 [node name="Player" parent="." unique_id=1080779569 instance=ExtResource("1_o5qli")]
@@ -133,7 +75,7 @@ script = ExtResource("7_tipki")
 metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=290969692]
-zoom = Vector2(3, 3)
+zoom = Vector2(0.5, 0.5)
 script = ExtResource("8_tipki")
 base_inspect_zoom = 17.0
 zoom_speed = 5.0

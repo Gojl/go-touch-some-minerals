@@ -20,7 +20,8 @@ func set_slot_data(type: String, quality: float, weight: float, mweight: float, 
 		weight_label.text = "[color=gray]Weight:\n[/color]" + str(snapped(weight/1000,0.01)) + "KG"
 	else:
 		weight_label.text = "[color=gray]Weight:\n[/color]" + str(snapped(weight,0.01)) + "G"
-	mweight_label.text = "[color=gray]Percentage:\n[/color]" + str(snapped((mweight / weight * 100),1))
+	if type != "rock":
+		mweight_label.text = "[color=gray]Percentage:\n[/color]" + str(snapped((mweight / weight * 100),1))
 
 	id = tid
 

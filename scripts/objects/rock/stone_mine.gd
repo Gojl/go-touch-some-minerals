@@ -103,7 +103,8 @@ var mineral_textures = {
 	"quartz": preload("res://assets/quartz.png"),
 	#"opal": preload("res://assets/opal.png"),
 	#"amber": preload("res://assets/amber.png"),
-	"agate": preload("res://assets/agate.png")
+	"agate": preload("res://assets/agate.png"),
+	"rock": preload("res://assets/rock_1.png")
 }
 
 func update_texture():
@@ -240,12 +241,15 @@ func apply_hit(force: float, hit_pos: Vector2) -> void:
 	var ideal_ratio  : float      = core["ideal_ratio"]
 
 	var core_force_scale := 20.0
+	var is_plain_rock    := mineral_type == "rock"
 
 	if norm_dist <= 1.0:
-		Notifications.notify("You damaged the core")
-		var dist_factor := 2.0 - norm_dist
-		var loss := (float(mineral_fragility) / 5.0 + ql_bonus) * (1.0 + force / core_force_scale) * dist_factor / 10.0
-		mineral_quality -= loss
+		if not is_plain_rock:
+			Notifications.notify("You damaged the core")
+			var dist_factor := 2.0 - norm_dist
+			var loss := (float(mineral_fragility) / 5.0 + ql_bonus) * (1.0 + force / core_force_scale) * dist_factor / 10.0
+			mineral_quality -= loss
+		mineral_health -= eff_force * 0.3   # core hits still deal some health damage
 	elif norm_dist <= ideal_ratio:
 			var ideal_force     := base_mineral_health * 0.97
 			var max_force_error := base_mineral_health * 0.9
@@ -279,16 +283,21 @@ func apply_hit(force: float, hit_pos: Vector2) -> void:
 				loss_factor    += pow(excess_loss * 1.35, 1.05)
 			if first_hit:
 				loss_factor *= 7.0/23.0
-			mineral_quality -= (float(mineral_fragility) + (4.5/7.0*ql_bonus)) * loss_factor / 9.3
+			if not is_plain_rock:
+				mineral_quality -= (float(mineral_fragility) + (4.5/7.0*ql_bonus)) * loss_factor / 9.3
 			Notifications.notify("Good hit")
 	else:
 		Notifications.notify("You hit too far")
 
-	mineral_quality = snapped(clamp(mineral_quality, 0.0, 1.0), 0.01)
+	if not is_plain_rock:
+		mineral_quality = snapped(clamp(mineral_quality, 0.0, 1.0), 0.01)
 	_check_result()
 
 func _check_result() -> void:
-	if mineral_health <= 0.0 or mineral_quality <= 0.0:
+	# Plain rocks only finish on health depletion — quality is always 1
+	if mineral_health <= 0.0:
+		finish_mining()
+	elif mineral_type != "rock" and mineral_quality <= 0.0:
 		finish_mining()
 
 func finish_mining() -> void:
@@ -296,7 +305,16 @@ func finish_mining() -> void:
 		queue_free()
 		return
 
-	if mineral_quality > 0.0:
+	if mineral_type == "rock":
+		var notif_weight: String
+		if weight < 1000:
+			notif_weight = str(snapped(weight, 0.01)) + "G"
+		else:
+			notif_weight = str(snapped(weight / 1000, 0.01)) + "KG"
+		Notifications.notify("Collected: rock weight: " + notif_weight)
+		player.collect_mineral("rock", 1.0, weight, 0.0, mineral_fragility)
+		player.exit_inspect()
+	elif mineral_quality > 0.0:
 		var notif_weight: String
 		if weight < 1000:
 			notif_weight = str(snapped(weight,0.01)) + "G"

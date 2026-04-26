@@ -19,7 +19,7 @@ var _occupied_tiles:   Dictionary = {}
 var _player: Node = null
 var _last_player_chunk := Vector2i(-9999, -9999)
 
-const NO_MINERAL_ABOVE := 0.3
+const NO_MINERAL_ABOVE := 0.7
 
 func _ready() -> void:
 	var loading = get_node_or_null("LoadingScreen")
@@ -111,6 +111,8 @@ func _rock_chance(height: float) -> float:
 			return float(layer["rock_spawn_chance"])
 	return 0.0
 
+const VEIN_ROCK_CHANCE := 0.35   # chance each vein neighbour spawns as a plain rock
+
 func _try_spawn_rock(tile: Vector2i, height: float) -> void:
 	var mineral := _pick_mineral(height)
 	if mineral == "":
@@ -121,7 +123,7 @@ func _try_spawn_rock(tile: Vector2i, height: float) -> void:
 	var vein: Dictionary = _vein_data[mineral]
 	if randf() < float(vein["cluster_chance"]):
 		var vein_size := randi_range(int(vein["vein_size"][0]), int(vein["vein_size"][1]))
-		var spread    = max(1, int(sqrt(float(vein_size)) * 1.5))
+		var spread     = max(1, int(sqrt(float(vein_size)) * 1.5))
 
 		for _i in range(vein_size - 1):
 			var offset   := Vector2i(randi_range(-spread, spread), randi_range(-spread, spread))
@@ -130,7 +132,8 @@ func _try_spawn_rock(tile: Vector2i, height: float) -> void:
 				continue
 			if tilemap.is_river_tile(neighbor):
 				continue
-			_place_rock(neighbor, mineral)
+			var spawn_type := "rock" if randf() < VEIN_ROCK_CHANCE else mineral
+			_place_rock(neighbor, spawn_type)
 
 func _pick_mineral(height: float) -> String:
 	if height >= NO_MINERAL_ABOVE:
@@ -167,11 +170,25 @@ func _place_rock(tile: Vector2i, mineral_name: String) -> void:
 	_occupied_tiles[tile] = true
 	var rock := rock_scene.instantiate()
 	rock.global_position = tilemap.to_global(tilemap.map_to_local(tile))
-	_configure_rock(rock, mineral_name, _mineral_atlas[mineral_name])
+	var atlas  = _mineral_atlas.get(mineral_name, {})
+	_configure_rock(rock, mineral_name, atlas)
 	add_child(rock)
 
 func _configure_rock(rock: Node, mineral_name: String, atlas: Dictionary) -> void:
-	rock.mineral_type         = mineral_name
+	rock.mineral_type = mineral_name
+
+	if mineral_name == "rock":
+		rock.generation_type      = "mineral_in_rock"
+		rock.base_mineral_quality = 1.0
+		rock.quality_variation    = 0.0
+		rock.mineral_fragility    = 1
+		rock.mohs_hardness        = float(atlas.get("mohs_hardness", 5.0))
+		rock.mineral_percentage   = 0.0
+		var avg_g := float(atlas.get("avg_weight_kg", 3.0)) * 1000.0
+		rock.weight         = randf_range(avg_g * 0.65, avg_g * 1.35)
+		rock.mineral_weight = 0.0
+		return
+
 	rock.generation_type      = str(atlas["generation_type"])
 	rock.base_mineral_quality = float(atlas["base_quality"])
 	rock.quality_variation    = float(atlas["quality_variation"])

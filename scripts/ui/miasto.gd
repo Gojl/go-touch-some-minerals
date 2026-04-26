@@ -8,6 +8,7 @@ var current_building = 0
 const positions = [0, -980, -2270, -3350] # px offsets for houses
 
 func _ready() -> void:
+	await get_tree().process_frame
 	if get_tree().get_meta("current_building"):
 		current_building = get_tree().get_meta("current_building")
 		background.position.x = positions[get_tree().get_meta("current_building")]

@@ -11,7 +11,6 @@
 	  "rarity_percent": 2,
 	  "spawn_layer": "-0.5 → -1.0",
 	  "generation_type": "metal_in_rock",
-
 	  "color": "golden",
 	  "streak": "golden",
 	  "luster": "metallic",
@@ -31,7 +30,6 @@
 	  "rarity_percent": 25,
 	  "spawn_layer": "-0.1 → -0.3",
 	  "generation_type": "mineral_in_rock",
-
 	  "color": "dark gray / rusty",
 	  "streak": "reddish brown",
 	  "luster": "metallic / dull",
@@ -51,7 +49,6 @@
 	  "rarity_percent": 10,
 	  "spawn_layer": "-0.3 → -0.7",
 	  "generation_type": "metal_in_rock",
-
 	  "color": "lead gray",
 	  "streak": "gray-black",
 	  "luster": "metallic",
@@ -71,7 +68,6 @@
 	  "rarity_percent": 4,
 	  "spawn_layer": "-0.4 → -0.9",
 	  "generation_type": "metal_in_rock",
-
 	  "color": "silver",
 	  "streak": "silver-white",
 	  "luster": "metallic",
@@ -91,7 +87,6 @@
 	  "rarity_percent": 18,
 	  "spawn_layer": "-0.1 → -0.4",
 	  "generation_type": "metal_in_rock",
-
 	  "color": "reddish-orange",
 	  "streak": "copper-red",
 	  "luster": "metallic",
@@ -100,7 +95,6 @@
 	  "fracture": "hackly",
 	  "transparency": "opaque"
 	},
-
 	{
 	  "name": "pyrite",
 	  "avg_weight_kg": 1.5,
@@ -112,7 +106,6 @@
 	  "rarity_percent": 30,
 	  "spawn_layer": "-0.2 → -0.5",
 	  "generation_type": "metal_in_rock",
-
 	  "color": "brassy yellow",
 	  "streak": "greenish-black",
 	  "luster": "metallic",
@@ -132,7 +125,6 @@
 	  "rarity_percent": 12,
 	  "spawn_layer": "-0.2 → -0.6",
 	  "generation_type": "crystal_in_rock",
-
 	  "color": "purple / green / colorless",
 	  "streak": "white",
 	  "luster": "vitreous",
@@ -141,7 +133,6 @@
 	  "fracture": "uneven",
 	  "transparency": "transparent to translucent"
 	},
-
 	{
 	  "name": "calcite",
 	  "avg_weight_kg": 2.5,
@@ -153,7 +144,6 @@
 	  "rarity_percent": 28,
 	  "spawn_layer": "-0.1 → -0.3",
 	  "generation_type": "mineral_in_rock",
-
 	  "color": "white / colorless",
 	  "streak": "white",
 	  "luster": "vitreous",
@@ -162,7 +152,6 @@
 	  "fracture": "conchoidal",
 	  "transparency": "transparent to translucent"
 	},
-
 	{
 	  "name": "malachite",
 	  "avg_weight_kg": 0.8,
@@ -174,7 +163,6 @@
 	  "rarity_percent": 8,
 	  "spawn_layer": "-0.1 → -0.3",
 	  "generation_type": "mineral_in_rock",
-
 	  "color": "green (banded)",
 	  "streak": "light green",
 	  "luster": "silky / earthy",
@@ -183,7 +171,6 @@
 	  "fracture": "uneven",
 	  "transparency": "opaque"
 	},
-
 	{
 	  "name": "topaz",
 	  "avg_weight_kg": 0.4,
@@ -195,7 +182,6 @@
 	  "rarity_percent": 3,
 	  "spawn_layer": "-0.7 → -1.0",
 	  "generation_type": "crystal_in_rock",
-
 	  "color": "yellow / blue / colorless",
 	  "streak": "white",
 	  "luster": "vitreous",
@@ -204,7 +190,6 @@
 	  "fracture": "conchoidal",
 	  "transparency": "transparent"
 	},
-
 	{
 	  "name": "amethyst",
 	  "avg_weight_kg": 0.6,
@@ -216,7 +201,6 @@
 	  "rarity_percent": 7,
 	  "spawn_layer": "-0.3 → -0.6",
 	  "generation_type": "crystal_in_rock",
-
 	  "color": "purple",
 	  "streak": "white",
 	  "luster": "vitreous",
@@ -225,7 +209,6 @@
 	  "fracture": "conchoidal",
 	  "transparency": "transparent"
 	},
-
 	{
 	  "name": "quartz",
 	  "avg_weight_kg": 2.0,
@@ -237,7 +220,6 @@
 	  "rarity_percent": 35,
 	  "spawn_layer": "0.1 → -0.3",
 	  "generation_type": "crystal_in_rock",
-
 	  "color": "colorless / white",
 	  "streak": "white",
 	  "luster": "vitreous",
@@ -246,7 +228,6 @@
 	  "fracture": "conchoidal",
 	  "transparency": "transparent to translucent"
 	},
-
 	{
 	  "name": "opal",
 	  "avg_weight_kg": 0.3,
@@ -258,7 +239,6 @@
 	  "rarity_percent": 2,
 	  "spawn_layer": "-0.7 → -1.0",
 	  "generation_type": "loose",
-
 	  "color": "iridescent",
 	  "streak": "white",
 	  "luster": "waxy",
@@ -267,7 +247,6 @@
 	  "fracture": "conchoidal",
 	  "transparency": "translucent"
 	},
-
 	{
 	  "name": "amber",
 	  "avg_weight_kg": 0.05,
@@ -279,7 +258,6 @@
 	  "rarity_percent": 6,
 	  "spawn_layer": "0.3 → 0.1",
 	  "generation_type": "loose",
-
 	  "color": "yellow / orange",
 	  "streak": "white",
 	  "luster": "resinous",
@@ -288,7 +266,6 @@
 	  "fracture": "conchoidal",
 	  "transparency": "transparent to translucent"
 	},
-
 	{
 	  "name": "agate",
 	  "avg_weight_kg": 0.9,
@@ -300,7 +277,6 @@
 	  "rarity_percent": 9,
 	  "spawn_layer": "0.2 → -0.2",
 	  "generation_type": "crystal_in_rock",
-
 	  "color": "banded (various colors)",
 	  "streak": "white",
 	  "luster": "waxy",
@@ -308,6 +284,25 @@
 	  "density": "medium (2.6)",
 	  "fracture": "conchoidal",
 	  "transparency": "translucent"
+	},
+	{
+	  "name": "rock",
+	  "avg_weight_kg": 3.0,
+	  "mineral_percent": 0.0,
+	  "base_quality": 1.0,
+	  "quality_variation": 0.0,
+	  "fragility": 1,
+	  "mohs_hardness": 5.0,
+	  "rarity_percent": 0,
+	  "spawn_layer": "0.3 → -1.0",
+	  "generation_type": "mineral_in_rock",
+	  "color": "gray",
+	  "streak": "white",
+	  "luster": "dull",
+	  "cleavage": "none",
+	  "density": "medium (2.7)",
+	  "fracture": "irregular",
+	  "transparency": "opaque"
 	}
   ]
 }
