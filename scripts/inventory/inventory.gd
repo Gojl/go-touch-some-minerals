@@ -72,6 +72,7 @@ func _init_gameplay() -> void:
 	weight_label_ui.visible = false
 	money_label_ui.visible = false
 
+	player.inv_updated(Game.inventory)
 	_refresh_labels()
 
 
@@ -270,6 +271,8 @@ func sell_mineral(id: int) -> void:
 
 
 func _after_change() -> void:
+	if mode == Mode.GAMEPLAY and player:
+		player.inv_updated(Game.inventory)
 	_refresh_labels()
 	show_page(current_page)
 	Game.save_data()
@@ -306,8 +309,7 @@ func _on_mineral_collected(
 	if player.total_weight + weight > player.backpack_size:
 		drop_mineral(Game.inventory.size() - 1)
 	else:
-		_after_change()
-		player.inv_updated(Game.inventory)
+		_after_change()  
 
 
 # ========= helpers =========

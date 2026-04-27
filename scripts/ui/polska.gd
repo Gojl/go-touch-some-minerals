@@ -5,6 +5,7 @@ func _ready():
 		node.mouse_entered.connect(_on_hover.bind(node))
 
 func _on_oborniki_pressed() -> void:
+	get_tree().set_meta("current_building", 0)
 	get_tree().change_scene_to_file("res://scenes/miasto.tscn")
 
 func _on_back_pressed() -> void:
