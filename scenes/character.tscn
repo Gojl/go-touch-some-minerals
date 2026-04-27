@@ -96,7 +96,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkhd4"]
-size = Vector2(12, 16)
+size = Vector2(12, 26.5)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1146184692]
 
@@ -109,5 +109,5 @@ animation = &"standing"
 [node name="Inventory" parent="." unique_id=1313668986 instance=ExtResource("3_my7n2")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1148838304]
-position = Vector2(1, 8)
+position = Vector2(2, 3.75)
 shape = SubResource("RectangleShape2D_rkhd4")
