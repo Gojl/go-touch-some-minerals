@@ -10,15 +10,46 @@
 [ext_resource type="Script" uid="uid://bgcunw1dp14jm" path="res://scripts/ui/overlay.gd" id="8_choun"]
 [ext_resource type="Script" uid="uid://b64qlv47hfqy4" path="res://scripts/player/zoom.gd" id="8_tipki"]
 [ext_resource type="Theme" uid="uid://5gc0xqn5q73k" path="res://assets/ui/ui_theme.tres" id="9_85g3d"]
-[ext_resource type="Script" uid="uid://cc6hxbxsrnjqc" path="res://scripts/time.gd" id="11_ya4ey"]
-[ext_resource type="PackedScene" uid="uid://brtecqolgt80j" path="res://scenes/return_zone.tscn" id="12_eb6dy"]
+[ext_resource type="Script" path="res://scripts/time.gd" id="11_ya4ey"]
+
+[sub_resource type="GDScript" id="GDScript_choun"]
+script/source = "extends Area2D
+
+@export var button: Button
+
+func _ready() -> void:
+	body_entered.connect(_on_body_entered)
+	body_exited.connect(_on_body_exited)
+	button.visible = false
+	visible = true
+	$Sprite2D.modulate.a = 0.7
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group(\"player\"):
+		button.visible = true
+
+func _on_body_exited(body: Node2D) -> void:
+	if body.is_in_group(\"player\"):
+		button.visible = false
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eb6dy"]
+radius = 148.40822
+
+[sub_resource type="Gradient" id="Gradient_choun"]
+offsets = PackedFloat32Array(0, 0.58433735, 0.6084337, 0.6204819)
+colors = PackedColorArray(0.3137255, 1, 1, 0.3137255, 0.3137255, 1, 1, 0.3137255, 0.3137255, 1, 1, 1, 0.3137255, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ya4ey"]
+gradient = SubResource("Gradient_choun")
+width = 227
+height = 227
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Main" type="Node2D" unique_id=163653872 node_paths=PackedStringArray("tilemap")]
 script = ExtResource("1_o6xl0")
 rock_scene = ExtResource("5_tbgi4")
-chunk_size = null
-generation_radius = null
-region_name = null
 tilemap = NodePath("TileMapLayer")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1092615032]
@@ -177,6 +208,16 @@ text = "Loading Level..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ReturnZone" parent="." unique_id=419240844 instance=ExtResource("12_eb6dy")]
+[node name="ReturnZone" type="Area2D" parent="." unique_id=1936478431 node_paths=PackedStringArray("button")]
+visible = false
+script = SubResource("GDScript_choun")
+button = NodePath("../Player/Camera2D/ReturnButton")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ReturnZone" unique_id=1334598082]
+shape = SubResource("CircleShape2D_eb6dy")
+
+[node name="Sprite2D" type="Sprite2D" parent="ReturnZone" unique_id=1929353496]
+scale = Vector2(1.5, 1.5)
+texture = SubResource("GradientTexture2D_ya4ey")
 
 [connection signal="pressed" from="Player/Camera2D/ReturnButton" to="Player" method="_on_return_button_pressed"]

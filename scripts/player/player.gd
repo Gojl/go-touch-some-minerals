@@ -27,6 +27,7 @@ var _pause_menu: CanvasLayer = null
 var cancel_blocked: bool = false
 
 @onready var bp_node = $backpack
+@onready var sprite = $AnimatedSprite2D
 
 signal mode_changed(new_mode: Mode, rock: Node2D)
 signal mineral_collected(mineral_type: String, quality: float)
@@ -114,16 +115,15 @@ func _physics_process(delta: float) -> void:
 	if global_position.distance_to(get_global_mouse_position()) > inspect_range:
 		CursorManager.reset_cursor()
 
-	var sprite = get_node_or_null("AnimatedSprite2D")
-	if sprite:
-		if direction.x != 0:
-			sprite.flip_h = direction.x > 0
-		if direction != Vector2.ZERO:
-			sprite.play("walking")
-		else:
-			sprite.play("standing")
+	if direction.x != 0:
+		sprite.flip_h = direction.x > 0
+	if direction != Vector2.ZERO:
+		sprite.play("walking")
+	else:
+		sprite.play("standing")
 
 func enter_inspect_mode(rock: Node2D, zoom = -1.5, mine = true) -> void:
+	sprite.play("standing")
 	if current_mode == Mode.INSPECT:
 		return
 	current_mode = Mode.INSPECT
@@ -138,6 +138,7 @@ func enter_inspect_mode(rock: Node2D, zoom = -1.5, mine = true) -> void:
 		mode_changed.emit(current_mode, rock)
 
 func enter_inventory(backpack: Node2D) -> void:
+	sprite.play("standing")
 	current_mode = Mode.INV
 	inspected_rock = backpack
 	$Camera2D/Overlay.fade_in(0.7, 3)

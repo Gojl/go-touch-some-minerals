@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5wq0nqij7kyy"
-path="res://.godot/imported/Chicken.png-3d284aba08b33866b29f8970654fd7ec.ctex"
+uid="uid://ce7nymjrhbntx"
+path="res://.godot/imported/spruce_mid2_outline.png-37654171a30f5b55b65d3c041df1bfe6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Cute_Fantasy_Free/Animals/Chicken/Chicken.png"
-dest_files=["res://.godot/imported/Chicken.png-3d284aba08b33866b29f8970654fd7ec.ctex"]
+source_file="res://assets/spruce_mid2_outline.png"
+dest_files=["res://.godot/imported/spruce_mid2_outline.png-37654171a30f5b55b65d3c041df1bfe6.ctex"]
 
 [params]
 

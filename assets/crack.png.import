@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddwswiety50c7"
-path="res://.godot/imported/Grass_Middle.png-a7946fd1616b5af3925e5d3fff439430.ctex"
+uid="uid://cyiq81mx1wlkt"
+path="res://.godot/imported/crack.png-c57940df98ba36872b5bf7801bd392a6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Cute_Fantasy_Free/Tiles/Grass_Middle.png"
-dest_files=["res://.godot/imported/Grass_Middle.png-a7946fd1616b5af3925e5d3fff439430.ctex"]
+source_file="res://assets/crack.png"
+dest_files=["res://.godot/imported/crack.png-c57940df98ba36872b5bf7801bd392a6.ctex"]
 
 [params]
 

@@ -13,5 +13,6 @@
   "quartz":    0.05,
   "opal":      10,
   "amber":     2,
-  "agate":     0.3
+  "agate":     0.3,
+  "rock":	   0.001
 }

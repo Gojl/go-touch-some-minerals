@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvrmr8drpck3w"
-path="res://.godot/imported/Bridge_Wood.png-076c8487affb6863eeeb4233177f574a.ctex"
+uid="uid://wsjxi53o6kxj"
+path="res://.godot/imported/spruce_mid3_outline.png-ba2da2f7c09bea55bbcbf4bc4b217e37.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Cute_Fantasy_Free/Outdoor decoration/Bridge_Wood.png"
-dest_files=["res://.godot/imported/Bridge_Wood.png-076c8487affb6863eeeb4233177f574a.ctex"]
+source_file="res://assets/spruce_mid3_outline.png"
+dest_files=["res://.godot/imported/spruce_mid3_outline.png-ba2da2f7c09bea55bbcbf4bc4b217e37.ctex"]
 
 [params]
 

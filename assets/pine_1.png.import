@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k880wohx08ro"
-path="res://.godot/imported/Outdoor_Decor_Free.png-f3ab9729d95e20896beb9c59727d4327.ctex"
+uid="uid://cjmawynkib5b0"
+path="res://.godot/imported/pine_1.png-a906d18e88b3e7490915255c654dec97.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Cute_Fantasy_Free/Outdoor decoration/Outdoor_Decor_Free.png"
-dest_files=["res://.godot/imported/Outdoor_Decor_Free.png-f3ab9729d95e20896beb9c59727d4327.ctex"]
+source_file="res://assets/pine_1.png"
+dest_files=["res://.godot/imported/pine_1.png-a906d18e88b3e7490915255c654dec97.ctex"]
 
 [params]
 

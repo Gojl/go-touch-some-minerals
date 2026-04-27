@@ -35,11 +35,11 @@ func move_to_x(pos: float):
 	tween.tween_property(background, "position", Vector2(pos, background.position.y), 0.3)
 	
 func _unhandled_input(event):
-	if event.is_action_pressed("ui_left"):
+	if event.is_action_pressed("left"):
 		_on_previous_pressed()
-	elif event.is_action_pressed("ui_right"):
+	elif event.is_action_pressed("right"):
 		_on_next_pressed()
-	elif event.is_action_pressed("ui_accept"):
+	elif event.is_action_pressed("ui_accept") or event.is_action_pressed("up"):
 		_enter_house()
 		
 func _enter_house():
