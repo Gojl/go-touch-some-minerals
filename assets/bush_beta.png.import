@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jirq6it1i3hx"
-path="res://.godot/imported/Path_Tile.png-bb317c958d17543bce4e744cbf1e7501.ctex"
+uid="uid://clxj41pfv6awb"
+path="res://.godot/imported/bush_beta.png-863c11cd28e1689f58868783ba7180d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Cute_Fantasy_Free/Tiles/Path_Tile.png"
-dest_files=["res://.godot/imported/Path_Tile.png-bb317c958d17543bce4e744cbf1e7501.ctex"]
+source_file="res://assets/bush_beta.png"
+dest_files=["res://.godot/imported/bush_beta.png-863c11cd28e1689f58868783ba7180d1.ctex"]
 
 [params]
 

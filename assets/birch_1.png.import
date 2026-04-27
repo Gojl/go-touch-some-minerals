@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsyp4edko8eq7"
-path="res://.godot/imported/Water_Tile.png-d58eb9623468c6df663ba48bb9a8450a.ctex"
+uid="uid://dysbgfojwty16"
+path="res://.godot/imported/birch_1.png-8cbec179d6a4f17d4ca9793823092158.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Cute_Fantasy_Free/Tiles/Water_Tile.png"
-dest_files=["res://.godot/imported/Water_Tile.png-d58eb9623468c6df663ba48bb9a8450a.ctex"]
+source_file="res://assets/birch_1.png"
+dest_files=["res://.godot/imported/birch_1.png-8cbec179d6a4f17d4ca9793823092158.ctex"]
 
 [params]
 
