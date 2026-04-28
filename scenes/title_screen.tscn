@@ -81,4 +81,5 @@ text = "Exit"
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="start" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="atlas" to="." method="_on_atlas_pressed"]
 [connection signal="pressed" from="exit" to="." method="_on_button_2_pressed"]
