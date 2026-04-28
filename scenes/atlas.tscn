@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://c2rummuarpg6g"]
+
+[ext_resource type="Texture2D" uid="uid://qe2h63psupkc" path="res://assets/ui/background.png" id="2_llq07"]
+[ext_resource type="Theme" uid="uid://5gc0xqn5q73k" path="res://assets/ui/ui_theme.tres" id="3_nbugh"]
+[ext_resource type="Script" uid="uid://diqwvlm4snoc0" path="res://scripts/ui/atlas.gd" id="4_gmhsf"]
+
+[node name="Atlas" type="Control" unique_id=1631989373]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_gmhsf")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=476456668]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_llq07")
+
+[node name="Back" type="Button" parent="." unique_id=1393821275]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.020833334
+anchor_top = 0.037037037
+anchor_right = 0.17708333
+anchor_bottom = 0.09876543
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_nbugh")
+text = "Back"
+metadata/_edit_use_anchors_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=517148593]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 297.0
+offset_top = 35.0
+offset_right = -174.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer" unique_id=388711055]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_nbugh")
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 2
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
