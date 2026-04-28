@@ -119,5 +119,19 @@ text = "[center][color=gray]Select a town"
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="Buy" type="Button" parent="." unique_id=1600782749]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.045138888
+anchor_top = 0.7669753
+anchor_right = 0.23090278
+anchor_bottom = 0.8117284
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_cpuoa")
+text = "Buy"
+metadata/_edit_use_anchors_ = true
+
 [connection signal="pressed" from="oborniki" to="." method="_on_oborniki_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
