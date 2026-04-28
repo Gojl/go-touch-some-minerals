@@ -3,24 +3,21 @@
 [ext_resource type="PackedScene" uid="uid://dgamsydns7kby" path="res://scenes/character.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cbwutyt1btvmk" path="res://scripts/map/main_generation.gd" id="1_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://brtecqolgt80j" path="res://scenes/return_zone.tscn" id="3_eb6dy"]
-[ext_resource type="PackedScene" uid="uid://bwqqxef1yyxrp" path="res://scenes/vegetation/pine_1.tscn" id="4_choun"]
 [ext_resource type="Script" uid="uid://hm3qgt3wwkbk" path="res://scripts/map/tile_map_layer.gd" id="4_tipki"]
 [ext_resource type="TileSet" uid="uid://crcr24vgbl167" path="res://assets/new_tile_set.tres" id="4_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://cpmy28d78jxck" path="res://scenes/rock.tscn" id="5_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://iopnhlrln50k" path="res://scenes/vegetation/birch_1.tscn" id="5_ya4ey"]
-[ext_resource type="PackedScene" uid="uid://cvebc6ojc4vj5" path="res://scenes/vegetation/spruce_1.tscn" id="6_a8y0u"]
-[ext_resource type="PackedScene" uid="uid://dy1nejj4tmja4" path="res://scenes/vegetation/spruce_2.tscn" id="7_jkv2x"]
+[ext_resource type="Script" uid="uid://gcee5il0cqvq" path="res://scripts/player/player.gd" id="7_tipki"]
 [ext_resource type="Texture2D" uid="uid://qe2h63psupkc" path="res://assets/ui/background.png" id="8_85g3d"]
-[ext_resource type="PackedScene" uid="uid://coxmp121lw1ao" path="res://scenes/vegetation/bush_1.tscn" id="8_jbj1t"]
+[ext_resource type="Script" uid="uid://bgcunw1dp14jm" path="res://scripts/ui/overlay.gd" id="8_choun"]
+[ext_resource type="Script" uid="uid://b64qlv47hfqy4" path="res://scripts/player/zoom.gd" id="8_tipki"]
 [ext_resource type="Theme" uid="uid://5gc0xqn5q73k" path="res://assets/ui/ui_theme.tres" id="9_85g3d"]
 [ext_resource type="Script" uid="uid://cc6hxbxsrnjqc" path="res://scripts/time.gd" id="11_ya4ey"]
+[ext_resource type="Script" uid="uid://bpck8iey6m3cv" path="res://scripts/ui/return_button.gd" id="12_trceg"]
 
 [node name="Main" type="Node2D" unique_id=163653872 node_paths=PackedStringArray("tilemap")]
 script = ExtResource("1_o6xl0")
 rock_scene = ExtResource("5_tbgi4")
 return_zone_scene = ExtResource("3_eb6dy")
-tree_scenes = Array[PackedScene]([ExtResource("4_choun"), ExtResource("5_ya4ey"), ExtResource("6_a8y0u"), ExtResource("7_jkv2x")])
-bush_scene = ExtResource("8_jbj1t")
 tilemap = NodePath("TileMapLayer")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1092615032]
@@ -96,8 +93,55 @@ tile_set = ExtResource("4_ya4ey")
 z_index = 1
 tile_set = ExtResource("4_ya4ey")
 
-[node name="CharacterBody2D" parent="." unique_id=1146184692 instance=ExtResource("1_o5qli")]
-position = Vector2(-1, 0)
+[node name="Player" parent="." unique_id=1080779569 instance=ExtResource("1_o5qli")]
+z_index = 1
+position = Vector2(0.9999981, 1.9999995)
+scale = Vector2(0.957, 1)
+script = ExtResource("7_tipki")
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=290969692]
+enabled = false
+zoom = Vector2(0.5, 0.5)
+script = ExtResource("8_tipki")
+base_inspect_zoom = 17.0
+zoom_speed = 5.0
+metadata/_edit_lock_ = true
+
+[node name="Overlay" type="ColorRect" parent="Player/Camera2D" unique_id=1486560196]
+visible = false
+light_mask = 2
+visibility_layer = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -402.0
+offset_top = -206.0
+offset_right = 402.0
+offset_bottom = 228.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("8_choun")
+
+[node name="ReturnButton" type="Button" parent="Player/Camera2D" unique_id=787927363]
+visible = false
+light_mask = 2
+visibility_layer = 2
+z_index = 3
+offset_left = -191.22256
+offset_top = -100.0
+offset_right = 133.77744
+offset_bottom = -60.0
+scale = Vector2(0.24297144, 0.24297144)
+theme = ExtResource("9_85g3d")
+theme_override_font_sizes/font_size = 18
+text = "Return to town"
+script = ExtResource("12_trceg")
+
+[node name="backpack" type="Node2D" parent="Player" unique_id=1369344309]
+position = Vector2(-10, -1)
 
 [node name="LoadingScreen" type="TextureRect" parent="." unique_id=77599533]
 visible = false
@@ -107,10 +151,10 @@ z_index = 999
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -576.0
-offset_top = -324.0
-offset_right = 576.0
-offset_bottom = 324.0
+offset_left = -288.0
+offset_top = -162.0
+offset_right = 288.0
+offset_bottom = 162.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_85g3d")
@@ -122,10 +166,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -109.0
-offset_top = -7.5
-offset_right = 403.0
-offset_bottom = 24.5
+offset_left = -53.586212
+offset_top = -7.4999924
+offset_right = 202.41379
+offset_bottom = 8.500008
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.424749, 0.424749)
@@ -133,3 +177,7 @@ theme = ExtResource("9_85g3d")
 text = "Loading Level..."
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ReturnZone" parent="." unique_id=2022609649 instance=ExtResource("3_eb6dy")]
+
+[connection signal="pressed" from="Player/Camera2D/ReturnButton" to="Player" method="_on_return_button_pressed"]

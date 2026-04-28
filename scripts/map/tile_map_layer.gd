@@ -155,22 +155,22 @@ func _load_terrain_layers() -> void:
 	_terrain_layers = result["layers"]
 
 func _setup_noise() -> void:
-	randomize()
-	# Lower frequency = larger terrain blobs, more natural landmass shapes
-	_terrain_noise.noise_type  = FastNoiseLite.TYPE_SIMPLEX_SMOOTH
-	_terrain_noise.seed        = randi()
-	_terrain_noise.frequency   = 0.015
+	var seed := Game.terrain_seed if Game.terrain_seed != 0 else randi_range(1, 2147483647)
+
+	_terrain_noise.noise_type         = FastNoiseLite.TYPE_SIMPLEX_SMOOTH
+	_terrain_noise.seed               = seed
+	_terrain_noise.frequency          = 0.015
 	_terrain_noise.fractal_type       = FastNoiseLite.FRACTAL_FBM
 	_terrain_noise.fractal_octaves    = 3
 	_terrain_noise.fractal_lacunarity = 2.0
-	_terrain_noise.fractal_gain       = 0.4   # low gain = detail octaves are subtle
+	_terrain_noise.fractal_gain       = 0.4
 
 	_river_noise.noise_type = FastNoiseLite.TYPE_SIMPLEX_SMOOTH
-	_river_noise.seed       = randi()
+	_river_noise.seed       = seed + 2
 	_river_noise.frequency  = river_wander_frequency
 
 	_width_noise.noise_type = FastNoiseLite.TYPE_SIMPLEX_SMOOTH
-	_width_noise.seed       = randi()
+	_width_noise.seed       = seed + 3
 	_width_noise.frequency  = 0.04
 
 func _setup_rivers() -> void:
@@ -214,20 +214,14 @@ func _generate_chunks_around(center: Vector2i) -> void:
 				_generate_chunk(chunk)
 
 
-# Terrain IDs — must match the order you added terrains in the TileSet editor.
-# Index 0 = first terrain you added, 1 = second, etc.
-# Keep this in the same order as głebokosc.json layers and TERRAIN_TILES.
-const TERRAIN_IDS := [1, 2, 0, 4, 3]   # highest → lowest elevation
+const TERRAIN_IDS := [1, 2, 0, 4, 3]
 const TERRAIN_SET := 0
-const BASE_GRASS_ID := 0   # has no transition tiles — always receives bleeds
+const BASE_GRASS_ID := 0
 
-# Precomputed elevation rank: lower number = higher elevation
-# Built from TERRAIN_IDS at startup so bleed checks are O(1)
-var _elevation_rank: Dictionary = {}   # terrain_id -> rank int
+var _elevation_rank: Dictionary = {}
 
 var _tile_terrain: Dictionary = {}
 
-# Cardinals first so they always overwrite diagonals on the same cell.
 const DIRECTIONS_SORTED := ["n", "s", "e", "w", "ne", "nw", "se", "sw"]
 
 func _generate_chunk(chunk: Vector2i) -> void:
@@ -238,9 +232,6 @@ func _generate_chunk(chunk: Vector2i) -> void:
 		for ly in range(chunk_size):
 			var tile   := Vector2i(origin.x + lx, origin.y + ly)
 			var raw    := _terrain_noise.get_noise_2d(float(tile.x), float(tile.y))
-			# Squash extremes toward 0 so mid-range (base grass) dominates.
-			# pow exponent > 1 pulls values away from ±1 toward 0.
-			# Tweak the exponent: higher = more base grass, lower = more variety.
 			var height = sign(raw) * pow(abs(raw), 1.6)
 			var tid    := _terrain_id(height)
 			_tile_terrain[tile] = tid
@@ -255,8 +246,6 @@ func _generate_chunk(chunk: Vector2i) -> void:
 
 	_paint_transitions(origin)
 
-	# Re-run transition pass on the 1-tile border of each already-generated
-	# neighbour chunk — their edge tiles had -1 for our tiles when they ran.
 	for dx in [-1, 0, 1]:
 		for dy in [-1, 0, 1]:
 			if dx == 0 and dy == 0:
@@ -267,7 +256,6 @@ func _generate_chunk(chunk: Vector2i) -> void:
 			_repaint_chunk_border(neighbour_chunk, chunk)
 
 func _repaint_chunk_border(chunk: Vector2i, towards: Vector2i) -> void:
-	# Only re-paint the 1-tile strip of `chunk` that faces `towards`.
 	var origin  := chunk  * chunk_size
 	var o2      := towards * chunk_size
 	var tiles: Array[Vector2i] = []
@@ -275,7 +263,6 @@ func _repaint_chunk_border(chunk: Vector2i, towards: Vector2i) -> void:
 	for lx in range(chunk_size):
 		for ly in range(chunk_size):
 			var tile := Vector2i(origin.x + lx, origin.y + ly)
-			# Include the tile if any of its 8 neighbours are in the newly generated chunk
 			for dir in NEIGHBOURS:
 				var n = tile + NEIGHBOURS[dir]
 				if n.x >= o2.x and n.x < o2.x + chunk_size \
@@ -296,21 +283,14 @@ func _paint_transition_tiles(tiles: Array[Vector2i]) -> void:
 	for tile in tiles:
 		var my_tid: int = _tile_terrain.get(tile, -1)
 
-		# Clear this cell on all transition layers
 		for layer in transition_layers:
 			if layer:
 				layer.erase_cell(tile)
 
-		# Cardinals first, then diagonals
 		for dir in DIRECTIONS_SORTED:
 			var neighbour     = tile + NEIGHBOURS[dir]
 			var neighbour_tid : int = _tile_terrain.get(neighbour, -1)
 
-			# Bleed rules:
-			# - Base grass (id 0) has no transitions of its own, so any
-			#   non-identical neighbour always bleeds into it.
-			# - All other terrains: only higher-elevation neighbours bleed in
-			#   (lower elevation rank = higher up).
 			if neighbour_tid == -1 or neighbour_tid == my_tid:
 				continue
 			if my_tid != BASE_GRASS_ID:
@@ -328,10 +308,6 @@ func _paint_transition_tiles(tiles: Array[Vector2i]) -> void:
 			if not layer:
 				continue
 
-			# For diagonals: skip if the cardinal that shares this layer
-			# is already painted from the same source terrain.
-			# (ne/nw share the N-layer with n; se/sw share the S-layer with s)
-			# This prevents diagonals from overwriting a clean edge line.
 			if is_diagonal:
 				var same_layer_cardinal := "n" if dir in ["ne", "nw"] else "s"
 				var card_layer := _get_transition_layer(neighbour_tid, same_layer_cardinal)
@@ -359,7 +335,6 @@ func _terrain_id(height: float) -> int:
 			return TERRAIN_IDS[i] if i < TERRAIN_IDS.size() else TERRAIN_IDS[-1]
 	return TERRAIN_IDS[-1]
 
-# Kept for main_generation compatibility (returns terrain index, not atlas coords)
 func get_terrain_at(tile: Vector2i) -> int:
 	return _tile_terrain.get(tile, -1)
 

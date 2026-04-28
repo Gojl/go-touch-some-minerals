@@ -10,7 +10,7 @@ var mohs_hardness:        float = 4.0
 var mineral_percentage:   float = 0.45
 var weight:               float = 5000.0
 var mineral_weight:       float = 2250.0
-
+var tile_coord: Vector2i
 var first_hit:            bool  = true
 
 var _cores: Array = []
@@ -249,7 +249,7 @@ func apply_hit(force: float, hit_pos: Vector2) -> void:
 			var dist_factor := 2.0 - norm_dist
 			var loss := (float(mineral_fragility) / 5.0 + ql_bonus) * (1.0 + force / core_force_scale) * dist_factor / 10.0
 			mineral_quality -= loss
-		mineral_health -= eff_force * 0.3   # core hits still deal some health damage
+		mineral_health -= eff_force * 0.3
 	elif norm_dist <= ideal_ratio:
 			var ideal_force     := base_mineral_health * 0.97
 			var max_force_error := base_mineral_health * 0.9
@@ -294,7 +294,6 @@ func apply_hit(force: float, hit_pos: Vector2) -> void:
 	_check_result()
 
 func _check_result() -> void:
-	# Plain rocks only finish on health depletion — quality is always 1
 	if mineral_health <= 0.0:
 		finish_mining()
 	elif mineral_type != "rock" and mineral_quality <= 0.0:
@@ -304,6 +303,8 @@ func finish_mining() -> void:
 	if not player:
 		queue_free()
 		return
+
+	Game.mine_tile(tile_coord)
 
 	if mineral_type == "rock":
 		var notif_weight: String
@@ -329,5 +330,5 @@ func finish_mining() -> void:
 
 	await get_tree().process_frame
 	player.cancel_blocked = false
-
+	Game.save_data()
 	queue_free()

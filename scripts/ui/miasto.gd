@@ -29,11 +29,11 @@ func _on_next_pressed() -> void:
 	current_building += 1
 	get_tree().set_meta("current_building", current_building)
 	move_to_x(positions[current_building])
-	
+
 func move_to_x(pos: float):
 	var tween = create_tween()
 	tween.tween_property(background, "position", Vector2(pos, background.position.y), 0.3)
-	
+
 func _unhandled_input(event):
 	if event.is_action_pressed("left"):
 		_on_previous_pressed()
@@ -41,7 +41,7 @@ func _unhandled_input(event):
 		_on_next_pressed()
 	elif event.is_action_pressed("ui_accept") or event.is_action_pressed("up"):
 		_enter_house()
-		
+
 func _enter_house():
 	if current_building == 0:
 		get_tree().change_scene_to_file("res://scenes/budynki/wystawa.tscn")

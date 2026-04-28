@@ -14,12 +14,12 @@ func fade_in(alpha: float = -1.0, _z_index: int = 1, duration: float = -1.0) -> 
 		duration = default_duration
 	if alpha < 0:
 		alpha = default_alpha
-	
+
 	_kill_tween()
 	modulate.a = 0.0
 	z_index = _z_index
 	visible = true
-	
+
 	_tween = create_tween()
 	_tween.tween_property(self, "modulate:a", alpha, duration) \
 		.set_trans(Tween.TRANS_SINE) \
@@ -28,9 +28,9 @@ func fade_in(alpha: float = -1.0, _z_index: int = 1, duration: float = -1.0) -> 
 func fade_out(duration: float = -1.0) -> void:
 	if duration < 0:
 		duration = default_duration
-	
+
 	_kill_tween()
-	
+
 	_tween = create_tween()
 	_tween.tween_property(self, "modulate:a", 0.0, duration) \
 		.set_trans(Tween.TRANS_SINE) \

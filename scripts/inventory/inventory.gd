@@ -68,7 +68,7 @@ func _init_gameplay() -> void:
 	scale = Vector2.ZERO
 	rotation_degrees = -90
 	visible = false
-	
+
 	weight_label_ui.visible = false
 	money_label_ui.visible = false
 
@@ -115,10 +115,10 @@ func _init_ui_display() -> void:
 	player = get_tree().get_first_node_in_group("player")
 
 	visible = true
-	
+
 	weight_label.visible = false
 	money_label.visible = false
-	
+
 	$body.visible = false
 	$empty_label.text = "You don't have any minerals"
 
@@ -309,7 +309,7 @@ func _on_mineral_collected(
 	if player.total_weight + weight > player.backpack_size:
 		drop_mineral(Game.inventory.size() - 1)
 	else:
-		_after_change()  
+		_after_change()
 
 
 # ========= helpers =========

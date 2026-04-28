@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://brtecqolgt80j"]
+
+[ext_resource type="Script" uid="uid://c6gk0vskrt6v8" path="res://scripts/ui/return_zone.gd" id="1_fvwml"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eb6dy"]
+radius = 148.40822
+
+[sub_resource type="Gradient" id="Gradient_choun"]
+offsets = PackedFloat32Array(0, 0.58433735, 0.6084337, 0.6204819)
+colors = PackedColorArray(0.3137255, 1, 1, 0.3137255, 0.3137255, 1, 1, 0.3137255, 0.3137255, 1, 1, 1, 0.3137255, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ya4ey"]
+gradient = SubResource("Gradient_choun")
+width = 227
+height = 227
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="ReturnZone" type="Area2D" unique_id=2022609649]
+visible = false
+script = ExtResource("1_fvwml")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1065592274]
+shape = SubResource("CircleShape2D_eb6dy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1310895098]
+scale = Vector2(1.5, 1.5)
+texture = SubResource("GradientTexture2D_ya4ey")

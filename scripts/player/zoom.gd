@@ -12,8 +12,8 @@ var target_rock: Node2D = null
 func _ready():
 	default_zoom = zoom
 
-
-	player = get_parent() as CharacterBody2D
+	await get_tree().process_frame
+	player = get_parent()
 	if not player:
 		push_error("Camera must be a child of the player CharacterBody2D")
 		return
@@ -25,9 +25,10 @@ func _on_player_mode_changed(new_mode, rock: Node2D, nzoom = base_inspect_zoom) 
 		is_inspecting = false
 		target_rock = null
 	else:
-		inspect_zoom = Vector2(nzoom,nzoom)
+		inspect_zoom = Vector2(nzoom, nzoom)
 		is_inspecting = true
 		target_rock = rock
+
 func _process(delta):
 	if not player:
 		return

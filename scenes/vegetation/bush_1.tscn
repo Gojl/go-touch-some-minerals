@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://coxmp121lw1ao"]
+
+[ext_resource type="Texture2D" uid="uid://clxj41pfv6awb" path="res://assets/bush_beta.png" id="1_qin8b"]
+
+[node name="Pine1" type="Node2D" unique_id=1739822498]
+z_index = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=890757730]
+texture = ExtResource("1_qin8b")

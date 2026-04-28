@@ -199,7 +199,7 @@ func _set_other_rocks_visible(excluded: Node2D, tvisible: bool) -> void:
 		rock.visible = tvisible
 		for child in rock.get_children():
 			if child is Area2D:
-				child.input_pickable = visible
+				child.input_pickable = tvisible
 
 func _open_pause() -> void:
 	if _pause_menu:
@@ -219,5 +219,7 @@ func _close_pause() -> void:
 	_pause_menu = null
 
 func _on_return_button_pressed() -> void:
+	Game.city_mode = true
+	Game.save_data()
 	get_tree().set_meta("current_building", 3)
 	get_tree().change_scene_to_file("res://scenes/miasto.tscn")
