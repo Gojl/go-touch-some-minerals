@@ -13,7 +13,7 @@ func _on_back_pressed() -> void:
 
 func _on_hover(node) -> void:
 	var cities := {
-		"oborniki": "[b]Oborniki Śląskie[/b]\n[color=gray]Region:[/color] Dolny Śląsk (Sudety)\n[color=gray]Population:[/color] 9099\n[color=gray]Area:[/color] 14.46 km2\n[color=gray]Town rights:[/color] 1945\n[color=green]Odblokowano[/color]",
+		"oborniki": "[b]Oborniki Śląskie[/b]\n[color=gray]Region:[/color] Dolny Śląsk (Sudety)\n[color=gray]Population:[/color] 9099\n[color=gray]Area:[/color] 14.46 km2\n[color=gray]Town rights:[/color] 1945\n[color=green]Unlocked[/color]",
 		"klodzko": "[b]Kłodzko[/b]\n[color=gray]Region:[/color] Kotlina Kłodzka\n[color=gray]Population:[/color] 25717\n[color=gray]Area:[/color] 25 km2\n[color=gray]Town rights:[/color] 1233\n[color=red]2 000 zł[/color]",
 		"siemianowice": "[b]Siemianowice[/b]\n[color=gray]Region:[/color] Górny Śląsk\n[color=gray]Population:[/color] 65684\n[color=gray]Area:[/color] 25.5 km2\n[color=gray]Town rights:[/color] 1932\n[color=red]5 000 zł[/color]",
 		"slupia": "[b]Nowa Słupia[/b]\n[color=gray]Region:[/color] Góry Świętokrzyskie\n[color=gray]Population:[/color] 1600\n[color=gray]Area:[/color] 13.97 km2\n[color=gray]Town rights:[/color] 1351\n[color=red]10 000 zł[/color]"
