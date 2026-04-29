@@ -1,10 +1,26 @@
 [gd_scene format=3 uid="uid://iopnhlrln50k"]
 
-[ext_resource type="Texture2D" uid="uid://dysbgfojwty16" path="res://assets/birch_1.png" id="1_ohy8c"]
+[ext_resource type="Texture2D" uid="uid://b6wwd4fpf0rev" path="res://assets/birch_bottom.png" id="1_n43cn"]
+[ext_resource type="Texture2D" uid="uid://baimmuy6hkrai" path="res://assets/birch_top.png" id="2_x681m"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n43cn"]
+radius = 2.0
+height = 24.0
 
 [node name="Pine1" type="Node2D" unique_id=1739822498]
-z_index = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=890757730]
+z_index = -1
 position = Vector2(0, -48)
-texture = ExtResource("1_ohy8c")
+texture = ExtResource("1_n43cn")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=605980333]
+z_index = 2
+position = Vector2(0, -48)
+texture = ExtResource("2_x681m")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=411968281]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1451688019]
+position = Vector2(0, -28)
+shape = SubResource("CapsuleShape2D_n43cn")

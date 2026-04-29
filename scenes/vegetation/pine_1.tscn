@@ -1,10 +1,26 @@
 [gd_scene format=3 uid="uid://bwqqxef1yyxrp"]
 
-[ext_resource type="Texture2D" uid="uid://cjmawynkib5b0" path="res://assets/pine_1.png" id="1_vpqtx"]
+[ext_resource type="Texture2D" uid="uid://cg0j423njdx6e" path="res://assets/pine_top.png" id="1_2bsd0"]
+[ext_resource type="Texture2D" uid="uid://rq3gehnqxuqj" path="res://assets/pine_bottom.png" id="2_xlx67"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2bsd0"]
+radius = 2.0
+height = 24.0
 
 [node name="Pine1" type="Node2D" unique_id=1739822498]
-z_index = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=890757730]
+z_index = 2
 position = Vector2(0, -64)
-texture = ExtResource("1_vpqtx")
+texture = ExtResource("1_2bsd0")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1789653377]
+z_index = -1
+position = Vector2(0, -64)
+texture = ExtResource("2_xlx67")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1447706146]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=340443733]
+position = Vector2(-1, -54)
+shape = SubResource("CapsuleShape2D_2bsd0")

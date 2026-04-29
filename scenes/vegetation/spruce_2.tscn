@@ -2,9 +2,19 @@
 
 [ext_resource type="Texture2D" uid="uid://wsjxi53o6kxj" path="res://assets/spruce_mid3_outline.png" id="1_48r6q"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_48r6q"]
+radius = 2.0
+height = 34.0
+
 [node name="Pine1" type="Node2D" unique_id=1739822498]
 z_index = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=890757730]
 position = Vector2(0, -48)
 texture = ExtResource("1_48r6q")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1341743601]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=321259370]
+position = Vector2(0, -38)
+shape = SubResource("CapsuleShape2D_48r6q")
