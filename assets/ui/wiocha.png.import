@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mh512w40uwli"
-path="res://.godot/imported/village1.png-8be6967a6588d0a172b1d12768440a67.ctex"
+uid="uid://btshx6157iyqi"
+path="res://.godot/imported/wiocha.png-552ab851b67da0209adb0595cd631e88.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/village1.png"
-dest_files=["res://.godot/imported/village1.png-8be6967a6588d0a172b1d12768440a67.ctex"]
+source_file="res://assets/ui/wiocha.png"
+dest_files=["res://.godot/imported/wiocha.png-552ab851b67da0209adb0595cd631e88.ctex"]
 
 [params]
 

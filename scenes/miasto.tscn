@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://da2o26y37kus8"]
 
 [ext_resource type="Script" uid="uid://cxvpp8erf1uu6" path="res://scripts/ui/miasto.gd" id="1_wb1nn"]
-[ext_resource type="Texture2D" uid="uid://mh512w40uwli" path="res://assets/ui/village1.png" id="1_wtati"]
+[ext_resource type="Texture2D" uid="uid://btshx6157iyqi" path="res://assets/ui/wiocha.png" id="2_hgufu"]
 [ext_resource type="Theme" uid="uid://5gc0xqn5q73k" path="res://assets/ui/ui_theme.tres" id="3_bkv2c"]
 [ext_resource type="Texture2D" uid="uid://dom6ccq1ngva5" path="res://assets/ui/button_sqr.png" id="4_ty4kv"]
 [ext_resource type="Texture2D" uid="uid://d0gabr74tubmj" path="res://assets/ui/button_sqr_pressed.png" id="5_hgufu"]
@@ -30,7 +30,7 @@ layout_mode = 0
 offset_top = -163.0
 offset_right = 4609.0313
 offset_bottom = 769.0
-texture = ExtResource("1_wtati")
+texture = ExtResource("2_hgufu")
 
 [node name="Wystawa" type="Button" parent="Background" unique_id=829462244]
 layout_mode = 0

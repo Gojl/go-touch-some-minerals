@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://gned05j1f2kw"]
 
 [ext_resource type="Script" uid="uid://rl7f6l223o7m" path="res://scripts/ui/atlas_entry.gd" id="1_td6jt"]
+[ext_resource type="Theme" uid="uid://5gc0xqn5q73k" path="res://assets/ui/ui_theme.tres" id="2_2o15i"]
 
 [node name="AtlasEntry" type="PanelContainer" unique_id=1212784866]
 script = ExtResource("1_td6jt")
@@ -17,6 +18,7 @@ layout_mode = 2
 
 [node name="name_label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1042870913]
 layout_mode = 2
+theme = ExtResource("2_2o15i")
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=350893176]
