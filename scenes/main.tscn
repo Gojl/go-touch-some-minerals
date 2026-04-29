@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dgamsydns7kby" path="res://scenes/character.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cbwutyt1btvmk" path="res://scripts/map/main_generation.gd" id="1_o6xl0"]
-[ext_resource type="PackedScene" uid="uid://brtecqolgt80j" path="res://scenes/return_zone.tscn" id="3_eb6dy"]
+[ext_resource type="PackedScene" path="res://scenes/return_zone.tscn" id="3_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://bwqqxef1yyxrp" path="res://scenes/vegetation/pine_1.tscn" id="4_choun"]
 [ext_resource type="Script" uid="uid://hm3qgt3wwkbk" path="res://scripts/map/tile_map_layer.gd" id="4_tipki"]
 [ext_resource type="TileSet" uid="uid://crcr24vgbl167" path="res://assets/new_tile_set.tres" id="4_ya4ey"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://qe2h63psupkc" path="res://assets/ui/background.png" id="8_85g3d"]
 [ext_resource type="PackedScene" uid="uid://coxmp121lw1ao" path="res://scenes/vegetation/bush_1.tscn" id="8_jbj1t"]
 [ext_resource type="Theme" uid="uid://5gc0xqn5q73k" path="res://assets/ui/ui_theme.tres" id="9_85g3d"]
-[ext_resource type="Script" uid="uid://cc6hxbxsrnjqc" path="res://scripts/time.gd" id="11_ya4ey"]
+[ext_resource type="Script" path="res://scripts/time.gd" id="11_ya4ey"]
 
 [node name="Main" type="Node2D" unique_id=163653872 node_paths=PackedStringArray("tilemap")]
 script = ExtResource("1_o6xl0")

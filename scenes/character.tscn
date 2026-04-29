@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://b64qlv47hfqy4" path="res://scripts/player/zoom.gd" id="6_0dpix"]
 [ext_resource type="Script" uid="uid://bgcunw1dp14jm" path="res://scripts/ui/overlay.gd" id="7_2hyy3"]
 [ext_resource type="Theme" uid="uid://5gc0xqn5q73k" path="res://assets/ui/ui_theme.tres" id="8_irmqu"]
-[ext_resource type="Script" uid="uid://bpck8iey6m3cv" path="res://scripts/ui/return_button.gd" id="9_7eonc"]
+[ext_resource type="Script" path="res://scripts/ui/return_button.gd" id="9_7eonc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a5ia6"]
 atlas = ExtResource("3_dp8ca")
@@ -73,7 +73,7 @@ size = Vector2(12, 26.5)
 script = ExtResource("1_dp8ca")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=917841450]
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(3, 3)
 script = ExtResource("6_0dpix")
 base_inspect_zoom = 17.0
 zoom_speed = 5.0
@@ -100,11 +100,11 @@ script = ExtResource("7_2hyy3")
 light_mask = 2
 visibility_layer = 2
 z_index = 3
-offset_left = -380.0
-offset_top = -200.0
-offset_right = 270.0
-offset_bottom = -120.0
-scale = Vector2(0.24297144, 0.24297144)
+offset_left = -182.0
+offset_top = -96.0
+offset_right = 468.0
+offset_bottom = -16.0
+scale = Vector2(0.15375018, 0.15375018)
 theme = ExtResource("8_irmqu")
 theme_override_font_sizes/font_size = 36
 text = "Return to town"
@@ -124,3 +124,5 @@ animation = &"walking"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1148838304]
 position = Vector2(2, 3.75)
 shape = SubResource("RectangleShape2D_rkhd4")
+
+[connection signal="pressed" from="Camera2D/ReturnButton" to="." method="_on_return_button_pressed"]
