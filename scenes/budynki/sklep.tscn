@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://csbiwfy8fahp7"]
 
-[ext_resource type="Script" uid="uid://b137qj37xtmim" path="res://scripts/ui/budynki/skup.gd" id="1_4v26y"]
+[ext_resource type="Script" uid="uid://bsa00amhwnh4f" path="res://scripts/ui/budynki/sklep.gd" id="1_4v26y"]
 [ext_resource type="Texture2D" uid="uid://qe2h63psupkc" path="res://assets/ui/background.png" id="2_r7aux"]
 [ext_resource type="Theme" uid="uid://5gc0xqn5q73k" path="res://assets/ui/ui_theme.tres" id="3_6eeb8"]
 
-[node name="Skup" type="Control" unique_id=1631989373]
+[node name="Sklep" type="Control" unique_id=1631989373]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,5 +32,35 @@ grow_vertical = 2
 theme = ExtResource("3_6eeb8")
 text = "Back"
 metadata/_edit_use_anchors_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=118032320]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 319.0
+offset_top = 35.000004
+offset_right = -383.9181
+offset_bottom = -165.83841
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.31, 1.31)
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer" unique_id=1965495453]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_6eeb8")
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+
+[node name="pieniondze" type="Label" parent="." unique_id=492201557]
+layout_mode = 0
+offset_left = 979.0
+offset_top = 37.0
+offset_right = 1123.0
+offset_bottom = 53.0
+theme = ExtResource("3_6eeb8")
+text = "534.34 zł"
 
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
