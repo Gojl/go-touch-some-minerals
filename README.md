@@ -1,17 +1,30 @@
-# go-touch-some-minerals
+# Go Touch Some Minerals!
 
-## opis gry: 
-Go Touch Some Minerals! to pixel artowa gra eksploracyjno–kolekcjonerska, w której wyruszasz w podróż po Polsce, by odnaleźć najpiękniejsze minerały ukryte w jej zróżnicowanych krajobrazach. Od bursztynu nad morzem po kryształy w górach. Każdy region skrywa własne skarby, a każdy okaz ma swoją jakość, wielkość i wartość.
+**Go Touch Some Minerals!** is a pixel-art exploration and collecting game created for the **Sci++ competition**.
 
+The game takes you on a journey across Poland, where you explore diverse landscapes and search for beautiful minerals hidden throughout the country.
 
--------------
+## Game Description
 
+**Go Touch Some Minerals!** is a pixel-art exploration and collecting game in which you travel across Poland to discover minerals hidden in its diverse landscapes.
 
-## cel gry:
-Odzwierciedlić jak najlepiej amatorskie szukanie minerałów w Polsce, zwiększyć wiedzę graczy na temat minerałów, ich prawdziwą wartość, ich właściwości i sposób ich wykopywania w Polsce w najprzyjemniejszej grze typu explore&mine
+From **amber found along the Baltic coast** to **crystals hidden in the mountains**, every region has its own unique treasures to discover.
 
------------
+Each specimen you find has its own:
+- **Quality**
+- **Size**
+- **Value**
 
-## aktualny stan gry: 
+Explore different regions, search for hidden minerals, collect your discoveries, and learn more about the geological treasures found in Poland.
 
-Gra programistycznie jest skończona, lecz brakuje jeszcze zimplementowania grafik i części UI.
+## Goal of the Game
+
+The goal of **Go Touch Some Minerals!** is to create an enjoyable and accessible representation of amateur mineral hunting in Poland.
+
+The game is designed to:
+- Introduce players to **minerals found in Poland**
+- Increase awareness of their **properties and real-world value**
+- Teach players how minerals can be **found and extracted**
+- Combine education with an enjoyable **explore & mine** gameplay experience
+
+The ultimate goal is to make learning about minerals feel less like studying and more like going on an adventure.
